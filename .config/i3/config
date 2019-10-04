@@ -1,0 +1,143 @@
+#lol this is working nope
+set $mod Mod4
+set $term "urxvt"
+
+
+# --- Colors --- #
+
+set $grey               #334455
+set $magenta            #ddbbcc
+set $blue               #557788
+set $cyan               #22ddcc
+set $black              #334455
+set $white              #aacccc
+set $yellow             #dd9933
+set $red                #aa5566
+set $green              #779988
+
+# --- Window Style --- #
+
+font pango:System San Francisco Display 10
+
+#disabled title bars
+for_window [class="^.*"] border pixel 0
+
+client.focused $cyan $cyan $cyan
+
+# --- Gaps --- #
+
+gaps inner 20
+border_radius 10
+
+# --- Controls --- #
+
+#change window focus
+bindsym $mod+h          focus left
+bindsym $mod+k          focus up
+bindsym $mod+j          focus down
+bindsym $mod+l          focus right
+
+# Move focused window
+bindsym $mod+Shift+h      move left
+bindsym $mod+Shift+k      move up
+bindsym $mod+Shift+j      move down
+bindsym $mod+Shift+l      move right
+
+#kill window
+bindsym $mod+q            kill
+
+#toggle fullscreen
+bindsym $mod+f			fullscreen toggle
+
+# --- workspaces --- #
+
+# name the workspaces (icons require fontawesome)
+set $tag1  "1"
+set $tag2  "2"
+set $tag3  "3"
+set $tag4  "4"
+set $tag5  "5"
+set $tag6  "6"
+set $tag7  "7"
+set $tag8  "8"
+set $tag9  "9"
+set $tag10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $tag1
+bindsym $mod+2 workspace $tag2
+bindsym $mod+3 workspace $tag3
+bindsym $mod+4 workspace $tag4
+bindsym $mod+5 workspace $tag5
+bindsym $mod+6 workspace $tag6
+bindsym $mod+7 workspace $tag7
+bindsym $mod+8 workspace $tag8
+bindsym $mod+9 workspace $tag9
+bindsym $mod+0 workspace $tag10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $tag1
+bindsym $mod+Shift+2 move container to workspace $tag2
+bindsym $mod+Shift+3 move container to workspace $tag3
+bindsym $mod+Shift+4 move container to workspace $tag4
+bindsym $mod+Shift+5 move container to workspace $tag5
+bindsym $mod+Shift+6 move container to workspace $tag6
+bindsym $mod+Shift+7 move container to workspace $tag7
+bindsym $mod+Shift+8 move container to workspace $tag8
+bindsym $mod+Shift+9 move container to workspace $tag9
+bindsym $mod+Shift+0 move container to workspace $tag10
+
+# Programs bound to workspaces
+assign [class="Firefox"] $tag2
+assign [class="Slack"] $tag3
+
+# --- i3 util --- #
+
+#restart i3
+bindsym $mod+F2		restart
+#reload config
+bindsym $mod+F1		reload
+
+# --- i3 Bar --- #
+
+bar {
+        # start using custom config file (full path)
+        status_command       i3status -c ~/.config/i3status/config/i3status.conf
+        tray_padding         3
+        font pango:Roboto    9
+
+	colors {
+		# whole color settings
+		background   $black
+		statusline   $white
+		separator    $grey
+
+		# type             border      backgr.     font
+		focused_workspace  $grey       $white      $black
+		active_workspace   $grey       $white      $black
+		inactive_workspace $grey       $black      $white
+		urgent_workspace   $valencia   $valencia   $black
+	}
+	# i3bar position
+	position top
+        # height of the bar in pixels
+        height 25
+}
+
+# --- App Binds --- #
+
+bindsym $mod+x exec dmenu_run
+bindsym $mod+Shift+Return	exec $term 
+bindsym $mod+m exec "urxvt -e cmus"
+bindsym $mod+g exec "urxvt -e gotop"
+
+# --- Auto Starts --- #
+
+#compton
+exec_always killall compton
+exec_always compton
+
+#Wallpaper
+exec_always killall feh
+exec_always feh --bg-scale ~/Pictures/wallpaper.png
+
