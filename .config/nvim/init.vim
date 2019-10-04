@@ -14,19 +14,14 @@ set showcmd
 
 call plug#begin()
 "vim util
-Plug 'powerline/powerline'
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'kien/ctrlp.vim'
 Plug 'mboughaba/i3config.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'mboughaba/i3config.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Themes
-Plug 'crusoexia/vim-monokai', {'as':'monokai'}
-Plug 'sjl/badwolf', {'as':'wolf'}
-Plug 'sainnhe/vim-color-lost-shrine', {'as':'shrine'}
 Plug 'joshdick/onedark.vim'
 
 "Javascript
@@ -36,8 +31,6 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'Shougo/vimproc.vim', {'do':'make'}
-Plug 'valloric/youcompleteme', { 'do': 'python3 install.py --ts-completer --rust-completer' }
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'Galooshi/vim-import-js'
 
@@ -46,7 +39,6 @@ Plug 'janko/vim-test'
 
 "Vue Plugins
 Plug 'posva/vim-vue'
-"Plug 'Quramy/tsuquyomi-vue'
 Plug 'leafOfTree/vim-vue-plugin'
 
 "React
