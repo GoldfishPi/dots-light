@@ -62,8 +62,8 @@ Xft.lcdfilter : lcddefault
 ! URxvt
 ! ------------------------------------------------------------
 
-URxvt*termName       : screen-256color
-URxvt*font           : xft:DejaVu Sans Mono for Powerline:pixelsize=16:style=Book
+!URxvt*font:                 xft:Inconsolata Nerd Font Mono:pixelsize=27:minspace=False, xft:DejaVu Sans:pixelsize=18
+URxvt*font           : xft:Mono:pixelsize=16:style=Book
 !
 ! Terminus italics are ugly, so I do not use them.
 !

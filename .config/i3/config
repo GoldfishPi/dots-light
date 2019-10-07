@@ -1,6 +1,6 @@
 #lol this is working nope
 set $mod Mod4
-set $term "urxvt"
+set $term "termite"
 
 
 # --- Colors --- #
@@ -27,7 +27,7 @@ client.focused $cyan $cyan $cyan
 # --- Gaps --- #
 
 gaps inner 20
-border_radius 10
+#border_radius 10
 
 # --- Window Controls --- #
 
@@ -48,6 +48,9 @@ bindsym $mod+q            kill
 
 #toggle fullscreen
 bindsym $mod+f			fullscreen toggle
+
+bindsym $mod+apostrophe		split horizontal ;; exec $term
+bindsym $mod+slash		split vertical ;; exec $term
 
 # --- Device Controls --- #
 
@@ -111,29 +114,29 @@ bindsym $mod+F1		reload
 
 # --- i3 Bar --- #
 
-bar {
-        # start using custom config file (full path)
-        status_command       i3status -c ~/.config/i3status/config/i3status.conf
-        tray_padding         3
-        font pango:Roboto    9
-
-	colors {
-		# whole color settings
-		background   $black
-		statusline   $white
-		separator    $grey
-
-		# type             border      backgr.     font
-		focused_workspace  $grey       $white      $black
-		active_workspace   $grey       $white      $black
-		inactive_workspace $grey       $black      $white
-		urgent_workspace   $valencia   $valencia   $black
-	}
-	# i3bar position
-	position top
-        # height of the bar in pixels
-        height 25
-}
+##bar {
+##        # start using custom config file (full path)
+##        status_command       i3status -c ~/.config/i3status/config/i3status.conf
+##        tray_padding         3
+##        font pango:Roboto    9
+##
+##	colors {
+##		# whole color settings
+##		background   $black
+##		statusline   $white
+##		separator    $grey
+##
+##		# type             border      backgr.     font
+##		focused_workspace  $grey       $white      $black
+##		active_workspace   $grey       $white      $black
+##		inactive_workspace $grey       $black      $white
+##		urgent_workspace   $valencia   $valencia   $black
+##	}
+##	# i3bar position
+##	position top
+##        # height of the bar in pixels
+##        height 25
+##}
 
 # --- App Binds --- #
 
@@ -145,10 +148,10 @@ bindsym $mod+g exec "urxvt -e gotop"
 # --- Auto Starts --- #
 
 #compton
-exec_always killall compton
+#exec_always killall compton
 exec_always compton
 
 #Wallpaper
-exec_always killall feh
-exec_always feh --bg-scale ~/Pictures/wallpaper.png
+#exec_always killall feh
+exec_always feh --bg-scale ~/wallpaper/vapor.png
 

@@ -92,6 +92,10 @@ nmap <silent> t<C-r> :TsuRenameSymbol<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <silent>f<C-n> :NERDTreeFind<CR>
 
+"coc
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " enable line numbers
 let NERDTreeShowLineNumbers=1
 " make sure relative line numbers are used
