@@ -1,0 +1,90 @@
+[color]
+
+# special
+foreground      = #919191
+foreground_bold = #919191
+cursor          = #919191
+background      = rgba(0, 0, 0, .8)
+
+# black
+color0  = #303030
+color8  = #5e5e5e
+
+# red
+color1  = #a13a38
+color9  = #ffa59a
+
+# green
+color2  = #00715d
+color10 = #24dfc4
+
+# yellow
+color3  = #006f32
+color11 = #73db95
+
+# blue
+color4  = #a43261
+color12 = #ff9fc9
+
+# magenta
+color5  = #913e88
+color13 = #ffa7f6
+
+# cyan
+color6  = #007086
+color14 = #00ddf4
+
+# white
+color7  = #c6c6c6
+color15 = #ffffff
+
+[bar/main]
+bottom=false
+monitor-strict=false
+
+background = #cc000000
+foreground = ${color.foreground}
+
+modules-left = i3
+modules-right = battery date
+module-margin = 2
+
+font-0 = DejaVu Mono Sans:size=12
+
+padding = 2
+height = 30
+
+[module/i3]
+
+type = internal/i3
+pin-workspaces = false
+enable-click = true
+enable-scroll = true
+format-padding = 0
+
+label-focused-foreground = ${color.color10}
+
+label-separator = |
+label-separator-padding = 1
+
+[module/battery]
+type=internal/battery 
+
+poll-interval=5
+full-at = 99
+
+content-foreground = ${color.color3}
+
+battery = BAT0
+adapter = ADP1
+
+label-discharging = ↓ %percentage%%
+label-charging = ↑ %percentage%%
+
+[module/date]
+type = internal/date
+interval = 30
+label =  %time%
+time = %l:%M %p
+time-alt = %Y-%m-%d
+
