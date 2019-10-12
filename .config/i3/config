@@ -20,13 +20,13 @@ set $green              #779988
 font pango:System San Francisco Display 10
 
 #disabled title bars
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 
 client.focused $cyan $cyan $cyan
 
 # --- Gaps --- #
 
-gaps inner 20
+#gaps inner 20
 #border_radius 10
 
 # --- Window Controls --- #
@@ -114,29 +114,29 @@ bindsym $mod+F1		reload
 
 # --- i3 Bar --- #
 
-##bar {
-##        # start using custom config file (full path)
-##        status_command       i3status -c ~/.config/i3status/config/i3status.conf
-##        tray_padding         3
-##        font pango:Roboto    9
-##
-##	colors {
-##		# whole color settings
-##		background   $black
-##		statusline   $white
-##		separator    $grey
-##
-##		# type             border      backgr.     font
-##		focused_workspace  $grey       $white      $black
-##		active_workspace   $grey       $white      $black
-##		inactive_workspace $grey       $black      $white
-##		urgent_workspace   $valencia   $valencia   $black
-##	}
-##	# i3bar position
-##	position top
-##        # height of the bar in pixels
-##        height 25
-##}
+#bar {
+#        # start using custom config file (full path)
+#        status_command       i3status -c ~/.config/i3status/config/i3status.conf
+#        tray_padding         3
+#        font pango:Roboto    9
+#
+#	colors {
+#		# whole color settings
+#		background   $black
+#		statusline   $white
+#		separator    $grey
+#
+#		# type             border      backgr.     font
+#		focused_workspace  $grey       $white      $black
+#		active_workspace   $grey       $white      $black
+#		inactive_workspace $grey       $black      $white
+#		urgent_workspace   $valencia   $valencia   $black
+#	}
+#	# i3bar position
+#	position top
+#        # height of the bar in pixels
+#        height 25
+#}
 
 # --- App Binds --- #
 
@@ -154,4 +154,6 @@ exec_always compton
 #Wallpaper
 #exec_always killall feh
 exec_always feh --bg-scale ~/wallpaper/vapor.png
+
+exec_always ~/.config/polybar/launch.sh
 

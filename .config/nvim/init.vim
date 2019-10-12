@@ -56,6 +56,9 @@ Plug 'cespare/vim-toml'
 "Python
 Plug 'vim-python/python-syntax'
 
+"GraphQl
+Plug 'jparise/vim-graphql'
+
 call plug#end()
 "let g:deoplete#enable_at_startup = 1
 
