@@ -18,6 +18,7 @@ Plug 'aserebryakov/vim-todo-lists'
 Plug 'kien/ctrlp.vim'
 Plug 'mboughaba/i3config.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -58,6 +59,9 @@ Plug 'vim-python/python-syntax'
 
 "GraphQl
 Plug 'jparise/vim-graphql'
+
+"Trello
+Plug 'malithsen/trello-vim'
 
 call plug#end()
 "let g:deoplete#enable_at_startup = 1

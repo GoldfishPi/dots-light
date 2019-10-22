@@ -143,7 +143,8 @@ bindsym $mod+F1		reload
 
 # --- App Binds --- #
 
-bindsym $mod+x exec dmenu_run
+bindsym $mod+x exec dmenu_run -fn '--fixed-bold-r-normal--15-----*-iso10646-1'
+#bindsym $mod+x exec dmenu_run
 bindsym $mod+Shift+Return	exec $term 
 bindsym $mod+m exec "urxvt -e cmus"
 bindsym $mod+g exec "urxvt -e gotop"

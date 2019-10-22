@@ -1,3 +1,4 @@
+; vim:ft=dosini
 [color]
 
 # special
@@ -78,8 +79,17 @@ content-foreground = ${color.color3}
 battery = BAT0
 adapter = ADP1
 
-label-discharging = ↓ %percentage%%
-label-charging = ↑ %percentage%%
+label-discharging =  [%percentage%%↓]
+label-charging =  [%percentage%%↑] 
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-charging = <ramp-capacity> <label-charging>
+
+ramp-capacity-0 = [ : : : : : : : : : : ]
+ramp-capacity-1 = [ #### : : : : : : ]
+ramp-capacity-2 = [ ###### : : : : ]
+ramp-capacity-3 = [ ######## : : ]
+ramp-capacity-4 = [ ########## ]
 
 [module/date]
 type = internal/date
