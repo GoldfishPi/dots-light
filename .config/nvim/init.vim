@@ -59,6 +59,12 @@ Plug 'cespare/vim-toml'
 "Python
 Plug 'vim-python/python-syntax'
 
+"GraphQl
+Plug 'jparise/vim-graphql'
+
+"Trello
+Plug 'malithsen/trello-vim'
+
 call plug#end()
 "let g:deoplete#enable_at_startup = 1
 
