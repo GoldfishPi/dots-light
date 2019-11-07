@@ -18,6 +18,7 @@ Plug 'aserebryakov/vim-todo-lists'
 Plug 'kien/ctrlp.vim'
 Plug 'mboughaba/i3config.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -26,6 +27,7 @@ Plug 'joshdick/onedark.vim'
 
 "Javascript
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/yajs.vim'
 
 "Typescript
 Plug 'leafgarland/typescript-vim'
@@ -49,6 +51,7 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'ap/vim-css-color'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'lunaru/vim-less'
+Plug 'wavded/vim-stylus'
 
 "Rust
 Plug 'cespare/vim-toml'
@@ -63,6 +66,7 @@ syntax on
 color onedark 
 set background=dark
 set t_Co=256
+set noswapfile
 
 hi Normal ctermbg=NONE guibg=NONE
 
@@ -95,6 +99,7 @@ map <silent>f<C-n> :NERDTreeFind<CR>
 "coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <c-space> coc#refresh()
 
 " enable line numbers
 let NERDTreeShowLineNumbers=1
