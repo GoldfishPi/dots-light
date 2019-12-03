@@ -42,6 +42,7 @@ Plug 'janko/vim-test'
 "Vue Plugins
 Plug 'posva/vim-vue'
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'digitaltoad/vim-pug'
 
 "React
 Plug 'mxw/vim-jsx'
@@ -111,9 +112,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 let NERDTreeShowLineNumbers=1
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
-"
+
 "File Auto detects
 aug i3config_ft_detection
   au!
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
+
