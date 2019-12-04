@@ -34,6 +34,7 @@ Plug 'Quramy/tsuquyomi'
 Plug 'Shougo/vimproc.vim', {'do':'make'}
 
 Plug 'Galooshi/vim-import-js'
+Plug 'digitaltoad/vim-pug'
 
 "Testing
 Plug 'janko/vim-test'
@@ -45,11 +46,13 @@ Plug 'leafOfTree/vim-vue-plugin'
 "React
 Plug 'mxw/vim-jsx'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'peitalin/vim-jsx-typescript'
 
 "css
 Plug 'ap/vim-css-color'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'lunaru/vim-less'
+Plug 'cakebaker/scss-syntax.vim'
 
 "Rust
 Plug 'cespare/vim-toml'
@@ -70,6 +73,7 @@ syntax on
 color onedark 
 set background=dark
 set t_Co=256
+set guifont=VictorMono
 
 hi Normal ctermbg=NONE guibg=NONE
 
@@ -102,6 +106,7 @@ map <silent>f<C-n> :NERDTreeFind<CR>
 "coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <c-space> coc#refresh()
 
 " enable line numbers
 let NERDTreeShowLineNumbers=1
