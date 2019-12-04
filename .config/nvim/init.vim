@@ -27,6 +27,7 @@ Plug 'joshdick/onedark.vim'
 
 "Javascript
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/yajs.vim'
 
 "Typescript
 Plug 'leafgarland/typescript-vim'
@@ -42,6 +43,7 @@ Plug 'janko/vim-test'
 "Vue Plugins
 Plug 'posva/vim-vue'
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'digitaltoad/vim-pug'
 
 "React
 Plug 'mxw/vim-jsx'
@@ -53,6 +55,7 @@ Plug 'ap/vim-css-color'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'lunaru/vim-less'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'wavded/vim-stylus'
 
 "Rust
 Plug 'cespare/vim-toml'
@@ -73,7 +76,7 @@ syntax on
 color onedark 
 set background=dark
 set t_Co=256
-set guifont=VictorMono
+set noswapfile
 
 hi Normal ctermbg=NONE guibg=NONE
 
@@ -112,9 +115,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 let NERDTreeShowLineNumbers=1
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
-"
+
 "File Auto detects
 aug i3config_ft_detection
   au!
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
+
