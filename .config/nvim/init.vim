@@ -101,6 +101,7 @@ nmap <silent> f<C-f> :Ag<CR>
 "TSU
 nmap <silent> t<C-i> :TsuImport<CR>
 nmap <silent> t<C-r> :TsuRenameSymbol<CR>
+nmap <silent> t<C-d> :TsuDefinition<CR>
 
 "NERD TREE
 map <C-n> :NERDTreeToggle<CR>
