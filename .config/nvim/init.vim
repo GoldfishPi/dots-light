@@ -21,6 +21,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-commentary'
 
 "Themes
 Plug 'joshdick/onedark.vim'
@@ -94,6 +95,11 @@ set rnu
 imap ii <Esc>
 nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuit<CR>
+
+"window management
+nmap <silent> <Space>wh :sv<CR>
+nmap <silent> <Space>wv :vsplit<CR>
+nmap <silent> <Space>x :x<CR>
 
 "fzf/file search
 nmap <silent> f<C-f> :Ag<CR> 
