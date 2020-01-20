@@ -22,6 +22,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
+Plug 'hecal3/vim-leader-guide'
 
 "Themes
 Plug 'joshdick/onedark.vim'
@@ -91,37 +92,47 @@ set wildignore+=*/node_modules/*,*/build/*,*/.build/*,*/dist/*,*/.dist/*
 set relativenumber
 set rnu
 
-"key maps
+let NERDTreeShowLineNumbers=1
+autocmd FileType nerdtree setlocal relativenumber
+
+let mapleader = ' '
+let g:lmap =  {}
+
 imap ii <Esc>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuit<CR>
 
-"window management
-nmap <silent> <Space>wh :sv<CR>
-nmap <silent> <Space>wv :vsplit<CR>
-nmap <silent> <Space>x :x<CR>
+let g:lmap.q = ['q', 'Quit']
+let g:lmap.f = { 'name' : 'Find' }
+let g:lmap.f.f = ['CtrlP', 'File']
+let g:lmap.f.n = ['NERDTreeFind', 'Find in tree']
 
-"fzf/file search
-nmap <silent> f<C-f> :Ag<CR> 
+let g:lmap.s = { 'name' : 'Search' }
+let g:lmap.s.p = ['Ag', 'Project']
 
-"TSU
-nmap <silent> t<C-i> :TsuImport<CR>
-nmap <silent> t<C-r> :TsuRenameSymbol<CR>
-nmap <silent> t<C-d> :TsuDefinition<CR>
+let g:lmap.w = { 'name' : 'Window' }
+let g:lmap.w.q = ['q', 'close']
+let g:lmap.w.s = { 'name':'Split' }
+let g:lmap.w.s.h = ['sv', 'v-split']
+let g:lmap.w.s.v = ['vsplit', 'h-split']
 
-"NERD TREE
-map <C-n> :NERDTreeToggle<CR>
-map <silent>f<C-n> :NERDTreeFind<CR>
+let g:lmap.t = { 'name' : 'Toggle' }
+let g:lmap.t.n = ['NERDTreeToggle', 'NERDTree']
+
+let g:lmap.c = { 'name' : 'Code' }
+let g:lmap.c.i = ['TsuImport', 'Import']
+let g:lmap.c.r = ['TsuRenameSymbol', 'Rename']
+let g:lmap.c.d = ['TsuDefinition', 'Definition']
+
+let g:lmap.c.t = { 'name' : 'Test' }
+let g:lmap.c.t.f = ['TestFile', 'File']
+let g:lmap.c.t.s = ['TestSuit', 'Suite']
+
+call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
+nnoremap <silent> <leader> :<c-u>LeaderGuide ' '<CR>
 
 "coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <c-space> coc#refresh()
-
-" enable line numbers
-let NERDTreeShowLineNumbers=1
-" make sure relative line numbers are used
-autocmd FileType nerdtree setlocal relativenumber
 
 "File Auto detects
 aug i3config_ft_detection
