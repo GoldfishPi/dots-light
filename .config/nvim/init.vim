@@ -23,6 +23,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'hecal3/vim-leader-guide'
+Plug 'ap/vim-buftabline'
 
 "Themes
 Plug 'joshdick/onedark.vim'
