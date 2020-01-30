@@ -111,9 +111,8 @@ let g:lmap.s.p = ['Ag', 'Project']
 
 let g:lmap.w = { 'name' : 'Window' }
 let g:lmap.w.q = ['q', 'close']
-let g:lmap.w.s = { 'name':'Split' }
-let g:lmap.w.s.h = ['sv', 'v-split']
-let g:lmap.w.s.v = ['vsplit', 'h-split']
+let g:lmap.w.h = ['sv', 'horizontal split']
+let g:lmap.w.v = ['vsplit', 'vertical  split']
 
 let g:lmap.t = { 'name' : 'Toggle' }
 let g:lmap.t.n = ['NERDTreeToggle', 'NERDTree']
