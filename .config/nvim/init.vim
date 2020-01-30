@@ -114,6 +114,10 @@ let g:lmap.w.q = ['q', 'close']
 let g:lmap.w.h = ['sv', 'horizontal split']
 let g:lmap.w.v = ['vsplit', 'vertical  split']
 
+let g:lmap.w.t = { 'name' : 'Tabs' }
+let g:lmap.w.t.n = ['tabnew', 'New Tab']
+let g:lmap.w.t.q = ['tabclose', 'Quit Tab']
+
 let g:lmap.t = { 'name' : 'Toggle' }
 let g:lmap.t.n = ['NERDTreeToggle', 'NERDTree']
 
@@ -125,6 +129,10 @@ let g:lmap.c.d = ['TsuDefinition', 'Definition']
 let g:lmap.c.t = { 'name' : 'Test' }
 let g:lmap.c.t.f = ['TestFile', 'File']
 let g:lmap.c.t.s = ['TestSuit', 'Suite']
+
+let g:lmap.b = { 'name' : 'Buffer' }
+let g:lmap.b.k = ['bnext', 'Next' ]
+let g:lmap.b.j = ['bprev', 'Previous' ]
 
 call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
 nnoremap <silent> <leader> :<c-u>LeaderGuide ' '<CR>
