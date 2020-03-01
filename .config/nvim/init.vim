@@ -16,6 +16,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'hecal3/vim-leader-guide'
 Plug 'ap/vim-buftabline'
+Plug 'tpope/vim-fugitive'
 
 "Themes
 Plug 'joshdick/onedark.vim'
@@ -63,7 +64,6 @@ Plug 'jparise/vim-graphql'
 
 "Trello
 Plug 'malithsen/trello-vim'
-Plug 'tpope/vim-fugitive'
 
 call plug#end()
 "let g:deoplete#enable_at_startup = 1
