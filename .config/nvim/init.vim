@@ -63,6 +63,7 @@ Plug 'jparise/vim-graphql'
 
 "Trello
 Plug 'malithsen/trello-vim'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 "let g:deoplete#enable_at_startup = 1
@@ -133,6 +134,10 @@ let g:lmap.c.t.s = ['TestSuit', 'Suite']
 let g:lmap.b = { 'name' : 'Buffer' }
 let g:lmap.b.k = ['bnext', 'Next' ]
 let g:lmap.b.j = ['bprev', 'Previous' ]
+
+let g:lmap.G = { 'name' : 'Git' }
+let g:lmap.G.s = [ 'tabnew | Gstatus | close 2', 'Status' ]
+let g:lmap.G.d = [ 'Gdiffsplit', 'Diff' ]
 
 call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
 nnoremap <silent> <leader> :<c-u>LeaderGuide ' '<CR>
