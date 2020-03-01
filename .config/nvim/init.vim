@@ -6,7 +6,6 @@ endif
 
 call plug#begin()
 "vim util
-Plug 'aserebryakov/vim-todo-lists'
 Plug 'kien/ctrlp.vim'
 Plug 'mboughaba/i3config.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -30,7 +29,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'Shougo/vimproc.vim', {'do':'make'}
 
-Plug 'Galooshi/vim-import-js'
 Plug 'digitaltoad/vim-pug'
 
 "Testing
@@ -61,9 +59,6 @@ Plug 'vim-python/python-syntax'
 
 "GraphQl
 Plug 'jparise/vim-graphql'
-
-"Trello
-Plug 'malithsen/trello-vim'
 
 call plug#end()
 "let g:deoplete#enable_at_startup = 1
@@ -135,9 +130,9 @@ let g:lmap.b = { 'name' : 'Buffer' }
 let g:lmap.b.k = ['bnext', 'Next' ]
 let g:lmap.b.j = ['bprev', 'Previous' ]
 
-let g:lmap.G = { 'name' : 'Git' }
-let g:lmap.G.s = [ 'tabnew | Gstatus | close 2', 'Status' ]
-let g:lmap.G.d = [ 'Gdiffsplit', 'Diff' ]
+let g:lmap.g = { 'name' : 'Git' }
+let g:lmap.g.s = [ 'tabnew | Gstatus | close 2', 'Status' ]
+let g:lmap.g.d = [ 'Gdiffsplit', 'Diff' ]
 
 call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
 nnoremap <silent> <leader> :<c-u>LeaderGuide ' '<CR>
