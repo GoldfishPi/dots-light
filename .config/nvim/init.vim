@@ -62,7 +62,7 @@ Plug 'vim-python/python-syntax'
 Plug 'jparise/vim-graphql'
 
 call plug#end()
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 set tabstop=4
 set softtabstop=4
