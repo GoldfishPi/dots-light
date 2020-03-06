@@ -16,9 +16,11 @@ Plug 'tpope/vim-commentary'
 Plug 'hecal3/vim-leader-guide'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "Themes
 Plug 'joshdick/onedark.vim'
+Plug 'cliuj/vim-dark-meadow'
 
 "Javascript
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -61,7 +63,7 @@ Plug 'vim-python/python-syntax'
 Plug 'jparise/vim-graphql'
 
 call plug#end()
-"let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 set tabstop=4
 set softtabstop=4
@@ -72,7 +74,8 @@ set number
 set showcmd
 
 syntax on 
-color onedark 
+" color dark-medow 
+colorscheme dark-meadow
 set background=dark
 set t_Co=256
 set noswapfile
