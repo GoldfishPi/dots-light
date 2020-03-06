@@ -16,7 +16,6 @@ Plug 'tpope/vim-commentary'
 Plug 'hecal3/vim-leader-guide'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "Themes
 Plug 'joshdick/onedark.vim'
