@@ -127,7 +127,7 @@ bindsym $mod+x exec dmenu_run -fn '--fixed-bold-r-normal--15-----*-iso10646-1'
 bindsym $mod+Shift+Return	exec $term 
 bindsym $mod+m exec "urxvt -e cmus"
 bindsym $mod+g exec "urxvt -e gotop"
-bindsym $mod+Shift+x exec ~/bin/lock.sh
+bindsym $mod+Shift+x exec dm-tool lock
 
 bindsym $mod+n exec "networkmanager_dmenu"
 
