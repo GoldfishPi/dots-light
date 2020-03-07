@@ -5,7 +5,7 @@
 foreground      = #919191
 foreground_bold = #919191
 cursor          = #919191
-background      = rgba(0, 0, 0, .8)
+background      = #cc000000
 
 # black
 color0  = #303030
@@ -43,7 +43,7 @@ color15 = #ffffff
 bottom=false
 monitor-strict=false
 
-background = #cc000000
+background = ${color.background}
 foreground = ${color.foreground}
 
 modules-left = i3
@@ -54,6 +54,10 @@ font-0 = DejaVu Mono Sans:size=12
 
 padding = 2
 height = 30
+
+tray-position = right
+tray-detached = false
+tray-background = ${color.background}
 
 [module/i3]
 

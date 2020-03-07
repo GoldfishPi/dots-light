@@ -110,8 +110,10 @@ bindsym $mod+Shift+0 move container to workspace $tag10
 assign [class="Firefox"] $tag2
 assign [class="Slack"] $tag3
 assign [class="Spotify"] $tag4
+assign [class="Brave"] $tag2
 
 for_window [class="Spotify"] move to workspace $tag4
+for_window [class="Brave"] move to workspace $tag2
 
 # --- i3 util --- #
 
@@ -137,9 +139,16 @@ bindsym $mod+n exec "networkmanager_dmenu"
 #exec_always killall compton
 exec_always compton --config ~/.config/i3/compton.conf
 
+
 #Wallpaper
 #exec_always killall feh
 exec_always feh --bg-scale ~/wallpaper/vapor.png
 
 exec_always ~/.config/polybar/launch.sh
 exec xrandr --dpi 220
+
+# Applets
+
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id optimus-manager-qt
+
