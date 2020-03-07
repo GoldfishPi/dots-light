@@ -17,17 +17,17 @@ set $green              #779988
 
 # --- Window Style --- #
 
-font pango:System San Francisco Display 10
+font pango:Hack 14
 
 #disabled title bars
 for_window [class="^.*"] border pixel 1
 
-client.focused $cyan $cyan $cyan
+#client.focused $cyan $cyan $cyan
 
 # --- Gaps --- #
 
-#gaps inner 20
-#border_radius 10
+gaps inner 20
+# border_radius 5
 
 # --- Window Controls --- #
 
@@ -71,11 +71,11 @@ bindsym XF86MonBrightnessDown exec light -U 5
 # --- workspaces --- #
 
 # name the workspaces (icons require fontawesome)
-set $tag1  "1"
-set $tag2  "2"
-set $tag3  "3"
-set $tag4  "4"
-set $tag5  "5"
+set $tag1  "1:"
+set $tag2  "2:"
+set $tag3  "3:"
+set $tag4  "4:"
+set $tag5  "5:"
 set $tag6  "6"
 set $tag7  "7"
 set $tag8  "8"
@@ -142,7 +142,7 @@ exec_always compton --config ~/.config/i3/compton.conf
 
 #Wallpaper
 #exec_always killall feh
-exec_always feh --bg-scale ~/wallpaper/vapor.png
+exec_always feh --bg-scale ~/wallpaper/blob.jpg
 
 exec_always ~/.config/polybar/launch.sh
 exec xrandr --dpi 220

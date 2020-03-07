@@ -4,7 +4,7 @@
 #bold_is_bright = true
 #clickable_url = true
 #dynamic_title = true
-font = Monospace 14
+font = Monospace 12
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
@@ -18,7 +18,7 @@ scrollback_lines = 10000
 #hyperlinks = false
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
-browser = /usr/bin/chromium
+# browser = /usr/bin/chromium
 
 # "system", "on" or "off"
 #cursor_blink = system
