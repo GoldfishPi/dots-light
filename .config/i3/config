@@ -22,7 +22,7 @@ font pango:Hack 14
 #disabled title bars
 for_window [class="^.*"] border pixel 1
 
-#client.focused $cyan $cyan $cyan
+# client.focused $cyan $cyan $cyan
 
 # --- Gaps --- #
 
@@ -122,6 +122,9 @@ bindsym $mod+F2		restart
 #reload config
 bindsym $mod+F1		reload
 
+
+# Fix monitors
+
 # --- App Binds --- #
 
 bindsym $mod+x exec dmenu_run -fn '--fixed-bold-r-normal--15-----*-iso10646-1'
@@ -146,6 +149,8 @@ exec_always feh --bg-scale ~/wallpaper/blob.jpg
 
 exec_always ~/.config/polybar/launch.sh
 exec xrandr --dpi 220
+
+exec_always exec /home/erik/scripts/monitor-manager.sh
 
 # Applets
 

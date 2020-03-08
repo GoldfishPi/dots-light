@@ -26,9 +26,9 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/yajs.vim'
 
 "Typescript
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
-Plug 'Shougo/vimproc.vim', {'do':'make'}
+" Plug 'leafgarland/typescript-vim'
+" Plug 'Quramy/tsuquyomi'
+" Plug 'Shougo/vimproc.vim', {'do':'make'}
 
 Plug 'digitaltoad/vim-pug'
 
