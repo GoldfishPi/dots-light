@@ -136,6 +136,9 @@ bindsym $mod+Shift+x exec dm-tool lock
 
 bindsym $mod+n exec "networkmanager_dmenu"
 
+# Launch workspace manager
+# bindsym $mod+d exec "startws"
+
 # --- Auto Starts --- #
 
 #compton

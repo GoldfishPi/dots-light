@@ -26,9 +26,9 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/yajs.vim'
 
 "Typescript
-" Plug 'leafgarland/typescript-vim'
-" Plug 'Quramy/tsuquyomi'
-" Plug 'Shougo/vimproc.vim', {'do':'make'}
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'Shougo/vimproc.vim', {'do':'make'}
 
 Plug 'digitaltoad/vim-pug'
 
@@ -74,7 +74,7 @@ set showcmd
 
 syntax on 
 " color dark-medow 
-colorscheme dark-meadow
+colorscheme onedark
 set background=dark
 set t_Co=256
 set noswapfile
