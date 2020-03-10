@@ -59,3 +59,5 @@ tmux send-keys "cd app && vim" ENTER
 # --- Attach --- #
 tmux attach-session -t $session
 
+echo "$session"
+
