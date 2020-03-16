@@ -19,18 +19,10 @@ Plug 'tpope/vim-fugitive'
 
 "Themes
 Plug 'joshdick/onedark.vim'
-Plug 'cliuj/vim-dark-meadow'
-
-"Javascript
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'othree/yajs.vim'
 
 "Typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
-Plug 'Shougo/vimproc.vim', {'do':'make'}
-
-Plug 'digitaltoad/vim-pug'
 
 "Testing
 Plug 'janko/vim-test'
@@ -42,7 +34,6 @@ Plug 'digitaltoad/vim-pug'
 
 "React
 Plug 'mxw/vim-jsx'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'peitalin/vim-jsx-typescript'
 
 "css
@@ -51,15 +42,6 @@ Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'lunaru/vim-less'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'wavded/vim-stylus'
-
-"Rust
-Plug 'cespare/vim-toml'
-
-"Python
-Plug 'vim-python/python-syntax'
-
-"GraphQl
-Plug 'jparise/vim-graphql'
 
 call plug#end()
 " let g:deoplete#enable_at_startup = 1
