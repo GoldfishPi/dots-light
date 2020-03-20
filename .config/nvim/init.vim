@@ -16,6 +16,7 @@ Plug 'tpope/vim-commentary'
 Plug 'hecal3/vim-leader-guide'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/goyo.vim'
 
 "Themes
 Plug 'joshdick/onedark.vim'
@@ -23,6 +24,8 @@ Plug 'joshdick/onedark.vim'
 "Typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
+Plug 'Shougo/vimproc.vim', {'do':'make'}	
+
 
 "Testing
 Plug 'janko/vim-test'
@@ -125,6 +128,8 @@ nnoremap <silent> <leader> :<c-u>LeaderGuide ' '<CR>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+                                           \"\<C-g>u\<ENTER>\<c-r>=coc#on_enter()\<CR>"
 
 "File Auto detects
 aug i3config_ft_detection
