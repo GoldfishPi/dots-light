@@ -17,6 +17,7 @@ Plug 'hecal3/vim-leader-guide'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/goyo.vim'
+Plug 'jiangmiao/auto-pairs'
 
 "Themes
 Plug 'joshdick/onedark.vim'
