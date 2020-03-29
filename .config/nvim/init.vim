@@ -24,8 +24,8 @@ Plug 'joshdick/onedark.vim'
 
 "Typescript
 Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
-Plug 'Shougo/vimproc.vim', {'do':'make'}	
+" Plug 'Quramy/tsuquyomi'
+" Plug 'Shougo/vimproc.vim', {'do':'make'}	
 
 
 "Testing
@@ -37,7 +37,8 @@ Plug 'leafOfTree/vim-vue-plugin'
 Plug 'digitaltoad/vim-pug'
 
 "React
-Plug 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'peitalin/vim-jsx-typescript'
 
 "css
@@ -46,6 +47,9 @@ Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'lunaru/vim-less'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'wavded/vim-stylus'
+
+"html
+Plug 'alvan/vim-closetag'
 
 call plug#end()
 " let g:deoplete#enable_at_startup = 1
@@ -137,4 +141,8 @@ aug i3config_ft_detection
   au!
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
+
+" closetag
+let g:closetag_filenames = '*.html,*.hbs,*.js,*.jsx,*.tsx'
+
 
