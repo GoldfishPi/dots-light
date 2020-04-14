@@ -13,7 +13,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
-Plug 'hecal3/vim-leader-guide'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/goyo.vim'
@@ -27,7 +26,6 @@ Plug 'leafgarland/typescript-vim'
 " Plug 'Quramy/tsuquyomi'
 " Plug 'Shougo/vimproc.vim', {'do':'make'}	
 
-
 "Testing
 Plug 'janko/vim-test'
 
@@ -40,6 +38,7 @@ Plug 'digitaltoad/vim-pug'
 " Plug 'mxw/vim-jsx'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components'
 
 "css
 Plug 'ap/vim-css-color'
@@ -89,45 +88,23 @@ let g:lmap =  {}
 
 imap ii <Esc>
 
-let g:lmap.q = ['q', 'Quit']
-let g:lmap.f = { 'name' : 'Find' }
-let g:lmap.f.f = ['CtrlP', 'File']
-let g:lmap.f.n = ['NERDTreeFind', 'Find in tree']
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
 
-let g:lmap.s = { 'name' : 'Search' }
-let g:lmap.s.p = ['Ag', 'Project']
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>N :NERDTreeFind<CR>
 
-let g:lmap.w = { 'name' : 'Window' }
-let g:lmap.w.q = ['q', 'close']
-let g:lmap.w.h = ['sv', 'horizontal split']
-let g:lmap.w.v = ['vsplit', 'vertical  split']
+nnoremap <leader>t TestFile<CR>
+nnoremap <leader>T TestSuit<CR>
 
-let g:lmap.w.t = { 'name' : 'Tabs' }
-let g:lmap.w.t.n = ['tabnew', 'New Tab']
-let g:lmap.w.t.q = ['tabclose', 'Quit Tab']
+nnoremap <leader>p :CtrlP<CR>
+nnoremap <leader>i :Ag<CR>
 
-let g:lmap.t = { 'name' : 'Toggle' }
-let g:lmap.t.n = ['NERDTreeToggle', 'NERDTree']
+nnoremap <leader>q :wqa<CR>
 
-let g:lmap.c = { 'name' : 'Code' }
-let g:lmap.c.i = ['TsuImport', 'Import']
-let g:lmap.c.r = ['TsuRenameSymbol', 'Rename']
-let g:lmap.c.d = ['TsuDefinition', 'Definition']
-
-let g:lmap.c.t = { 'name' : 'Test' }
-let g:lmap.c.t.f = ['TestFile', 'File']
-let g:lmap.c.t.s = ['TestSuit', 'Suite']
-
-let g:lmap.b = { 'name' : 'Buffer' }
-let g:lmap.b.k = ['bnext', 'Next' ]
-let g:lmap.b.j = ['bprev', 'Previous' ]
-
-let g:lmap.g = { 'name' : 'Git' }
-let g:lmap.g.s = [ 'tabnew | Gstatus | close 2', 'Status' ]
-let g:lmap.g.d = [ 'Gdiffsplit', 'Diff' ]
-
-call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
-nnoremap <silent> <leader> :<c-u>LeaderGuide ' '<CR>
+nnoremap <leader>gs :Gstatus<CR>
 
 "coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
