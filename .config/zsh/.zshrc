@@ -5,7 +5,7 @@ PS1="%B%{$fg[cyan]%}[%n@%M %{$fg[magenta]%}%~%{$fg[cyan]%}]%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 
-alias v="nvim"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc"
 
 # History in cahce
 HISTSIZE=10000
@@ -30,3 +30,4 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias vim='nvim'
