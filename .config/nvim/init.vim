@@ -49,6 +49,9 @@ colorscheme onedark
 set t_Co=256
 set noswapfile
 
+set splitbelow
+set splitright
+
 hi Normal ctermbg=NONE guibg=NONE
 
 "Files we never want to search with ctrlP
@@ -68,6 +71,9 @@ nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 
+nnoremap <leader>sv :vsplit<CR>
+nnoremap <leader>sh :split<CR>
+
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>N :NERDTreeFind<CR>
 
@@ -77,9 +83,10 @@ nnoremap <leader>T TestSuit<CR>
 nnoremap <leader>p :CtrlP<CR>
 nnoremap <leader>i :Ag<CR>
 
-nnoremap <leader>q :wqa<CR>
+nnoremap <leader>q :wq<CR>
+nnoremap <leader>Q :wqa<CR>
 
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>G :Gstatus<CR>
 
 "coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
