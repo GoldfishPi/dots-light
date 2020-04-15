@@ -95,6 +95,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
                                            \"\<C-g>u\<ENTER>\<c-r>=coc#on_enter()\<CR>"
 
+autocmd bufwritepost *.[tj]s silent :CocCommand eslint.executeAutofix
+
 "File Auto detects
 aug i3config_ft_detection
   au!
