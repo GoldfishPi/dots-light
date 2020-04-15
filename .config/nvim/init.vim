@@ -77,8 +77,8 @@ nnoremap <leader>sh :split<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>N :NERDTreeFind<CR>
 
-nnoremap <leader>t TestFile<CR>
-nnoremap <leader>T TestSuit<CR>
+nnoremap <leader>t :TestFile<CR>
+nnoremap <leader>T :TestSuit<CR>
 
 nnoremap <leader>p :CtrlP<CR>
 nnoremap <leader>i :Ag<CR>
