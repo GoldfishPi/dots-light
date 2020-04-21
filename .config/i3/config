@@ -136,6 +136,14 @@ bindsym $mod+Shift+x exec dm-tool lock
 
 bindsym $mod+n exec "networkmanager_dmenu"
 
+# Screen shot to clip board
+bindsym Print exec "maim | xclip -selection clipboard -t image/png"
+bindsym Shift+Print exec "maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png"
+
+# Screen shot to file
+bindsym $mod+Print exec "maim ~/screenshots/$(date +%s).png"
+bindsym $mod+Shift+Print exec "maim -i $(xdotool getactivewindow) ~/screenshots/$(date +%s).png"
+
 # Launch workspace manager
 # bindsym $mod+d exec "startws"
 

@@ -14,6 +14,8 @@ Plug 'jiangmiao/auto-pairs'
 
 "Themes
 Plug 'joshdick/onedark.vim'
+Plug 'itchyny/lightline.vim'
+" Plug 'autoload/onedark.vim'
 
 "Typescript
 Plug 'leafgarland/typescript-vim'
@@ -49,6 +51,10 @@ colorscheme onedark
 set t_Co=256
 set noswapfile
 
+let g:lightline = {
+            \ 'colorscheme': 'onedark',
+            \ }
+
 set splitbelow
 set splitright
 
@@ -81,8 +87,9 @@ nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>T :TestSuit<CR>
 
 nnoremap <leader>p :CtrlP<CR>
-nnoremap <leader>i :Ag<CR>
+nnoremap <leader>P :Ag<CR>
 
+nnoremap <leader>w :w<CR>
 nnoremap <leader>q :wq<CR>
 nnoremap <leader>Q :wqa<CR>
 
@@ -93,14 +100,14 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
-                                           \"\<C-g>u\<ENTER>\<c-r>=coc#on_enter()\<CR>"
+            \"\<C-g>u\<ENTER>\<c-r>=coc#on_enter()\<CR>"
 
 autocmd bufwritepost *.[tj]s silent :CocCommand eslint.executeAutofix
 
 "File Auto detects
 aug i3config_ft_detection
-  au!
-  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+    au!
+    au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
 
 " closetag
