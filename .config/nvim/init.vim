@@ -20,13 +20,15 @@ Plug 'itchyny/lightline.vim'
 "Typescript
 Plug 'leafgarland/typescript-vim'
 
+"graph-ql/prisma
+Plug 'jparise/vim-graphql'
+
 "Testing
 Plug 'janko/vim-test'
 
 "React
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'styled-components/vim-styled-components'
 
 "css
 Plug 'ap/vim-css-color'
@@ -93,6 +95,9 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :wq<CR>
 nnoremap <leader>Q :wqa<CR>
 
+nnoremap <leader>" "+yy<CR>
+nnoremap <leader>' "+p<CR>
+
 nnoremap <leader>G :Gstatus<CR>
 
 "coc
@@ -109,6 +114,8 @@ aug i3config_ft_detection
     au!
     au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
+
+au BufNewFile,BufRead *.prisma setfiletype graphql
 
 " closetag
 let g:closetag_filenames = '*.html,*.hbs,*.js,*.jsx,*.tsx'
