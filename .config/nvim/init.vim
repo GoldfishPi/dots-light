@@ -100,6 +100,9 @@ nnoremap <leader>' "+p<CR>
 
 nnoremap <leader>G :Gstatus<CR>
 
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>rn <Plug>(coc-rename)
+
 "coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
