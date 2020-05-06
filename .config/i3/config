@@ -2,7 +2,6 @@
 set $mod Mod4
 set $term "termite"
 
-
 # --- Colors --- #
 
 set $grey               #334455
@@ -20,14 +19,14 @@ set $green              #779988
 font pango:Hack 14
 
 #disabled title bars
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 
 # client.focused $cyan $cyan $cyan
 
 # --- Gaps --- #
 
 gaps inner 20
-# border_radius 5
+border_radius 4
 
 # --- Window Controls --- #
 
@@ -156,7 +155,7 @@ exec_always compton --config ~/.config/i3/compton.conf
 
 #Wallpaper
 #exec_always killall feh
-exec_always feh --bg-scale ~/wallpaper/blob.jpg
+exec_always dayimg -s nasa
 
 exec_always ~/.config/polybar/launch.sh
 exec xrandr --dpi 220
