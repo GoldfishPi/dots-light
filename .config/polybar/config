@@ -5,14 +5,14 @@
 ;------------;
 
 width = 100%
-height = 20
+height = 30
 offset-y = 0
 offset-x = 0
 
-border-top-size = 10
+border-top-size = 20
 border-bottom-size = 0
-border-right-size = 10
-border-left-size = 10
+border-right-size = 20
+border-left-size = 20
 
 ;----------;
 ; LOCATION ;
@@ -36,8 +36,8 @@ font-3 = "Font Awesome 5 Brands:pixelsize=12;3"
 ; COLORS ;
 ;--------;
 
-background = 0
-foreground = #c5a9f9
+background = #292f36
+foreground = #7cb7e1
 border-color = 0
 
 ;---------------;
@@ -122,8 +122,8 @@ pin-workspaces = true
 strip-wsnumbers = true
 enable-scroll = false
 
-label-unfocused-foreground = #afafaf
-label-focused-foreground = #c5a9f9
+label-unfocused-foreground = #20252b
+label-focused-foreground = #00c1e4
 label-urgent-foreground = #ff0000
 
 [module/time]
