@@ -1,10 +1,10 @@
 
 call plug#begin()
 "vim util
-Plug 'kien/ctrlp.vim'
-Plug 'mboughaba/i3config.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
@@ -15,7 +15,7 @@ Plug 'jiangmiao/auto-pairs'
 "Themes
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
-" Plug 'autoload/onedark.vim'
+Plug 'mboughaba/i3config.vim'
 
 "Typescript
 Plug 'leafgarland/typescript-vim'
@@ -78,7 +78,9 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
+
 nnoremap <leader>u :tabnew<CR>
+nnoremap <leader>o :Buffers<CR>
 
 nnoremap <leader>sv :vsplit<CR>
 nnoremap <leader>sh :split<CR>
@@ -89,8 +91,8 @@ nnoremap <leader>N :NERDTreeFind<CR>
 nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>T :TestSuit<CR>
 
-nnoremap <leader>p :CtrlP<CR>
-nnoremap <leader>P :Ag<CR>
+nnoremap <leader>p :GFiles<CR>
+nnoremap <leader>P :Rg<CR>
 
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :wq<CR>
