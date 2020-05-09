@@ -5,7 +5,6 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -51,6 +50,7 @@ set showcmd
 syntax on 
 colorscheme onedark
 set t_Co=256
+set termguicolors
 set noswapfile
 
 let g:lightline = {
@@ -69,8 +69,6 @@ set wildignore+=*/node_modules/*,*/build/*,*/.build/*,*/dist/*,*/.dist/*
 set relativenumber
 set rnu
 
-let NERDTreeShowLineNumbers=1
-
 imap ii <Esc>
 let mapleader = ' '
 
@@ -85,8 +83,7 @@ nnoremap <leader>o :Buffers<CR>
 nnoremap <leader>sv :vsplit<CR>
 nnoremap <leader>sh :split<CR>
 
-nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>N :NERDTreeFind<CR>
+nnoremap <leader>n :CocCommand explorer<CR>
 
 nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>T :TestSuit<CR>
@@ -98,8 +95,8 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :wq<CR>
 nnoremap <leader>Q :wqa<CR>
 
-nnoremap <leader>" "+yy<CR>
-nnoremap <leader>' "+p<CR>
+nnoremap <leader>" "+
+nnoremap <leader>' "+p
 
 nnoremap <leader>G :Gstatus<CR>
 
