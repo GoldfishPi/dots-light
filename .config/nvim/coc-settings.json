@@ -6,12 +6,12 @@
     "snippets.extends": {
         "typescript":["$HOME/.config/coc/ultisnips/.snippets"]
     },
-    "explorer.width":30,
-    "explorer.icon.enableNerdfont":true,
-    "explorer.previewAction.onHover":false,
     "cSpell.includeRegExpList": [
         "CStyleComment"
     ],
+    "explorer.width":30,
+    "explorer.icon.enableNerdfont":true,
+    "explorer.previewAction.onHover":false,
     "explorer.keyMappings":{
         "<cr>":["expandable?", "expandOrCollapse", "open"],
         "h":"open:split",
