@@ -9,6 +9,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/goyo.vim'
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'unblevable/quick-scope'
+
 "Themes
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
