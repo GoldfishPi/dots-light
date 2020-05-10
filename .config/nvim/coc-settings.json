@@ -1,4 +1,5 @@
 {
+    "tsserver.log":"normal",
     "snippets.ultisnips.directories": [
         "$HOME/.config/coc/ultisnips/.snippets"
     ],
