@@ -8,6 +8,7 @@ au BufNewFile,BufRead *.prisma setfiletype graphql
 
 au BufNewFile,BufRead *.md
     \ set spell |
-    \ set spelllang=en_us
+    \ set spelllang=en_us |
+    \ :Goyo
 
 autocmd bufwritepost *.[tj]s silent :CocCommand eslint.executeAutofix
