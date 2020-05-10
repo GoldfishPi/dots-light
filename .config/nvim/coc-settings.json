@@ -9,6 +9,7 @@
     "explorer.width":30,
     "explorer.icon.enableNerdfont":true,
     "explorer.previewAction.onHover":false,
+    "cSpell.enabled":false,
     "explorer.keyMappings":{
         "<cr>":["expandable?", "expandOrCollapse", "open"],
         "h":"open:split",

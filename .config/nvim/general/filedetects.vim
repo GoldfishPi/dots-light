@@ -5,3 +5,7 @@ aug i3config_ft_detection
 aug end
 
 au BufNewFile,BufRead *.prisma setfiletype graphql
+
+au BufNewFile,BufRead *.md
+    \ set spell |
+    \ set spelllang=en_us
