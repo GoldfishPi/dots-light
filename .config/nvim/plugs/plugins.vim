@@ -6,8 +6,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/goyo.vim'
 Plug 'jiangmiao/auto-pairs'
+
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 Plug 'unblevable/quick-scope'
 
