@@ -44,6 +44,8 @@ nnoremap <C-End> :source $HOME/.config/nvim/init.vim <CR>
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '<+2<CR>gv-gv
 
+nmap <leader>y :execute OpenTasks("")<CR>
+
 "Open Tickr Todo
 au BufNewFile,BufRead $HOME/projects/tickr*
-    \ nmap <leader>y :execute Tasks()<CR>
+    \ nmap <leader>y :execute OpenTasks("tickr")<CR>
