@@ -37,6 +37,13 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
             \"\<C-g>u\<ENTER>\<c-r>=coc#on_enter()\<CR>"
 
+nnoremap <C-Home> :e ~/.config/nvim/init.vim <CR>
+nnoremap <C-End> :source $HOME/.config/nvim/init.vim <CR>
+
 "Line moving
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '<+2<CR>gv-gv
+
+"Open Tickr Todo
+au BufNewFile,BufRead $HOME/projects/tickr*
+    \ nmap <leader>y :execute Tasks()<CR>

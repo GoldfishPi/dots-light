@@ -1,5 +1,5 @@
 call plug#begin()
-"vim util
+""vim util
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -12,6 +12,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 Plug 'unblevable/quick-scope'
+
+Plug 'xarthurx/taskwarrior.vim'
 
 "Themes
 Plug 'joshdick/onedark.vim'
@@ -35,6 +37,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'ap/vim-css-color'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'lunaru/vim-less'
+Plug 'wavded/vim-stylus'
 
 "html
 Plug 'alvan/vim-closetag'
