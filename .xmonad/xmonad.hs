@@ -47,7 +47,7 @@ myBorderWidth   = 2
 
 myModMask       = mod4Mask
 
-myWorkspaces    = ["term","web","com","music","5","6","7","8","9"]
+myWorkspaces    = ["dev","web","com","mus","5","6","7","8","9"]
 
 myNormalBorderColor  = "#292f36"
 myFocusedBorderColor = "#71f79f"
