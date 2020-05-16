@@ -115,6 +115,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
+    -- Lock
+    , ((modm .|. shiftMask, xK_x     ), spawn "dm-tool lock")
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
