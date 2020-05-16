@@ -12,7 +12,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% [ %battery% ] [ %memory% ]  [ %dynnetwork% ] }{ %date% "
+   , template = "%battery% %StdinReader% }{ %date% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -97,7 +97,7 @@ Config {
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "[ \xf133 <fc=#ABABAB>%d-%m-%y (%a) ] [ \xf017 %I:%M %p</fc> ]" "date" 10
+        , Run Date           "\xf133 <fc=#ABABAB> %e %B %A  \xf017 %I:%M %p</fc> " "date" 10
 
         -- keyboard layout indicator
         , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")

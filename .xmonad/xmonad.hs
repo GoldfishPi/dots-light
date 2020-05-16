@@ -57,6 +57,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
+    , ((modm,               xK_o     ), spawn "termite -e && neomutt")
     , ((modm,               xK_p     ), spawn "dmenu_run")
 
     , ((modm,               xK_q     ), kill)
