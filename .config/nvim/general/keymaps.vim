@@ -11,6 +11,7 @@ nnoremap <leader>sv :vsplit<CR>
 nnoremap <leader>sh :split<CR>
 
 nnoremap <leader>n :CocCommand explorer<CR>
+nnoremap <leader>N :CocCommand explorer --position right<CR>
 
 nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>T :TestSuit<CR>
