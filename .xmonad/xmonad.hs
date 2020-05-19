@@ -180,6 +180,7 @@ myLogHook = do
 
 myStartupHook = do
     spawnOnce "dayimg -s bing &"
+    spawnOnce "picom"
     spawnOnce "spotify &"
 
 main = do 
