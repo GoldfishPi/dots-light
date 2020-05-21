@@ -179,7 +179,7 @@ myLogHook = do
     dynamicLog
 
 myStartupHook = do
-    spawnOnce "dayimg -s bing &"
+    spawnOnce "nitrogen --restore"
     spawnOnce "picom"
     spawnOnce "spotify &"
 
