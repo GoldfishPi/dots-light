@@ -179,7 +179,7 @@ myLogHook = do
     dynamicLog
 
 myStartupHook = do
-    spawnOnce "nitrogen --restore"
+    spawnOnce "$HOME/scripts/wallpaper.sh &"
     spawnOnce "picom"
     spawnOnce "spotify &"
 
