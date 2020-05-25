@@ -52,7 +52,8 @@ myWorkspaces    = ["dev","web","com","mus","5","6","7","8","9"]
 myNormalBorderColor  = "#292f36"
 myFocusedBorderColor = "#7cb7e1"
 
---
+-- Start Keybindings
+------------------------------------------------------------------------
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
@@ -112,9 +113,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
-
+-- End Keybindings
 ------------------------------------------------------------------------
--- Mouse bindings: default actions bound to mouse events
+
+-- Start Mouse Bindings 
+------------------------------------------------------------------------
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
@@ -130,6 +133,11 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
+-- End Keybindings
+------------------------------------------------------------------------
+
+-- Start Layout Logic
+------------------------------------------------------------------------
 
 tall =
         renamed [Replace "Tall"]
@@ -140,6 +148,11 @@ tall =
 layouts = tall;
 myLayout =  avoidStruts $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ layouts
 
+-- End Layout Logic
+------------------------------------------------------------------------
+
+-- Start Window Events
+------------------------------------------------------------------------
 myManageHook = composeAll
     [ 
           className =? "firefox"        --> doShift "web"
@@ -149,6 +162,9 @@ myManageHook = composeAll
     ]
 
 myEventHook = mempty
+
+-- End Window Events
+------------------------------------------------------------------------
 
 myLogHook = do
     dynamicLog
