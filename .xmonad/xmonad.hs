@@ -59,46 +59,26 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     , ((modm,               xK_o     ), spawn "termite -e && neomutt")
     , ((modm,               xK_p     ), spawn "dmenu_run")
-
-    , ((modm,               xK_q     ), kill)
-
-    --Fullscreen current pain
     , ((modm,               xK_space ), sendMessage (Toggle NBFULL) >> sendMessage ToggleStruts)
 
-    -- Resize viewed windows to the correct size
+    , ((modm,               xK_q     ), kill)
     , ((modm,               xK_n     ), refresh)
 
-    -- Move focus to the next window
     , ((modm,               xK_j     ), windows W.focusDown)
-
-    -- Move focus to the previous window
     , ((modm,               xK_k     ), windows W.focusUp  )
 
-    -- Move focus to the master window
     , ((modm,               xK_m     ), windows W.focusMaster  )
-
-    -- Swap the focused window and the master window
     , ((modm,               xK_Return), windows W.swapMaster)
 
-    -- Swap the focused window with the next window
     , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
-
-    -- Swap the focused window with the previous window
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
 
-    -- Shrink the master area
     , ((modm,               xK_h     ), sendMessage Shrink)
-
-    -- Expand the master area
     , ((modm,               xK_l     ), sendMessage Expand)
 
-    -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
 
-    -- Increment the number of windows in the master area
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
-
-    -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
 
@@ -109,18 +89,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_MonBrightnessUp), spawn "light -A 5")
     , ((0, xF86XK_MonBrightnessDown), spawn "light -U 5")
 
-    -- Toggle the status bar gap
-    -- Use this binding with avoidStruts from Hooks.ManageDocks.
-    -- See also the statusBar function from Hooks.DynamicLog.
-    --
     , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
-    -- Lock
     , ((modm .|. shiftMask, xK_x     ), spawn "dm-tool lock")
-    -- Quit xmonad
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
-    -- Restart xmonad
+    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
     , ((modm              , xK_F2     ), spawn "xmonad --recompile; xmonad --restart")
     ]
     ++
