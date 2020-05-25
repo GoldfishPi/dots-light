@@ -31,3 +31,5 @@ bindkey -v '^?' backward-delete-char
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vim='nvim'
+
+source $HOME/.config/aliasrc.sh
