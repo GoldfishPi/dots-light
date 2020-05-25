@@ -32,6 +32,10 @@ import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBO
 
 
 myTerminal      = "alacritty"
+myWebBrower     = "firefox"
+myMusicPlayer   = "spotify"
+myFileBrowser   = myTerminal ++ " -e ranger $HOME"
+
 xmobarTitleColor = "#C678DD"
 xmobarCurrentWorkspaceColor = "#7cb7e1"
 
@@ -58,7 +62,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-    , ((modm,               xK_o     ), spawn "termite -e && neomutt")
     , ((modm,               xK_p     ), spawn "dmenu_run")
     , ((modm,               xK_space ), sendMessage (Toggle NBFULL) >> sendMessage ToggleStruts)
 
@@ -82,8 +85,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
+    ------ Program Bindings ------ 
+    , ((modm,               xK_o     ), spawn (myTerminal ++ " -e $HOME/scripts/email.sh"))
+    , ((modm,               xK_i     ), spawn myWebBrower)
+    , ((modm,               xK_u     ), spawn myMusicPlayer)
+    , ((modm,               xK_y     ), spawn myFileBrowser)
 
-    -- Audio Controlls
+    ------ Audio Controlls ------ 
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute 0 toggle")
     , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume 0 +5%")
     , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume 0 -5%")
@@ -99,16 +107,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ]
     ++
 
-    -- Worspace switching
+    ------ Workspace Switching ------ 
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 
-    --
-    -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
-    -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
-    --
+    ------ Monitor Switching ------ 
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
