@@ -39,6 +39,7 @@ myMusicPlayer   = "spotify"
 myFileBrowser   = myTerminal ++ " -t Ranger -e ranger $HOME "
 myEmailClient   = myTerminal ++ " -t Email -e neomutt"
 myEmailSetup    = myTerminal ++ " -t Email -e $HOME/scripts/util/email.sh"
+myWeatherClient = myTerminal ++ " -t Weather -e $HOME/scripts/util/weather.sh"
 
 xmobarTitleColor = "#C678DD"
 xmobarCurrentWorkspaceColor = "#7cb7e1"
@@ -92,9 +93,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ------ Program Bindings ------ 
     , ((modm,               xK_o     ), spawn myEmailClient)
     , ((modm .|. shiftMask, xK_o     ), spawn myEmailSetup)
-    , ((modm,               xK_i     ), spawn myWebBrower)
+    , ((modm,               xK_i     ), spawn myWeatherClient)
+    , ((modm .|. shiftMask, xK_i     ), spawn myWebBrower)
     , ((modm,               xK_y     ), spawn myFileBrowser)
-    , ((modm,               xK_u     ), spawnOn "mus" myMusicPlayer)
+    , ((modm .|. shiftMask, xK_u     ), spawnOn "mus" myMusicPlayer)
 
     ------ Audio Controlls ------ 
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute 0 toggle")
@@ -170,6 +172,7 @@ myManageHook = composeAll
         , className =? "Slack"          --> doShift "com"
         , title     =? "Ranger"         --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
         , title     =? "Email"          --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
+        , title     =? "Weather"        --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
     ]
 
 myEventHook = mempty
