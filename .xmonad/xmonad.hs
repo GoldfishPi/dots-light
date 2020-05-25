@@ -11,10 +11,12 @@ import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig
 import Graphics.X11.ExtraTypes.XF86
+import XMonad.Actions.SpawnOn
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
+import XMonad.Hooks.ManageHelpers (doRectFloat)
     -- Layouts
 import XMonad.Layout.GridVariants (Grid(Grid))
 import XMonad.Layout.SimplestFloat
@@ -32,10 +34,11 @@ import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBO
 
 
 myTerminal      = "alacritty"
-myEmailClient   = myTerminal ++ " -t Email -e $HOME/scripts/email.sh"
 myWebBrower     = "firefox"
 myMusicPlayer   = "spotify"
 myFileBrowser   = myTerminal ++ " -t Ranger -e ranger $HOME "
+myEmailClient   = myTerminal ++ " -t Email -e neomutt"
+myEmailSetup    = myTerminal ++ " -t Email -e $HOME/scripts/email.sh"
 
 xmobarTitleColor = "#C678DD"
 xmobarCurrentWorkspaceColor = "#7cb7e1"
@@ -88,9 +91,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     ------ Program Bindings ------ 
     , ((modm,               xK_o     ), spawn myEmailClient)
+    , ((modm .|. shiftMask, xK_o     ), spawn myEmailSetup)
     , ((modm,               xK_i     ), spawn myWebBrower)
-    , ((modm,               xK_u     ), spawn myMusicPlayer)
     , ((modm,               xK_y     ), spawn myFileBrowser)
+    , ((modm,               xK_u     ), spawnOn "mus" myMusicPlayer)
 
     ------ Audio Controlls ------ 
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute 0 toggle")
@@ -164,9 +168,8 @@ myManageHook = composeAll
           className =? "firefox"        --> doShift "web"
         , className =? "Brave-browser"  --> doShift "web"
         , className =? "Slack"          --> doShift "com"
-        , className =? "spotify"        --> doShift "web"
-        , title     =? "Ranger"         --> doFloat
-        , title     =? "Email"          --> doFloat
+        , title     =? "Ranger"         --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
+        , title     =? "Email"          --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
     ]
 
 myEventHook = mempty
@@ -179,8 +182,7 @@ myLogHook = do
 
 myStartupHook = do
     spawnOnce "$HOME/scripts/wallpaper.sh &"
-    spawnOnce "picom"
-    spawnOnce "spotify &"
+    spawnOnce "picom &"
 
 main = do 
     xmproc <- spawnPipe "xmobar -d ~/.config/xmobar/xmobarrc"
@@ -210,7 +212,7 @@ defaults = def {
 
       -- hooks, layouts
         layoutHook         = myLayout,
-        manageHook         = myManageHook,
+        manageHook         = manageSpawn <+> myManageHook,
         handleEventHook    = myEventHook,
         logHook            = dynamicLog ,
         startupHook        = myStartupHook
