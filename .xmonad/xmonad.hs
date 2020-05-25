@@ -32,9 +32,10 @@ import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBO
 
 
 myTerminal      = "alacritty"
+myEmailClient   = myTerminal ++ " -t Email -e $HOME/scripts/email.sh"
 myWebBrower     = "firefox"
 myMusicPlayer   = "spotify"
-myFileBrowser   = myTerminal ++ " -e ranger $HOME"
+myFileBrowser   = myTerminal ++ " -t Ranger -e ranger $HOME "
 
 xmobarTitleColor = "#C678DD"
 xmobarCurrentWorkspaceColor = "#7cb7e1"
@@ -86,7 +87,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
     ------ Program Bindings ------ 
-    , ((modm,               xK_o     ), spawn (myTerminal ++ " -e $HOME/scripts/email.sh"))
+    , ((modm,               xK_o     ), spawn myEmailClient)
     , ((modm,               xK_i     ), spawn myWebBrower)
     , ((modm,               xK_u     ), spawn myMusicPlayer)
     , ((modm,               xK_y     ), spawn myFileBrowser)
@@ -164,6 +165,8 @@ myManageHook = composeAll
         , className =? "Brave-browser"  --> doShift "web"
         , className =? "Slack"          --> doShift "com"
         , className =? "spotify"        --> doShift "web"
+        , title     =? "Ranger"         --> doFloat
+        , title     =? "Email"          --> doFloat
     ]
 
 myEventHook = mempty
