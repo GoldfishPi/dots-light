@@ -38,7 +38,7 @@ myWebBrower     = "firefox"
 myMusicPlayer   = "spotify"
 myFileBrowser   = myTerminal ++ " -t Ranger -e ranger $HOME "
 myEmailClient   = myTerminal ++ " -t Email -e neomutt"
-myEmailSetup    = myTerminal ++ " -t Email -e $HOME/scripts/email.sh"
+myEmailSetup    = myTerminal ++ " -t Email -e $HOME/scripts/util/email.sh"
 
 xmobarTitleColor = "#C678DD"
 xmobarCurrentWorkspaceColor = "#7cb7e1"
@@ -181,7 +181,7 @@ myLogHook = do
     dynamicLog
 
 myStartupHook = do
-    spawnOnce "$HOME/scripts/wallpaper.sh &"
+    spawnOnce "$HOME/scripts/screen/wallpaper.sh &"
     spawnOnce "picom &"
 
 main = do 
