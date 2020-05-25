@@ -158,13 +158,15 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
 
-------------------------------------------------------------------------
-myLayout = avoidStruts $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ myDefaultLayout
-    where 
-        myDefaultLayout = tall
-tall       = renamed [Replace "tall"]     $ limitWindows 12 $ spacing 6 $ ResizableTall 1 (3/100) (1/2) []
+tall =
+        renamed [Replace "Tall"]
+        $ spacing 10
+        $ limitWindows 12
+        $ ResizableTall 1 (3/100) (1/2) []
 
-------------------------------------------------------------------------
+layouts = tall;
+myLayout =  avoidStruts $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ layouts
+
 myManageHook = composeAll
     [ 
           className =? "firefox"        --> doShift "web"
