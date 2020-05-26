@@ -97,6 +97,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_i     ), spawn myWebBrower)
     , ((modm,               xK_y     ), spawn myFileBrowser)
     , ((modm .|. shiftMask, xK_u     ), spawnOn "mus" myMusicPlayer)
+    , ((modm .|. shiftMask, xK_n     ), spawn "networkmanager_dmenu" )
 
     ------ Audio Controlls ------ 
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute 0 toggle")
