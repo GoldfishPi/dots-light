@@ -9,3 +9,5 @@ export DENO_INSTALL="/home/erik/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
