@@ -13,6 +13,8 @@ import XMonad.Util.EZConfig
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Actions.SpawnOn
 
+import XMonad.Util.NamedScratchpad
+
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -36,9 +38,9 @@ import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBO
 myTerminal      = "alacritty"
 myWebBrower     = "firefox"
 myMusicPlayer   = "spotify"
-myFileBrowser   = myTerminal ++ " -t Ranger -e ranger $HOME "
+myFileBrowser   = myTerminal ++ " -t File -e ranger $HOME "
 myEmailClient   = myTerminal ++ " -t Email -e neomutt"
-myEmailSetup    = myTerminal ++ " -t Email -e $HOME/scripts/util/email.sh"
+myEmailSetup    = myTerminal ++ " -t Email -e offlineimap"
 myWeatherClient = myTerminal ++ " -t Weather -e $HOME/scripts/util/weather.sh"
 
 xmobarTitleColor = "#C678DD"
@@ -60,6 +62,7 @@ myWorkspaces    = ["dev","web","com","mus","5","6","7","8","9"]
 
 myNormalBorderColor  = "#292f36"
 myFocusedBorderColor = "#7cb7e1"
+
 
 -- Start Keybindings
 ------------------------------------------------------------------------
@@ -91,13 +94,18 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
     ------ Program Bindings ------ 
-    , ((modm,               xK_o     ), spawn myEmailClient)
     , ((modm .|. shiftMask, xK_o     ), spawn myEmailSetup)
-    , ((modm,               xK_i     ), spawn myWeatherClient)
     , ((modm .|. shiftMask, xK_i     ), spawn myWebBrower)
-    , ((modm,               xK_y     ), spawn myFileBrowser)
-    , ((modm .|. shiftMask, xK_u     ), spawnOn "mus" myMusicPlayer)
     , ((modm .|. shiftMask, xK_n     ), spawn "networkmanager_dmenu" )
+
+
+    ------ Scratchpad Bindings ------ 
+    , ((modm,               xK_u     ), namedScratchpadAction scratchpads "spotify")
+    , ((modm,               xK_t     ), namedScratchpadAction scratchpads "term")
+    , ((modm .|. shiftMask, xK_u     ), namedScratchpadAction scratchpads "pavucontrol")
+    , ((modm,               xK_i     ), namedScratchpadAction scratchpads "weather")
+    , ((modm,               xK_y     ), namedScratchpadAction scratchpads "filemanager")
+    , ((modm,               xK_o     ), namedScratchpadAction scratchpads "email")
 
     ------ Audio Controlls ------ 
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute 0 toggle")
@@ -127,6 +135,35 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 -- End Keybindings
+------------------------------------------------------------------------
+
+-- Start Scratchpad
+------------------------------------------------------------------------
+scratchpads :: [NamedScratchpad]
+scratchpads = [
+-- run htop in xterm, find it by title, use default floating window placement
+    NS "taskwarrior" "urxvtc -name taskwarrior -e ~/bin/tw" (resource =? "taskwarrior")
+        (customFloating $ W.RationalRect (2/6) (2/6) (2/6) (2/6)),
+
+    NS "term" "alacritty -t scratchpad" (title =? "scratchpad")
+        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
+
+    NS "pavucontrol" "pavucontrol" (className =? "Pavucontrol")
+        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
+
+    NS "spotify" "spotify" (className =? "Spotify")
+        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
+
+    NS "weather" myWeatherClient (title =? "Weather")
+        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
+
+    NS "filemanager" myFileBrowser (title =? "File")
+        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
+
+    NS "email" myEmailClient (title =? "Email")
+        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4))
+  ]
+-- End Scratchpad
 ------------------------------------------------------------------------
 
 -- Start Mouse Bindings 
@@ -216,7 +253,7 @@ defaults = def {
 
       -- hooks, layouts
         layoutHook         = myLayout,
-        manageHook         = manageSpawn <+> myManageHook,
+        manageHook         = manageSpawn <+> myManageHook <+> namedScratchpadManageHook scratchpads,
         handleEventHook    = myEventHook,
         logHook            = dynamicLog ,
         startupHook        = myStartupHook
