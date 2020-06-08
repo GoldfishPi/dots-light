@@ -30,6 +30,7 @@ nnoremap <leader>G :Gstatus<CR>
 
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>i <Plug>(coc-import)
 
 "coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"

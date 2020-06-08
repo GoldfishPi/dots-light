@@ -11,4 +11,4 @@ au BufNewFile,BufRead *.md
     \ set spelllang=en_us |
     \ :Goyo
 
-autocmd bufwritepost *.[tj]s silent :CocCommand eslint.executeAutofix
+autocmd bufwritepost *.[tj]s[x] silent :CocCommand eslint.executeAutofix
