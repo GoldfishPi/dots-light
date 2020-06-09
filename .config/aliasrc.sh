@@ -7,3 +7,5 @@ alias tw='task project:Work'
 alias th='task project:Home'
 
 alias dssh='eval `ssh-agent` && ssh-add'
+
+alias ex='nvim $HOME/.xmonad/xmonad.hs'
