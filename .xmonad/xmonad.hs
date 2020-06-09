@@ -18,7 +18,7 @@ import XMonad.Util.NamedScratchpad
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-import XMonad.Hooks.ManageHelpers (doRectFloat)
+import XMonad.Hooks.ManageHelpers (doRectFloat, doFullFloat)
     -- Layouts
 import XMonad.Layout.GridVariants (Grid(Grid))
 import XMonad.Layout.SimplestFloat
@@ -208,6 +208,7 @@ myManageHook = composeAll
           className =? "firefox"        --> doShift "web"
         , className =? "Brave-browser"  --> doShift "web"
         , className =? "Slack"          --> doShift "com"
+        , className =? "Ssh-askpass-fullscreen"          --> doFullFloat
         , title     =? "Ranger"         --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
         , title     =? "Email"          --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
         , title     =? "Weather"        --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
