@@ -101,7 +101,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     ------ Scratchpad Bindings ------ 
     , ((modm,               xK_u     ), namedScratchpadAction scratchpads "spotify")
-    , ((modm,               xK_t     ), namedScratchpadAction scratchpads "term")
     , ((modm .|. shiftMask, xK_u     ), namedScratchpadAction scratchpads "pavucontrol")
     , ((modm,               xK_i     ), namedScratchpadAction scratchpads "weather")
     , ((modm,               xK_y     ), namedScratchpadAction scratchpads "filemanager")
