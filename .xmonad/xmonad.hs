@@ -42,6 +42,7 @@ myFileBrowser   = myTerminal ++ " -t File -e ranger $HOME "
 myEmailClient   = myTerminal ++ " -t Email -e neomutt"
 myEmailSetup    = myTerminal ++ " -t Email -e offlineimap"
 myWeatherClient = myTerminal ++ " -t Weather -e $HOME/scripts/util/weather.sh"
+myDopplerClient = "ffplay -loop 0 -window_title Doppler https://radar.weather.gov/lite/N0R/MPX_loop.gif"
 
 xmobarTitleColor = "#C678DD"
 xmobarCurrentWorkspaceColor = "#7cb7e1"
@@ -95,7 +96,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     ------ Program Bindings ------ 
     , ((modm .|. shiftMask, xK_o     ), spawn myEmailSetup)
-    , ((modm .|. shiftMask, xK_i     ), spawn myWebBrower)
+    , ((modm .|. shiftMask, xK_i     ), spawn myDopplerClient)
     , ((modm .|. shiftMask, xK_n     ), spawn "networkmanager_dmenu" )
 
 
@@ -211,6 +212,7 @@ myManageHook = composeAll
         , title     =? "Ranger"         --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
         , title     =? "Email"          --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
         , title     =? "Weather"        --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
+        , title     =? "Doppler"        --> doRectFloat(W.RationalRect 0.3 0.15 0.43 0.7)
     ]
 
 myEventHook = mempty
