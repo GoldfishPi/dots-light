@@ -228,7 +228,7 @@ myStartupHook = do
     spawnOnce "picom &"
 
 main = do 
-    xmproc <- spawnPipe "xmobar -d ~/.config/xmobar/xmobarrc"
+    xmproc <- spawnPipe "xmobar -d $HOME/.xmonad/xmobar.hs"
     xmonad $ docks defaults {
          logHook = dynamicLogWithPP xmobarPP {
                   ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "" . wrap "[" "]"
