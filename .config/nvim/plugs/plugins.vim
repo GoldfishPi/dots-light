@@ -22,6 +22,7 @@ Plug 'mboughaba/i3config.vim'
 
 "Typescript
 Plug 'leafgarland/typescript-vim'
+Plug 'kern/vim-es7'
 
 "graph-ql/prisma
 Plug 'jparise/vim-graphql'
