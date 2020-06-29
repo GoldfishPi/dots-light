@@ -43,6 +43,7 @@ myEmailClient   = myTerminal ++ " -t Email -e neomutt"
 myEmailSetup    = myTerminal ++ " -t Email -e offlineimap"
 myWeatherClient = myTerminal ++ " -t Weather -e $HOME/scripts/util/weather.sh"
 myDopplerClient = "ffplay -loop 0 -window_title Doppler https://radar.weather.gov/lite/N0R/MPX_loop.gif"
+myRssReader     = myTerminal ++ " -t Rss -e newsboat"
 
 xmobarTitleColor = "#C678DD"
 xmobarCurrentWorkspaceColor = "#7cb7e1"
@@ -105,6 +106,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_u     ), namedScratchpadAction scratchpads "pavucontrol")
     , ((modm,               xK_i     ), namedScratchpadAction scratchpads "weather")
     , ((modm,               xK_y     ), namedScratchpadAction scratchpads "filemanager")
+    , ((modm .|. shiftMask, xK_y     ), namedScratchpadAction scratchpads "rss")
     , ((modm,               xK_o     ), namedScratchpadAction scratchpads "email")
 
     ------ Audio Controlls ------ 
@@ -161,6 +163,9 @@ scratchpads = [
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "email" myEmailClient (title =? "Email")
+        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
+
+    NS "rss" myRssReader (title =? "Rss")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4))
   ]
 -- End Scratchpad
