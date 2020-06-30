@@ -36,6 +36,15 @@ import XMonad.Layout.MultiToggle (mkToggle, single, EOT(EOT), Toggle(..), (??))
 import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBORDERS))
 
 
+import qualified Data.Map as M
+import qualified Data.HashTable.IO as H 
+import qualified XMonad.Actions.Search as S
+import qualified XMonad.StackSet as W
+
+-- Local Libs
+import XMonad.Hooks.Swallow
+
+
 myTerminal      = "alacritty"
 myWebBrower     = "firefox"
 myMusicPlayer   = "spotify"
@@ -226,8 +235,13 @@ myEventHook = mempty
 -- End Window Events
 ------------------------------------------------------------------------
 
-myLogHook = do
-    dynamicLog
+myLogHook h = do 
+    dynamicLogWithPP xmobarPP {
+        ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "" . wrap "[" "]"
+            , ppTitle = xmobarColor xmobarTitleColor "" . shorten 50
+            , ppSep = "   "
+            , ppOutput = hPutStrLn h
+    } 
 
 myStartupHook = do
     spawnOnce "$HOME/scripts/screen/wallpaper.sh &"
@@ -235,15 +249,30 @@ myStartupHook = do
 
 main = do 
     xmproc <- spawnPipe "xmobar -d $HOME/.xmonad/xmobar.hs"
-    xmonad $ ewmh $ docks defaults {
-         logHook = dynamicLogWithPP xmobarPP {
-                  ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "" . wrap "[" "]"
-                , ppTitle = xmobarColor xmobarTitleColor "" . shorten 50
-                , ppSep = "   "
-                , ppOutput = hPutStrLn xmproc
-         } 
-      }
+    pidHashTable <- H.new :: IO(H.BasicHashTable Int Window)
+    windowHashTable <- H.new :: IO(H.BasicHashTable Window Int)
+    xmonad $ ewmh $ docks def {
+      -- simple stuff
+        terminal           = myTerminal,
+        focusFollowsMouse  = myFocusFollowsMouse,
+        clickJustFocuses   = myClickJustFocuses,
+        borderWidth        = myBorderWidth,
+        modMask            = myModMask,
+        workspaces         = myWorkspaces,
+        normalBorderColor  = myNormalBorderColor,
+        focusedBorderColor = myFocusedBorderColor,
 
+      -- key bindings
+        keys               = myKeys,
+        mouseBindings      = myMouseBindings,
+
+      -- hooks, layouts
+        layoutHook         = myLayout,
+        manageHook         = manageSpawn <+> myManageHook <+> namedScratchpadManageHook scratchpads,
+        handleEventHook    = swallowEventHook pidHashTable windowHashTable <+> myEventHook <+> fullscreenEventHook,
+        logHook            = myLogHook xmproc <+> dynamicLog ,
+        startupHook        = myStartupHook
+    } 
 defaults = def {
       -- simple stuff
         terminal           = myTerminal,
