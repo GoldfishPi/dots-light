@@ -19,6 +19,8 @@ nnoremap <leader>T :TestSuit<CR>
 nnoremap <leader>p :GFiles<CR>
 nnoremap <leader>P :Rg<CR>
 
+nnoremap <leader>o :CocList post<CR>
+
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :wq<CR>
 nnoremap <leader>Q :wqa<CR>
@@ -28,7 +30,7 @@ nnoremap <leader>' "+p
 
 nnoremap <leader>G :Gstatus<CR>
 
-nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>d <Plug>(coc-definition)
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>i <Plug>(coc-import)
 
@@ -51,3 +53,6 @@ nmap <leader>y :execute OpenTasks("")<CR>
 "Open Tickr Todo
 au BufNewFile,BufRead $HOME/projects/tickr*
     \ nmap <leader>y :execute OpenTasks("tickr")<CR>
+
+au BufNewFile,BufRead *.post
+    \ nmap <leader>g :CocCommand post.do<CR>
