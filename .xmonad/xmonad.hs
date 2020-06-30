@@ -36,10 +36,7 @@ import XMonad.Layout.MultiToggle (mkToggle, single, EOT(EOT), Toggle(..), (??))
 import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBORDERS))
 
 
-import qualified Data.Map as M
 import qualified Data.HashTable.IO as H 
-import qualified XMonad.Actions.Search as S
-import qualified XMonad.StackSet as W
 
 -- Local Libs
 import XMonad.Hooks.Swallow
