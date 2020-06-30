@@ -7,6 +7,7 @@ import XMonad.Util.SpawnOnce
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.Run
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig
@@ -234,7 +235,7 @@ myStartupHook = do
 
 main = do 
     xmproc <- spawnPipe "xmobar -d $HOME/.xmonad/xmobar.hs"
-    xmonad $ docks defaults {
+    xmonad $ ewmh $ docks defaults {
          logHook = dynamicLogWithPP xmobarPP {
                   ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "" . wrap "[" "]"
                 , ppTitle = xmobarColor xmobarTitleColor "" . shorten 50
