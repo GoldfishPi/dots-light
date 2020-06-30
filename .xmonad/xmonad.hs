@@ -222,14 +222,14 @@ myLayout =  avoidStruts $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ layouts
 ------------------------------------------------------------------------
 myManageHook = composeAll
     [ 
-          className =? "firefox"        --> doShift "web"
-        , className =? "Brave-browser"  --> doShift "web"
-        , className =? "Slack"          --> doShift "com"
-        , className =? "Ssh-askpass-fullscreen"          --> doFullFloat
-        , title     =? "Ranger"         --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
-        , title     =? "Email"          --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
-        , title     =? "Weather"        --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
-        , title     =? "Doppler"        --> doRectFloat(W.RationalRect 0.3 0.15 0.43 0.7)
+          className =? "firefox"                --> doShift "web"
+        , className =? "Brave-browser"          --> doShift "web"
+        , className =? "Slack"                  --> doShift "com"
+        , className =? "Ssh-askpass-fullscreen" --> doFullFloat
+        , title     =? "Ranger"                 --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
+        , title     =? "Email"                  --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
+        , title     =? "Weather"                --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
+        , title     =? "Doppler"                --> doRectFloat(W.RationalRect 0.3 0.15 0.43 0.7)
     ]
 
 myEventHook = mempty
