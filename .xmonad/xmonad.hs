@@ -262,7 +262,7 @@ defaults = def {
       -- hooks, layouts
         layoutHook         = myLayout,
         manageHook         = manageSpawn <+> myManageHook <+> namedScratchpadManageHook scratchpads,
-        handleEventHook    = myEventHook,
+        handleEventHook    = myEventHook <+> fullscreenEventHook,
         logHook            = dynamicLog ,
         startupHook        = myStartupHook
 }
