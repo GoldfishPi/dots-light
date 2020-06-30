@@ -20,6 +20,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 import XMonad.Hooks.ManageHelpers (doRectFloat, doFullFloat)
+import XMonad.Actions.CopyWindow
     -- Layouts
 import XMonad.Layout.GridVariants (Grid(Grid))
 import XMonad.Layout.SimplestFloat
@@ -71,6 +72,10 @@ myWorkspaces    = ["dev","web","com","mus","5","6","7","8","9"]
 
 myNormalBorderColor  = "#292f36"
 myFocusedBorderColor = "#7cb7e1"
+myBackgroundColor    = "#000000"
+myForegroundColor    = "#ffffff"
+myUrgentColor        = "#ff0000"
+myCopyWindowColor    = "#00ff00"
 
 
 -- Start Keybindings
@@ -233,12 +238,22 @@ myEventHook = mempty
 ------------------------------------------------------------------------
 
 myLogHook h = do 
+    copies <- wsContainingCopies
+    let check ws | ws `elem` copies =
+           xmobarColor myCopyWindowColor "" $ ws
+         | otherwise = xmobarColor myForegroundColor "" $ ws
     dynamicLogWithPP xmobarPP {
-        ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "" . wrap "[" "]"
-            , ppTitle = xmobarColor xmobarTitleColor "" . shorten 50
-            , ppSep = "   "
-            , ppOutput = hPutStrLn h
+          ppOutput  = hPutStrLn h
+        , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "" . wrap "[" "]"
+        , ppVisible = xmobarColor myForegroundColor ""
+        , ppHidden  = noScratchPad
+        , ppSep     =  "   "
+        , ppTitle   = xmobarColor xmobarTitleColor "" . shorten 50
+        , ppExtras  = []
+        , ppOrder   = id
     } 
+    where
+        noScratchPad ws = if ws == "NSP" then "" else ws
 
 myStartupHook = do
     spawnOnce "$HOME/scripts/screen/wallpaper.sh &"
