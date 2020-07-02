@@ -199,8 +199,6 @@ myLayout =  avoidStruts $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ layouts
 myManageHook = composeAll
     [ 
           className =? "firefox"                --> doShift "web"
-        -- , className =? "Brave-browser"          --> doShift "web"
-        -- , className =? "Slack"                  --> doShift "com"
         , className =? "Ssh-askpass-fullscreen" --> doFullFloat
         , title     =? "Ranger"                 --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
         , title     =? "Email"                  --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
@@ -250,8 +248,6 @@ main = do
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
 
-      -- key bindings
-        -- keys               = \c -> mkKeymap c $ myKeys,
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
