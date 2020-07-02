@@ -87,7 +87,7 @@ myKeys :: [(String, X ())]
 myKeys =
     [ ("M-<F2>"                         , spawn "xmonad --recompile && xmonad --restart")
     , ("M-S-<Return>"                   , spawn myTerminal)
-    , ("M-p"                            , spawn "dmenu_run")
+    , ("M-p"                            , spawn "dmenu_run -p Run: ")
     , ("M-S-x"                          , spawn "dm-tool lock")
 
     -- Window Controlls
@@ -98,6 +98,9 @@ myKeys =
     , ("M-h"                            , sendMessage Shrink)
     , ("M-l"                            , sendMessage Expand)
     , ("M-t"                            , withFocused $ windows . W.sink)
+
+    -- Programs
+    , ("M-n"                            , spawn "networkmanager_dmenu")
 
     -- Scratchpads
     , ("M-o"                            , namedScratchpadAction scratchpads "email")
