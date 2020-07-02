@@ -130,7 +130,7 @@ scratchpads = [
         (customFloating $ W.RationalRect (2/6) (2/6) (2/6) (2/6)),
 
     NS "term" "alacritty -t scratchpad" (title =? "scratchpad")
-        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
+        (customFloating $ W.RationalRect (1/8) (1/8) (3/4) (3/4)),
 
     NS "pavucontrol" "pavucontrol" (className =? "Pavucontrol")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
