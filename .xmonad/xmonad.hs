@@ -10,7 +10,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
-import XMonad.Util.EZConfig
+import XMonad.Util.EZConfig (additionalKeysP)
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Actions.SpawnOn
 
@@ -53,6 +53,9 @@ myWeatherClient = myTerminal ++ " -t Weather -e $HOME/scripts/util/weather.sh"
 myDopplerClient = "ffplay -loop 0 -window_title Doppler https://radar.weather.gov/lite/N0R/MPX_loop.gif"
 myRssReader     = myTerminal ++ " -t Rss -e newsboat"
 
+clubhouseCommand = "dex $HOME/.local/share/applications/Clubhouse.desktop"
+
+
 xmobarTitleColor = "#C678DD"
 xmobarCurrentWorkspaceColor = "#7cb7e1"
 
@@ -80,74 +83,41 @@ myCopyWindowColor    = "#00ff00"
 
 -- Start Keybindings
 ------------------------------------------------------------------------
-myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
+myKeys :: [(String, X ())]
+myKeys =
+    [ ("M-<F2>"       , spawn "xmonad --recompile && xmonad --restart")
+    , ("M-S-<Return>" , spawn myTerminal)
+    , ("M-p"          , spawn "dmenu_run")
+    , ("M-S-x"        , spawn "dm-tool lock")
 
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    -- Window Controlls
+    , ("M-q"          , kill)
+    , ("M-<Space>"    , sendMessage (Toggle NBFULL) >> sendMessage ToggleStruts)
+    , ("M-S-j"        , windows W.swapDown)
+    , ("M-S-k"        , windows W.swapUp)
+    , ("M-h"          , sendMessage Shrink)
+    , ("M-l"          , sendMessage Expand)
+    , ("M-t"          , withFocused $ windows . W.sink)
 
-    , ((modm,               xK_p     ), spawn "dmenu_run")
-    , ((modm,               xK_space ), sendMessage (Toggle NBFULL) >> sendMessage ToggleStruts)
+    -- Scratchpads
+    , ("M-o"          , namedScratchpadAction scratchpads "email")
+    , ("M-u"          , namedScratchpadAction scratchpads "music")
+    , ("M-S-u"        , namedScratchpadAction scratchpads "pavucontrol")
+    , ("M-i"          , namedScratchpadAction scratchpads "weather")
+    , ("M-S-i"        , namedScratchpadAction scratchpads "doppler")
+    , ("M-'"          , namedScratchpadAction scratchpads "term")
+    , ("M-b"          , namedScratchpadAction scratchpads "clubhouse")
+    , ("M-s"          , namedScratchpadAction scratchpads "slack")
+    , ("M-y"          , namedScratchpadAction scratchpads "filebrowser")
+    , ("M--"          , namedScratchpadAction scratchpads "rss")
 
-    , ((modm,               xK_q     ), kill)
-    , ((modm,               xK_n     ), refresh)
-
-    , ((modm,               xK_j     ), windows W.focusDown)
-    , ((modm,               xK_k     ), windows W.focusUp  )
-
-    , ((modm,               xK_m     ), windows W.focusMaster  )
-    , ((modm,               xK_Return), windows W.swapMaster)
-
-    , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
-    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
-
-    , ((modm,               xK_h     ), sendMessage Shrink)
-    , ((modm,               xK_l     ), sendMessage Expand)
-
-    , ((modm,               xK_t     ), withFocused $ windows . W.sink)
-
-    , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
-    , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
-
-    ------ Program Bindings ------ 
-    , ((modm .|. shiftMask, xK_o     ), spawn myEmailSetup)
-    , ((modm .|. shiftMask, xK_i     ), spawn myDopplerClient)
-    , ((modm .|. shiftMask, xK_n     ), spawn "networkmanager_dmenu" )
-
-
-    ------ Scratchpad Bindings ------ 
-    , ((modm,               xK_u     ), namedScratchpadAction scratchpads "spotify")
-    , ((modm .|. shiftMask, xK_u     ), namedScratchpadAction scratchpads "pavucontrol")
-    , ((modm,               xK_i     ), namedScratchpadAction scratchpads "weather")
-    , ((modm,               xK_y     ), namedScratchpadAction scratchpads "filemanager")
-    , ((modm .|. shiftMask, xK_y     ), namedScratchpadAction scratchpads "rss")
-    , ((modm,               xK_o     ), namedScratchpadAction scratchpads "email")
-
-    ------ Audio Controlls ------ 
-    , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute 0 toggle")
-    , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume 0 +5%")
-    , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume 0 -5%")
-    , ((0, xF86XK_MonBrightnessUp), spawn "light -A 5")
-    , ((0, xF86XK_MonBrightnessDown), spawn "light -U 5")
-
-    , ((modm              , xK_b     ), sendMessage ToggleStruts)
-
-    , ((modm .|. shiftMask, xK_x     ), spawn "dm-tool lock")
-
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
-    , ((modm              , xK_F2     ), spawn "xmonad --recompile; xmonad --restart")
+    -- Media Controlls
+    , ("<XF86MonAudioMute>"             , spawn "pactl set-sink-mute 0 toggle")
+    , ("<XF86MonAudioRaiseVolume>"      , spawn "pactl set-sink-volume 0 +5%")
+    , ("<XF86MonAudioLowerVolume>"      , spawn "pactl set-sink-volume 0 -5%")
+    , ("<XF86MonBrightnessUp>"          , spawn "light -A 5")
+    , ("<XF86MonBrightnessDown>"        , spawn "light -U 5")
     ]
-    ++
-
-    ------ Workspace Switching ------ 
-    [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-    ++
-
-    ------ Monitor Switching ------ 
-    [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
-        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
-
 -- End Keybindings
 ------------------------------------------------------------------------
 
@@ -165,20 +135,26 @@ scratchpads = [
     NS "pavucontrol" "pavucontrol" (className =? "Pavucontrol")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
-    NS "spotify" "spotify" (className =? "Spotify")
+    NS "music" "spotify" (className =? "Spotify")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "weather" myWeatherClient (title =? "Weather")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
-    NS "filemanager" myFileBrowser (title =? "File")
+    NS "filebrowser" myFileBrowser (title =? "File")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "email" myEmailClient (title =? "Email")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "rss" myRssReader (title =? "Rss")
-        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4))
+        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
+
+    NS "clubhouse" clubhouseCommand (resource =? "app.clubhouse.io__tickr_stories_space_7733_owned-by-me")
+        (customFloating $ W.RationalRect (1/11) (1/11) (5/6) (5/6)),
+
+    NS "slack" "slack" (className =? "Slack")
+        (customFloating $ W.RationalRect (1/11) (1/11) (5/6) (5/6))
   ]
 -- End Scratchpad
 ------------------------------------------------------------------------
@@ -223,8 +199,8 @@ myLayout =  avoidStruts $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ layouts
 myManageHook = composeAll
     [ 
           className =? "firefox"                --> doShift "web"
-        , className =? "Brave-browser"          --> doShift "web"
-        , className =? "Slack"                  --> doShift "com"
+        -- , className =? "Brave-browser"          --> doShift "web"
+        -- , className =? "Slack"                  --> doShift "com"
         , className =? "Ssh-askpass-fullscreen" --> doFullFloat
         , title     =? "Ranger"                 --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
         , title     =? "Email"                  --> doRectFloat(W.RationalRect 0.15 0.15 0.7 0.7)
@@ -275,7 +251,7 @@ main = do
         focusedBorderColor = myFocusedBorderColor,
 
       -- key bindings
-        keys               = myKeys,
+        -- keys               = \c -> mkKeymap c $ myKeys,
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
@@ -284,27 +260,5 @@ main = do
         handleEventHook    = swallowEventHook pidHashTable windowHashTable <+> myEventHook <+> fullscreenEventHook,
         logHook            = myLogHook xmproc <+> dynamicLog ,
         startupHook        = myStartupHook
-    } 
-defaults = def {
-      -- simple stuff
-        terminal           = myTerminal,
-        focusFollowsMouse  = myFocusFollowsMouse,
-        clickJustFocuses   = myClickJustFocuses,
-        borderWidth        = myBorderWidth,
-        modMask            = myModMask,
-        workspaces         = myWorkspaces,
-        normalBorderColor  = myNormalBorderColor,
-        focusedBorderColor = myFocusedBorderColor,
-
-      -- key bindings
-        keys               = myKeys,
-        mouseBindings      = myMouseBindings,
-
-      -- hooks, layouts
-        layoutHook         = myLayout,
-        manageHook         = manageSpawn <+> myManageHook <+> namedScratchpadManageHook scratchpads,
-        handleEventHook    = myEventHook <+> fullscreenEventHook,
-        logHook            = dynamicLog ,
-        startupHook        = myStartupHook
-}
+    } `additionalKeysP` myKeys 
 
