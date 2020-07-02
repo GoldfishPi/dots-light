@@ -85,31 +85,31 @@ myCopyWindowColor    = "#00ff00"
 ------------------------------------------------------------------------
 myKeys :: [(String, X ())]
 myKeys =
-    [ ("M-<F2>"       , spawn "xmonad --recompile && xmonad --restart")
-    , ("M-S-<Return>" , spawn myTerminal)
-    , ("M-p"          , spawn "dmenu_run")
-    , ("M-S-x"        , spawn "dm-tool lock")
+    [ ("M-<F2>"                         , spawn "xmonad --recompile && xmonad --restart")
+    , ("M-S-<Return>"                   , spawn myTerminal)
+    , ("M-p"                            , spawn "dmenu_run")
+    , ("M-S-x"                          , spawn "dm-tool lock")
 
     -- Window Controlls
-    , ("M-q"          , kill)
-    , ("M-<Space>"    , sendMessage (Toggle NBFULL) >> sendMessage ToggleStruts)
-    , ("M-S-j"        , windows W.swapDown)
-    , ("M-S-k"        , windows W.swapUp)
-    , ("M-h"          , sendMessage Shrink)
-    , ("M-l"          , sendMessage Expand)
-    , ("M-t"          , withFocused $ windows . W.sink)
+    , ("M-q"                            , kill)
+    , ("M-<Space>"                      , sendMessage (Toggle NBFULL) >> sendMessage ToggleStruts)
+    , ("M-S-j"                          , windows W.swapDown)
+    , ("M-S-k"                          , windows W.swapUp)
+    , ("M-h"                            , sendMessage Shrink)
+    , ("M-l"                            , sendMessage Expand)
+    , ("M-t"                            , withFocused $ windows . W.sink)
 
     -- Scratchpads
-    , ("M-o"          , namedScratchpadAction scratchpads "email")
-    , ("M-u"          , namedScratchpadAction scratchpads "music")
-    , ("M-S-u"        , namedScratchpadAction scratchpads "pavucontrol")
-    , ("M-i"          , namedScratchpadAction scratchpads "weather")
-    , ("M-S-i"        , namedScratchpadAction scratchpads "doppler")
-    , ("M-'"          , namedScratchpadAction scratchpads "term")
-    , ("M-b"          , namedScratchpadAction scratchpads "clubhouse")
-    , ("M-s"          , namedScratchpadAction scratchpads "slack")
-    , ("M-y"          , namedScratchpadAction scratchpads "filebrowser")
-    , ("M--"          , namedScratchpadAction scratchpads "rss")
+    , ("M-o"                            , namedScratchpadAction scratchpads "email")
+    , ("M-u"                            , namedScratchpadAction scratchpads "music")
+    , ("M-S-u"                          , namedScratchpadAction scratchpads "pavucontrol")
+    , ("M-i"                            , namedScratchpadAction scratchpads "weather")
+    , ("M-S-i"                          , namedScratchpadAction scratchpads "doppler")
+    , ("M-'"                            , namedScratchpadAction scratchpads "term")
+    , ("M-b"                            , namedScratchpadAction scratchpads "clubhouse")
+    , ("M-s"                            , namedScratchpadAction scratchpads "slack")
+    , ("M-y"                            , namedScratchpadAction scratchpads "filebrowser")
+    , ("M--"                            , namedScratchpadAction scratchpads "rss")
 
     -- Media Controlls
     , ("<XF86MonAudioMute>"             , spawn "pactl set-sink-mute 0 toggle")
