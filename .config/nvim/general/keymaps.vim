@@ -12,6 +12,7 @@ nnoremap <leader>sh :split<CR>
 
 nnoremap <leader>n :CocCommand explorer<CR>
 nnoremap <leader>N :CocCommand explorer --position right<CR>
+nnoremap <leader>i :CocCommand tsserver.organizeImports<CR>
 
 nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>T :TestSuit<CR>
@@ -32,7 +33,7 @@ nnoremap <leader>G :Gstatus<CR>
 
 nmap <leader>d <Plug>(coc-definition)
 nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>i <Plug>(coc-import)
+" nmap <leader>i <Plug>(coc-import)
 
 "coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
