@@ -12,3 +12,4 @@ au BufNewFile,BufRead *.md
     \ :Goyo
 
 autocmd bufwritepost *.[tj]s[x] silent :CocCommand eslint.executeAutofix
+autocmd bufwritepost *.[tj]s silent :CocCommand eslint.executeAutofix
