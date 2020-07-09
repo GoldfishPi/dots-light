@@ -11,10 +11,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
-Plug 'unblevable/quick-scope'
-
-Plug 'xarthurx/taskwarrior.vim'
-
 "Themes
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
