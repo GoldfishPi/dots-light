@@ -52,6 +52,7 @@ myEmailSetup    = myTerminal ++ " -t Email -e offlineimap"
 myWeatherClient = myTerminal ++ " -t Weather -e $HOME/scripts/util/weather.sh"
 myDopplerClient = "ffplay -loop 0 -window_title Doppler https://radar.weather.gov/lite/N0R/MPX_loop.gif"
 myRssReader     = myTerminal ++ " -t Rss -e newsboat"
+myEmojiSelector = "$HOME/scripts/util/emoji.sh"
 
 clubhouseCommand = "dex $HOME/.local/share/applications/Clubhouse.desktop"
 
@@ -101,6 +102,7 @@ myKeys =
 
     -- Programs
     , ("M-n"                            , spawn "networkmanager_dmenu")
+    , ("M-["                            , spawn myEmojiSelector)
 
     -- Scratchpads
     , ("M-o"                            , namedScratchpadAction scratchpads "email")

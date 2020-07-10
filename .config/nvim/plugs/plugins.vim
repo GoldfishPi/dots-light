@@ -11,6 +11,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
+Plug 'mhinz/vim-signify'
+
 "Themes
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
