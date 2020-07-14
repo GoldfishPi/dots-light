@@ -3,12 +3,15 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-commentary'
 
+"language server
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Git
 Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
 
 "Themes
 Plug 'joshdick/onedark.vim'
