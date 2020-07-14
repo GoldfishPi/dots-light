@@ -8,6 +8,3 @@ source $HOME/.config/nvim/general/filedetects.vim
 
 source $HOME/.config/nvim/plug-config/closetag.vim
 source $HOME/.config/nvim/plug-config/lightline.vim
-source $HOME/.config/nvim/plug-config/quickscope.vim
-source $HOME/.config/nvim/plug-config/goyo.vim
-
