@@ -8,9 +8,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-
 Plug 'mhinz/vim-signify'
 
 "Themes
