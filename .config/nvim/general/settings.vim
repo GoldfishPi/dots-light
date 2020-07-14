@@ -30,3 +30,8 @@ imap Ii <Esc>
 imap iI <Esc>
 let mapleader = ' '
 
+let g:closetag_filenames = '*.html,*.hbs,*.js,*.jsx,*.tsx'
+
+let g:lightline = {
+            \ 'colorscheme': 'onedark',
+            \ }
