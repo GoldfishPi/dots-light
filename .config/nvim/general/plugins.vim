@@ -13,7 +13,6 @@ Plug 'mhinz/vim-signify'
 "Themes
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'mboughaba/i3config.vim'
 
 "Typescript
 Plug 'leafgarland/typescript-vim'
@@ -33,7 +32,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'ap/vim-css-color'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'lunaru/vim-less'
-Plug 'wavded/vim-stylus'
 
 "html
 Plug 'alvan/vim-closetag'
