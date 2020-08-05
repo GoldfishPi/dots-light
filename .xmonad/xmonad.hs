@@ -103,6 +103,8 @@ myKeys =
     -- Programs
     , ("M-n"                            , spawn "networkmanager_dmenu")
     , ("M-["                            , spawn myEmojiSelector)
+    , ("M-]"                            , spawn "hosts")
+    , ("M-\\"                            , spawn "monitor-manager")
 
     -- Scratchpads
     , ("M-o"                            , namedScratchpadAction scratchpads "email")
