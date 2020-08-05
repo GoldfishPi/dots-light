@@ -12,7 +12,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Git
-" Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 
 "Themes
