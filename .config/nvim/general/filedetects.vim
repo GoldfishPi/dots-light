@@ -9,5 +9,3 @@ au BufNewFile,BufRead *.prisma setfiletype graphql
 autocmd bufwritepost *.[tj]s[x] silent :CocCommand eslint.executeAutofix
 autocmd bufwritepost *.[tj]s silent :CocCommand eslint.executeAutofix
 
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
