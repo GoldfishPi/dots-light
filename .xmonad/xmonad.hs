@@ -108,13 +108,11 @@ myKeys =
 
     -- Scratchpads
     , ("M-o"                            , namedScratchpadAction scratchpads "email")
-    , ("M-u"                            , namedScratchpadAction scratchpads "music")
     , ("M-S-u"                          , namedScratchpadAction scratchpads "pavucontrol")
     , ("M-i"                            , namedScratchpadAction scratchpads "weather")
     , ("M-S-i"                          , namedScratchpadAction scratchpads "doppler")
     , ("M-'"                            , namedScratchpadAction scratchpads "term")
     , ("M-b"                            , namedScratchpadAction scratchpads "clubhouse")
-    , ("M-s"                            , namedScratchpadAction scratchpads "slack")
     , ("M-y"                            , namedScratchpadAction scratchpads "filebrowser")
     , ("M--"                            , namedScratchpadAction scratchpads "rss")
 
@@ -142,9 +140,6 @@ scratchpads = [
     NS "pavucontrol" "pavucontrol" (className =? "Pavucontrol")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
-    NS "music" "spotify" (className =? "Spotify")
-        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
-
     NS "weather" myWeatherClient (title =? "Weather")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
@@ -158,10 +153,8 @@ scratchpads = [
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "clubhouse" clubhouseCommand (resource =? "app.clubhouse.io__tickr_stories_space_7733_owned-by-me")
-        (customFloating $ W.RationalRect (1/11) (1/11) (5/6) (5/6)),
-
-    NS "slack" "slack" (className =? "Slack")
         (customFloating $ W.RationalRect (1/11) (1/11) (5/6) (5/6))
+
   ]
 -- End Scratchpad
 ------------------------------------------------------------------------
@@ -239,6 +232,7 @@ myLogHook h = do
 myStartupHook = do
     spawnOnce "$HOME/scripts/screen/wallpaper.sh &"
     spawnOnce "picom &"
+    spawnOnce "dunst &"
 
 main = do 
     xmproc <- spawnPipe "xmobar -d $HOME/.xmonad/xmobar.hs"
