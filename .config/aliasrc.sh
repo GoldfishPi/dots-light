@@ -4,6 +4,7 @@ alias vim='nvim'
 alias g='git'
 
 alias ls='exa --color=always --group-directories-first'
+alias cat='bat'
 
 alias tw='task project:Work'
 alias th='task project:Home'
