@@ -2,6 +2,7 @@ call plug#begin()
 ""vim util
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'

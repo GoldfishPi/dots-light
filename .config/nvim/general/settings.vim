@@ -40,3 +40,21 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_winsize = 20
+
+let main = {}
+let main.path = '~/vimwiki/'
+" let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'js':'javascript', 'ts':'typescript'}
+
+let wiki2 = {}
+let wiki2.path = '~/vimwiki/vim/'
+
+let wiki3 = {}
+let wiki3.path = '~/vimwiki/work/'
+
+let wiki4 = {}
+let wiki4.path = '~/vimwiki/columbia/'
+
+let wiki5 = {}
+let wiki5.path = '~/vimwiki/spanish/'
+
+let g:vimwiki_list = [main, wiki2, wiki3, wiki4, wiki5]
