@@ -26,6 +26,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'kern/vim-es7'
 
+Plug 'posva/vim-vue'
+
 "graph-ql/prisma
 Plug 'jparise/vim-graphql'
 
