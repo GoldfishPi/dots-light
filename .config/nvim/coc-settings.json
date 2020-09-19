@@ -22,5 +22,6 @@
         "h":"open:split",
         "v":"open:vsplit",
         "s":"open:vsplit"
-    }
+    },
+    "eslint.filetypes":["js","ts","vue","tsx","jsx"]
 }

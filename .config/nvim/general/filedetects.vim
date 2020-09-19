@@ -8,3 +8,4 @@ au BufNewFile,BufRead *.prisma setfiletype graphql
 
 autocmd bufwritepost *.[tj]s[x] silent :CocCommand eslint.executeAutofix
 autocmd bufwritepost *.[tj]s silent :CocCommand eslint.executeAutofix
+autocmd bufwritepost *.vue silent :CocCommand eslint.executeAutofix
