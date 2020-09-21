@@ -46,4 +46,6 @@ let g:vimwiki_list = [
             \{ 'path': '~/vimwiki/work' },
             \{ 'path': '~/vimwiki/columbia' },
             \{ 'path': '~/vimwiki/spanish' },
+            \{ 'path': '~/vimwiki/projects' },
             \]
+let g:vue_pre_processors = ['pug', 'css', 'typescript', 'javascript']

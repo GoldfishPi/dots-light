@@ -10,6 +10,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 
 Plug 'junegunn/goyo.vim'
+Plug 'digitaltoad/vim-pug'
 
 "language server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
