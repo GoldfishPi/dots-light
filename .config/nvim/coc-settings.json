@@ -23,5 +23,8 @@
         "v":"open:vsplit",
         "s":"open:vsplit"
     },
-    "eslint.filetypes":["javascript","typescript","vue"]
+    "eslint.filetypes":["javascript","typescript","vue"],
+    "vetur.experimental.templateInterpolationService": true,
+    "vetur.validation.template":true,
+    "vetur.validation.templateProps":true
 }
