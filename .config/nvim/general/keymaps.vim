@@ -31,19 +31,18 @@ nnoremap <leader>' "+p
 
 nnoremap <leader>G :Gstatus<CR>
 
-nmap <leader>d <Plug>(coc-definition)
-nmap <leader>rn <Plug>(coc-rename)
-" nmap <leader>i <Plug>(coc-import)
+nmap <leader>cs :CocSearch 
+nmap <leader>cr <Plug>(coc-rename)
+nmap <leader>cd <Plug>(coc-definition)
+nmap <leader>cy <Plug>(coc-type-definition)
+nmap <leader>ci <Plug>(coc-implementation)
+nmap <leader>cr <Plug>(coc-references)
 
-"coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
             \"\<C-g>u\<ENTER>\<c-r>=coc#on_enter()\<CR>"
-
-nnoremap <C-Home> :e ~/.config/nvim/init.vim <CR>
-nnoremap <C-End> :source $HOME/.config/nvim/init.vim <CR>
 
 "Line moving
 xnoremap K :move '<-2<CR>gv-gv
