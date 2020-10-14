@@ -24,7 +24,12 @@
         "s":"open:vsplit"
     },
     "eslint.filetypes":["javascript","typescript","vue", "typescriptreact"],
+    "eslint.autoFixOnSave":true,
     "vetur.experimental.templateInterpolationService": true,
     "vetur.validation.template":true,
-    "vetur.validation.templateProps":true
+    "vetur.validation.templateProps":true,
+    "python.linting.pylintArgs":[
+        "--extension-pkg-whitelist=extensionname",
+        "--unsafe-load-any-extension=y"
+    ]
 }
