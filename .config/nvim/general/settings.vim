@@ -40,6 +40,17 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 
+let g:vimfiler_as_default_explorer = 1
+
+call vimfiler#custom#profile('default', 'context', {
+    \ 'safe': 0
+  \ })
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_as_defaultexplorer = 1
+
+
 let g:vimwiki_list = [
             \{ 'path': '~/vimwiki' },
             \{ 'path': '~/vimwiki/vim' },

@@ -3,6 +3,9 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler.vim'
+
 Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-startify'
 
