@@ -10,9 +10,6 @@ nnoremap <leader>o :Buffers<CR>
 nnoremap <leader>sv :vsplit<CR>
 nnoremap <leader>sh :split<CR>
 
-" nnoremap <leader>n :CocCommand explorer<CR>
-" nnoremap <leader>N :CocCommand explorer --position right<CR>
-" nnoremap <leader>i :CocCommand tsserver.organizeImports<CR>
 nnoremap <leader>ft :VimFilerBufferDir -explorer<CR>
 
 nnoremap <leader>t :TestFile<CR>
@@ -41,6 +38,7 @@ nmap <leader>cr <Plug>(coc-references)
 nmap <leader>cf <Plug>(coc-fix-current)
 nmap <leader>ca <Plug>(coc-codeaction-selected)
 nmap <leader>co :CocList outline<CR>
+nnoremap <leader>ci :CocCommand tsserver.organizeImports<CR>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
