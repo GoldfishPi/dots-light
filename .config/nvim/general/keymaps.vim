@@ -38,7 +38,7 @@ nmap <leader>cr <Plug>(coc-references)
 nmap <leader>cf <Plug>(coc-fix-current)
 nmap <leader>ca <Plug>(coc-codeaction-selected)
 nmap <leader>co :CocList outline<CR>
-nnoremap <leader>ci :CocCommand tsserver.organizeImports<CR>
+nmap <leader>cp :CocCommand tsserver.organizeImports<CR>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
