@@ -18,8 +18,6 @@ nnoremap <leader>T :TestSuit<CR>
 nnoremap <leader>p :GFiles<CR>
 nnoremap <leader>P :Rg<CR>
 
-nnoremap <leader>o :CocList post<CR>
-
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :wq<CR>
 nnoremap <leader>Q :wqa<CR>

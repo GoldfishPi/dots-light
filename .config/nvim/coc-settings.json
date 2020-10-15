@@ -10,19 +10,6 @@
         "CStyleComment"
     ],
     "java.home":"/usr/lib/jvm/java-11-openjdk",
-    "explorer.width":30,
-    "explorer.icon.enableNerdfont":true,
-    "explorer.previewAction.onHover":false,
-    "explorer.keyMappings":{
-        "<cr>":[
-            "expandable?",
-            ["expanded?", "collapse", "expand"],
-            "open"
-        ],
-        "h":"open:split",
-        "v":"open:vsplit",
-        "s":"open:vsplit"
-    },
     "eslint.filetypes":["javascript","typescript","vue", "typescriptreact"],
     "eslint.autoFixOnSave":true,
     "vetur.experimental.templateInterpolationService": true,
