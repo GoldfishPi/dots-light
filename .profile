@@ -13,3 +13,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 export PATH=$JAVA_HOME/bin:$PATH
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# exec setxbmap -options caps:escape
