@@ -1,6 +1,6 @@
 [Unit]
 Description=Sorts download directory
-Documentation= none
+Documentation=https://github.com/GoldfishPi/syds
 
 [Service]
 ExecStart=%h/.cargo/bin/syds -d %h/Downloads
