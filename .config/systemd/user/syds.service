@@ -1,0 +1,12 @@
+[Unit]
+Description=Sorts download directory
+Documentation= none
+
+[Service]
+ExecStart=%h/.cargo/bin/syds -d %h/Downloads
+Restart=always
+RestartSec=12
+
+[Install]
+WantedBy=default.target
+
