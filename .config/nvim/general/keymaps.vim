@@ -28,7 +28,7 @@ nnoremap <leader>' "+p
 nnoremap <leader>G :Gstatus<CR>
 
 nmap <leader>cs :CocSearch 
-nmap <leader>cr <Plug>(coc-rename)
+nmap <leader>cR <Plug>(coc-rename)
 nmap <leader>cd <Plug>(coc-definition)
 nmap <leader>cy <Plug>(coc-type-definition)
 nmap <leader>ci <Plug>(coc-implementation)
