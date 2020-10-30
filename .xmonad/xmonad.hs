@@ -233,6 +233,7 @@ myStartupHook = do
     spawnOnce "$HOME/scripts/screen/wallpaper.sh &"
     spawnOnce "picom &"
     spawnOnce "dunst &"
+    spawnOnce "unclutter &"
 
 main = do 
     xmproc <- spawnPipe "xmobar -d $HOME/.xmonad/xmobar.hs"
