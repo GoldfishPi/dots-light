@@ -16,4 +16,4 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# exec setxbmap -options caps:escape
+setxkbmap -option caps:escape
