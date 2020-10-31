@@ -14,6 +14,7 @@ Plug 'tpope/vim-commentary'
 
 Plug 'junegunn/goyo.vim'
 Plug 'digitaltoad/vim-pug'
+Plug 'cespare/vim-toml'
 
 "language server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
