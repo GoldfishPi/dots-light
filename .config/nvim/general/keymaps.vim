@@ -26,6 +26,9 @@ nnoremap <leader>" "+
 nnoremap <leader>' "+p
 
 nnoremap <leader>G :Gstatus<CR>
+nnoremap <leader>gc :BCommits<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gd :Gdiffsplit<CR>
 
 nmap <leader>cs :CocSearch 
 nmap <leader>cR <Plug>(coc-rename)
