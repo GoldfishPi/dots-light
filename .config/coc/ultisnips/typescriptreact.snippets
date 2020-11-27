@@ -86,5 +86,15 @@ export const $1Provider:FC = ({ children }) => {
 export const use$1 = () => (
 	useContext($1Context)
 );
+endsnippet
 
+snippet rntest "React Native Test" b
+import React from 'react';
+import { render } from '@testing-library/react-native';
+
+describe('<$1 />', () => {
+	it('renders', () => {
+		render(<$1 />);
+	});
+});
 endsnippet
