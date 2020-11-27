@@ -1,5 +1,6 @@
 call plug#begin()
-""vim util
+
+" -- vim util
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -13,42 +14,35 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 
 Plug 'junegunn/goyo.vim'
-Plug 'digitaltoad/vim-pug'
-Plug 'cespare/vim-toml'
 
-"language server
+Plug 'alvan/vim-closetag'
+
+Plug 'janko/vim-test'
+
+" -- language server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Git
+
+" -- Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 
-"Themes
+" -- Themes
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 
-"Typescript
+" -- Syntax Highlighting
+Plug 'digitaltoad/vim-pug'
+Plug 'cespare/vim-toml'
 Plug 'leafgarland/typescript-vim'
 Plug 'kern/vim-es7'
-
 Plug 'posva/vim-vue'
-
-"graph-ql/prisma
 Plug 'jparise/vim-graphql'
-
-"Testing
-Plug 'janko/vim-test'
-
-"React
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'peitalin/vim-jsx-typescript'
-
-"css
 Plug 'ap/vim-css-color'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'lunaru/vim-less'
 
-"html
-Plug 'alvan/vim-closetag'
 
 call plug#end()
