@@ -6,3 +6,4 @@ source $HOME/.config/nvim/general/keymaps.vim
 source $HOME/.config/nvim/general/filedetects.vim
 source $HOME/.config/nvim/general/start-screen.vim
 
+lua require 'init'

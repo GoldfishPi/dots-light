@@ -15,12 +15,17 @@ Plug 'tpope/vim-commentary'
 
 Plug 'junegunn/goyo.vim'
 
-Plug 'alvan/vim-closetag'
 
 Plug 'janko/vim-test'
 
 " -- language server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'alvan/vim-closetag'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete-lsp'
 
 
 " -- Git
@@ -30,18 +35,5 @@ Plug 'tpope/vim-fugitive'
 " -- Themes
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
-
-" -- Syntax Highlighting
-Plug 'digitaltoad/vim-pug'
-Plug 'cespare/vim-toml'
-Plug 'leafgarland/typescript-vim'
-Plug 'kern/vim-es7'
-Plug 'posva/vim-vue'
-Plug 'jparise/vim-graphql'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'ap/vim-css-color'
-Plug 'joukevandermaas/vim-ember-hbs'
-Plug 'lunaru/vim-less'
-
 
 call plug#end()
