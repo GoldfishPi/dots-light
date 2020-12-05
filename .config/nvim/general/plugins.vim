@@ -36,4 +36,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 
+"  90% of our syntax highlighting is done with treesitter but 
+"  it's not easy to add gql or styled components because they are
+"  both done with template strings which don't seem to be tracked 
+"  with treesitter.
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
+
 call plug#end()
