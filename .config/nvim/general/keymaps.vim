@@ -11,6 +11,7 @@ nnoremap <leader>sv :vsplit<CR>
 nnoremap <leader>sh :split<CR>
 
 nnoremap <leader>ft :VimFilerBufferDir -explorer<CR>
+nnoremap <leader>ff :VimFiler<CR>
 
 nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>T :TestSuit<CR>
