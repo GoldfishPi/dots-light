@@ -43,8 +43,8 @@ nmap <leader>cd <cmd>lua vim.lsp.buf.declaration()<cr>
 nmap <leader>cD <cmd>lua vim.lsp.buf.definition()<cr>
 imap <silent> <c-space> <Plug>(completion_trigger)
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "Line moving
 xnoremap K :move '<-2<CR>gv-gv
