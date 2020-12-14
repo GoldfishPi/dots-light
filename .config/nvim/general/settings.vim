@@ -41,3 +41,5 @@ let g:vue_pre_processors = ['pug', 'css', 'typescript', 'javascript']
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 set completeopt=menuone,noinsert,noselect
 let g:completion_confirm_key = "\<C-y>"
+
+let g:fzf_layout = { 'down':'40%' }
