@@ -5,7 +5,6 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 
 nnoremap <leader>u :tabnew<CR>
-nnoremap <leader>o :Buffers<CR>
 
 nnoremap <leader>sv :vsplit<CR>
 nnoremap <leader>sh :split<CR>
@@ -15,7 +14,7 @@ nnoremap <leader>ff :Dirvish %<CR>
 nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>T :TestSuit<CR>
 
-nnoremap <leader>p :GFiles<CR>
+nnoremap <leader>p :Files<CR>
 nnoremap <leader>P :Rg<CR>
 
 nnoremap <leader>w :w<CR>
@@ -29,6 +28,9 @@ nnoremap <leader>G :Gstatus<CR>
 nnoremap <leader>gc :BCommits<CR>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gd :Gdiffsplit<CR>
+
+nnoremap <leader>bl :Buffers<CR>
+nnoremap <leader>bc :%bd<CR>
 
 imap <tab> <Plug>(completion_smart_tab)
 imap <s-tab> <Plug>(completion_smart_s_tab)
@@ -50,11 +52,3 @@ imap <silent> <c-space> <Plug>(completion_trigger)
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '<+2<CR>gv-gv
 
-nmap <leader>y :execute OpenTasks("")<CR>
-
-"Open Tickr Todo
-au BufNewFile,BufRead $HOME/projects/tickr*
-    \ nmap <leader>y :execute OpenTasks("tickr")<CR>
-
-au BufNewFile,BufRead *.post
-    \ nmap <leader>g :CocCommand post.do<CR>
