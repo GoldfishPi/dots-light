@@ -14,7 +14,7 @@ nnoremap <leader>ff :Dirvish %<CR>
 nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>T :TestSuit<CR>
 
-nnoremap <leader>p :Files<CR>
+nnoremap <expr> <leader>p (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
 nnoremap <leader>P :Rg<CR>
 
 nnoremap <leader>w :w<CR>
