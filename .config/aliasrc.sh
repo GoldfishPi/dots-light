@@ -12,3 +12,5 @@ alias th='task project:Home'
 alias dssh='eval `ssh-agent` && ssh-add'
 
 alias ex='nvim $HOME/.xmonad/xmonad.hs'
+
+alias dc="docker-compose"
