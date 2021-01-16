@@ -9,7 +9,7 @@ nnoremap <leader>u :tabnew<CR>
 nnoremap <leader>sv :vsplit<CR>
 nnoremap <leader>sh :split<CR>
 
-nnoremap <leader>ff :Dirvish %<CR>
+nnoremap <leader>f :Dirvish %<CR>
 
 nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>T :TestSuit<CR>
@@ -41,8 +41,8 @@ nmap <leader>cr <cmd>lua vim.lsp.buf.references()<cr>
 nmap <leader>cn <cmd>lua vim.lsp.buf.rename()<cr>
 
 nmap <leader>ci <cmd>lua vim.lsp.buf.implementation()<cr>
-nmap <leader>cd <cmd>lua vim.lsp.buf.declaration()<cr>
-nmap <leader>cD <cmd>lua vim.lsp.buf.definition()<cr>
+nmap <leader>cd <cmd>lua vim.lsp.buf.definition()<cr>
+nmap <leader>cD <cmd>lua vim.lsp.buf.declaration()<cr>
 imap <silent> <c-space> <Plug>(completion_trigger)
 
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
