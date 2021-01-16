@@ -6,3 +6,5 @@ aug end
 
 au BufNewFile,BufRead *.prisma setfiletype graphql
 
+au BufWinLeave *.* mkview
+au BufWinEnter *.* silent loadview
