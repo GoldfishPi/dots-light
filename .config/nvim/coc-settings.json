@@ -12,7 +12,8 @@
     "java.home":"/usr/lib/jvm/java-11-openjdk",
     "eslint.filetypes":["javascript","typescript","vue", "typescriptreact"],
     "eslint.autoFixOnSave":true,
-    "vetur.experimental.templateInterpolationService": true,
+    "tslint.autoFixOnSave":true,
+    vetur.experimental.templateInterpolationService": true,
     "vetur.validation.template":true,
     "vetur.validation.templateProps":true,
     "python.linting.pylintArgs":[
