@@ -42,6 +42,6 @@ Plug 'itchyny/lightline.vim'
 "  with treesitter.
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
-Plug 'nono/vim-handlebars'
+Plug 'mustache/vim-mustache-handlebars'
 
 call plug#end()
