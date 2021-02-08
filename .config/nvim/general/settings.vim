@@ -21,8 +21,7 @@ hi Normal ctermbg=NONE guibg=NONE
 set viewoptions=folds,cursor
 set sessionoptions=folds
 
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+set foldmethod=manual
 
 "Files we never want to search with ctrlP
 set wildignore+=*/node_modules/*,*/build/*,*/.build/*,*/dist/*,*/.dist/*
