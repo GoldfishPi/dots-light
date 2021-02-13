@@ -32,9 +32,6 @@ nnoremap <leader>gd :Gdiffsplit<CR>
 nnoremap <leader>bl :Buffers<CR>
 nnoremap <leader>bc :%bd<CR>
 
-imap <tab> <Plug>(completion_smart_tab)
-imap <s-tab> <Plug>(completion_smart_s_tab)
-
 nmap <leader>ca <cmd>lua vim.lsp.buf.code_action()<cr>
 nmap <leader>cr <cmd>lua vim.lsp.buf.references()<cr>
 
@@ -43,7 +40,12 @@ nmap <leader>cn <cmd>lua vim.lsp.buf.rename()<cr>
 nmap <leader>ci <cmd>lua vim.lsp.buf.implementation()<cr>
 nmap <leader>cd <cmd>lua vim.lsp.buf.definition()<cr>
 nmap <leader>cD <cmd>lua vim.lsp.buf.declaration()<cr>
-imap <silent> <c-space> <Plug>(completion_trigger)
+
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
