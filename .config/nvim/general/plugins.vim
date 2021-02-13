@@ -44,5 +44,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'maxmellon/vim-jsx-pretty'
+
 
 call plug#end()
