@@ -8,6 +8,7 @@
     "cSpell.includeRegExpList": [
         "CStyleComment"
     ],
+    "eslint.quiet":true,
     "eslint.filetypes":["javascript","typescript","vue", "typescriptreact"],
     "eslint.autoFixOnSave":true,
     "tslint.autoFixOnSave":true

@@ -22,7 +22,8 @@ Plug 'janko/vim-test'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'alvan/vim-closetag'
+Plug 'alvan/vim-closetag'
+Plug 'sbdchd/neoformat'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/deoplete-lsp'
 

@@ -6,6 +6,8 @@ aug end
 
 au BufNewFile,BufRead *.prisma setfiletype graphql
 
+autocmd BufWritePre *.tsx Neoformat eslint_d
+
 autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 
 augroup AutoSaveFolds
