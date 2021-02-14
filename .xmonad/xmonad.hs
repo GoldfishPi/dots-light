@@ -37,6 +37,7 @@ import XMonad.Layout.MultiToggle (mkToggle, single, EOT(EOT), Toggle(..), (??))
 import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBORDERS))
 
 
+
 import qualified Data.HashTable.IO as H 
 
 -- Local Libs
@@ -235,6 +236,8 @@ myStartupHook = do
     spawnOnce "dunst &"
     spawnOnce "unclutter &"
 
+ewmhConfig = ewmh defaultConfig
+
 main = do 
     xmproc <- spawnPipe "xmobar -d $HOME/.xmonad/xmobar.hs"
     pidHashTable <- H.new :: IO(H.BasicHashTable Int Window)
@@ -254,7 +257,7 @@ main = do
 
       -- hooks, layouts
         layoutHook         = myLayout,
-        manageHook         = manageSpawn <+> myManageHook <+> namedScratchpadManageHook scratchpads,
+        manageHook         = manageSpawn <+> namedScratchpadManageHook scratchpads <+> myManageHook,
         handleEventHook    = swallowEventHook pidHashTable windowHashTable <+> myEventHook <+> fullscreenEventHook,
         logHook            = myLogHook xmproc <+> dynamicLog ,
         startupHook        = myStartupHook
