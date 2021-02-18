@@ -9,7 +9,8 @@ Plug 'justinmk/vim-dirvish'
 Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-startify'
 
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
+Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-commentary'
 
 Plug 'junegunn/goyo.vim'
