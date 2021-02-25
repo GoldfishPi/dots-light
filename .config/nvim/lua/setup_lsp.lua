@@ -6,6 +6,7 @@ local configs = require'lspconfig/configs';
 
 lspconfig.rls.setup{}
 lspconfig.tsserver.setup{}
+lspconfig.hls.setup{}
 
 
 require'nvim-treesitter.configs'.setup {

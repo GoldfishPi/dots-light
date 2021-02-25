@@ -48,3 +48,6 @@ set completeopt=menuone,noinsert,noselect
 let g:completion_confirm_key = "\<C-y>"
 
 let g:fzf_layout = { 'down':'40%' }
+
+let g:lexima_no_default_rules = v:true
+call lexima#set_default_rules()
