@@ -15,13 +15,10 @@ Plug 'tpope/vim-commentary'
 
 Plug 'junegunn/goyo.vim'
 
-
 Plug 'janko/vim-test'
 
 " -- language server
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-lua/completion-nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'alvan/vim-closetag'
@@ -29,7 +26,6 @@ Plug 'sbdchd/neoformat'
 
 Plug 'hrsh7th/nvim-compe'
 Plug 'hrsh7th/vim-vsnip'
-
 
 " -- Git
 Plug 'mhinz/vim-signify'
