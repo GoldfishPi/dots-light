@@ -28,12 +28,8 @@ nnoremap <leader>" "+
 nnoremap <leader>' "+p
 
 nnoremap <leader>G :Gstatus<CR>
-nnoremap <leader>gc :BCommits<CR>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gd :Gdiffsplit<CR>
-
-nnoremap <leader>bl :Buffers<CR>
-nnoremap <leader>bc :%bd<CR>
 
 nmap <leader>ca <cmd>lua vim.lsp.buf.code_action()<cr>
 nmap <leader>cr <cmd>lua vim.lsp.buf.references()<cr>
