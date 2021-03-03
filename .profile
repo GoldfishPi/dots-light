@@ -15,5 +15,6 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 export PATH=$JAVA_HOME/bin:$PATH
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$PATH:~/.cabal/bin
 
 setxkbmap -option caps:escape
