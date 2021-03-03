@@ -14,8 +14,11 @@ nnoremap <leader>f :Dirvish %<CR>
 nnoremap <leader>t :TestFile<CR>
 nnoremap <leader>T :TestSuit<CR>
 
-nnoremap <expr> <leader>p (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
-nnoremap <leader>P :Rg<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fr <cmd>Telescope branches<cr>
 
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :wq<CR>
