@@ -22,7 +22,7 @@ Plug 'neovim/nvim-lspconfig'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'alvan/vim-closetag'
-Plug 'sbdchd/neoformat'
+Plug 'lukas-reineke/format.nvim'
 
 Plug 'hrsh7th/nvim-compe'
 Plug 'hrsh7th/vim-vsnip'
