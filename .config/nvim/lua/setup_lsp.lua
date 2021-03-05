@@ -5,135 +5,70 @@ local configs = require'lspconfig/configs';
 
 
 lspconfig.rls.setup{}
-lspconfig.tsserver.setup{}
-lspconfig.hls.setup{}
-
-
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    highlight = {
-        enable = true,              -- false will disable the whole extension
-        disable = { "c" },  -- list of language that will be disabled
-    },
-    indent = {
-        enable = true
-    }
+lspconfig.tsserver.setup{
+    on_attach = function(client)
+        if client.config.flags then
+            client.config.flags.allow_incremental_sync = true
+        end
+            client.resolved_capabilities.document_formatting = false
+    end
 }
 
-lsp.diagnosticls.setup({
-    on_attach = on_attach,
-    filetypes={
-        'markdown',
-        'javascript',
-        'typescript',
-        'javascriptreact',
-        'typescriptreact',
-        'css',
-        'scss',
-        'sass'
+lspconfig.hls.setup{}
+
+local eslint = {
+    lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+    lintStdin = true,
+    lintFormats = {"%f:%l:%c: %m"},
+    lintIgnoreExitCode = true,
+    formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+    formatStdin = true
+}
+
+local function eslint_config_exists()
+  local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
+
+  if not vim.tbl_isempty(eslintrc) then
+    return true
+  end
+
+  if vim.fn.filereadable("package.json") then
+    if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
+      return true
+    end
+  end
+
+  return false
+end
+
+lspconfig.efm.setup {
+    on_attach = function(client)
+        client.resolved_capabilities.document_formatting = true
+        client.resolved_capabilities.goto_definition = false
+        end,
+    root_dir = function()
+        if not eslint_config_exists() then
+        return nil
+        end
+        return vim.fn.getcwd()
+        end,
+    settings = {
+        languages = {
+            javascript = {eslint},
+            javascriptreact = {eslint},
+            ["javascript.jsx"] = {eslint},
+            typescript = {eslint},
+            ["typescript.tsx"] = {eslint},
+            typescriptreact = {eslint}
+        }
     },
-    init_options = {
-        linters = {
-            eslint = {
-                command = 'eslint',
-                rootPatterns = { '.git' },
-                debounce = 100,
-                args = {
-                    '--stdin',
-                    '--stdin-filename',
-                    '%filepath',
-                    '--format',
-                    'json'
-                },
-                sourceName = 'eslint',
-                parseJson = {
-                    errorsRoot = '[0].messages',
-                    line = 'line',
-                    column = 'column',
-                    endLine = 'endLine',
-                    endColumn = 'endColumn',
-                    message = '${message} [${ruleId}]',
-                    security = 'severity'
-                },
-                securities = {
-                    [2] = 'error',
-                    [1] = 'warning',
-                },
-            },
-            stylelint = {
-                command = './node_modules/.bin/stylelint',
-                rootPatterns = { '.git' },
-                debounce = 100,
-                args = {
-                    '--formatter',
-                    'json',
-                    '--stdin-filename',
-                    '%filepath'
-                },
-                sourceName = 'stylelint',
-                parseJson = {
-                    errorsRoot = '[0].warnings',
-                    line = 'line',
-                    column = 'column',
-                    message = '${text}',
-                    security = 'severity'
-                },
-                securities = {
-                    error = 'error',
-                    warning = 'warning'
-                }
-            },
-            markdownlint = {
-                command = 'markdownlint',
-                isStderr = true,
-                debounce = 100,
-                args = { '--stdin' },
-                offsetLine = 0,
-                offsetColumn = 0,
-                sourceName = 'markdownlint',
-                formatLines = 1,
-                formatPattern = {
-                    '^.*?:\\s+(\\d+):\\s+(.*)(\\r|\\n)*$',
-                    {
-                        line = 1,
-                        column = -1,
-                        message = 2
-                    }
-                }
-            }
-        },
-        filetypes = {
-            markdown = 'markdownlint',
-            javascript = 'eslint',
-            typescript = 'eslint',
-            javascriptreact = 'eslint',
-            typescriptreact = 'eslint',
-            css = 'stylelint',
-            scss = 'stylelint',
-            sass = 'stylelint'
-        },
-        formatters = {
-            eslint = {
-                command = './node_modules/.bin/eslint',
-                args = {
-                    '--fix'
-                }
-            },
-            prettier = {
-                command = './node_modules/.bin/prettier',
-                args = {
-                    '--stdin-filepath',
-                    '%filepath',
-                    '--single-quote',
-                    '--print-width 120'
-                }
-            }
-        },
-        formatFiletypes = {
-            javascript = 'prettier',
-            typescript = 'prettier',
-            javascriptreact = 'prettier',
-            typescriptreact = 'prettier'
-        },
-    }
-});
+    filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescript.tsx",
+        "typescriptreact"
+    },
+}
+
