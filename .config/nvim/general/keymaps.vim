@@ -11,8 +11,9 @@ nnoremap <leader>sh :split<CR>
 
 nnoremap <leader>f :Dirvish %<CR>
 
-nnoremap <leader>t :TestFile<CR>
-nnoremap <leader>T :TestSuit<CR>
+nnoremap <leader>tr :TestFile<CR>
+nnoremap <leader>tt :Ultest<CR>
+nnoremap <leader>ts :UltestSummary<CR>
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>

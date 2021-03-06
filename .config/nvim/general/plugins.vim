@@ -16,6 +16,7 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/goyo.vim'
 
 Plug 'janko/vim-test'
+Plug 'rcarriga/vim-ultest'
 
 " -- language server
 Plug 'neovim/nvim-lspconfig'

@@ -30,6 +30,8 @@ set wildignore+=*/node_modules/*,*/build/*,*/.build/*,*/dist/*,*/.dist/*
 set relativenumber
 set rnu
 
+set updatetime=400
+
 imap ii <Esc>
 imap Ii <Esc>
 imap iI <Esc>
@@ -51,3 +53,5 @@ let g:fzf_layout = { 'down':'40%' }
 
 let g:lexima_no_default_rules = v:true
 call lexima#set_default_rules()
+
+let test#javascript#jest#options = "--color=always"
