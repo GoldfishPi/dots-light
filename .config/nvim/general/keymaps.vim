@@ -41,6 +41,10 @@ nmap <leader>ci <cmd>lua vim.lsp.buf.implementation()<cr>
 nmap <leader>cd <cmd>lua vim.lsp.buf.definition()<cr>
 nmap <leader>cD <cmd>lua vim.lsp.buf.declaration()<cr>
 
+nmap <leader>ds <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>
+nmap <leader>dn <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
+nmap <leader>dp <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
+
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm(lexima#expand('<LT>CR>', 'i'))
 " inoremap <silent><expr> <CR>      compe#confirm()
