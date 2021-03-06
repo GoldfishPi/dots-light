@@ -4,6 +4,7 @@ module Main (main) where
 import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.BinarySpacePartition (emptyBSP)
 import XMonad.Layout.NoBorders (noBorders)
@@ -45,7 +46,7 @@ myConfig =
                         ("M-S-x", spawn "dm-tool lock"),
                         ("M-q", kill),
                         ("M-S-<Return>", spawn "alacritty"),
-                        ("M-<Space>", sendMessage (Toggle "Full")),
+                        ("M-<Space>", sendMessage (Toggle "Full") <+> sendMessage ToggleStruts),
                         ("M-p", spawn "dmenu_run"),
                         ("<XF86MonAudioMute>", spawn "pactl set-sink-mute 0 toggle"),
                         ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%"),
