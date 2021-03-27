@@ -6,7 +6,6 @@ Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'justinmk/vim-dirvish'
 
-Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-startify'
 
 " Plug 'jiangmiao/auto-pairs'
