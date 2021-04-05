@@ -5,6 +5,7 @@ local configs = require'lspconfig/configs';
 
 
 lspconfig.rls.setup{}
+lspconfig.vuels.setup{}
 lspconfig.tsserver.setup{
     on_attach = function(client)
         if client.config.flags then
