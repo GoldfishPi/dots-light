@@ -13,6 +13,7 @@ import XMonad.Layout.ToggleLayouts (ToggleLayout (..), toggleLayouts)
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
+import XMonad.Hooks.EwmhDesktops
 
 bar = "xmobar"
 
@@ -30,12 +31,13 @@ toggleStrutsKey XConfig {XMonad.modMask = _modMask} = (_modMask, xK_b)
 myTerminal = "alacritty"
 
 myConfig =
-  desktopConfig
+  ewmh $ desktopConfig
     { modMask = mod4Mask,
       focusedBorderColor = colorPrimary,
       normalBorderColor = colorSecondary,
       manageHook = myManageHook <+> manageHook desktopConfig,
       layoutHook = desktopLayoutModifiers myLayouts,
+      handleEventHook = fullscreenEventHook,
       startupHook = do
         spawnOnce "$HOME/scripts/screen/wallpaper.sh &"
         spawnOnce "picom &"
@@ -56,6 +58,7 @@ myConfig =
                         ("M-S-o", spawn "startws"),
                         ("M-a", spawn "attachws"),
                         ("M-c", spawn "cfgfiles"),
+                        ("M-n", spawn "networkmanager_dmenu"),
                         ("<XF86MonAudioMute>", spawn "pactl set-sink-mute 0 toggle"),
                         ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%"),
                         ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -5%"),
@@ -70,7 +73,7 @@ main = do
   -- Start xmonad using the main desktop configuration with a few
   -- simple overrides:
   -- ("M-S-q", confirmPrompt myXPConfig "exit" (io exitSuccess)), -- Add some extra key bindings:
-  xmonad =<< statusBar bar barPP toggleStrutsKey myConfig
+  xmonad =<< statusBar bar barPP toggleStrutsKey  myConfig
 
 --------------------------------------------------------------------------------
 
