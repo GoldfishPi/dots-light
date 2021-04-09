@@ -55,6 +55,7 @@ myConfig =
                         ("M-o", spawn "openfolder"),
                         ("M-S-o", spawn "startws"),
                         ("M-a", spawn "attachws"),
+                        ("M-c", spawn "cfgfiles"),
                         ("<XF86MonAudioMute>", spawn "pactl set-sink-mute 0 toggle"),
                         ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%"),
                         ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -5%"),

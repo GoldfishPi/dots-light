@@ -1,6 +1,6 @@
 export EDITOR="nvim"
 export TERMINAL="termite"
-export BROWSER="chromium"
+export BROWSER="firefox"
 export READER="zathura"
 
 export ZDOTDIR="$HOME/.config/zsh"
