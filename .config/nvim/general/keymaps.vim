@@ -11,9 +11,7 @@ nnoremap <leader>sh :split<CR>
 
 nnoremap <leader>f :Dirvish %<CR>
 
-nnoremap <leader>tr :TestFile<CR>
-nnoremap <leader>tt :Ultest<CR>
-nnoremap <leader>ts :UltestSummary<CR>
+nnoremap <leader>tt :TestFile<CR>
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -51,9 +49,6 @@ inoremap <silent><expr> <CR>      compe#confirm(lexima#expand('<LT>CR>', 'i'))
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "Line moving
 xnoremap K :move '<-2<CR>gv-gv

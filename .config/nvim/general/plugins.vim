@@ -8,14 +8,12 @@ Plug 'justinmk/vim-dirvish'
 
 Plug 'mhinz/vim-startify'
 
-" Plug 'jiangmiao/auto-pairs'
 Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-commentary'
 
 Plug 'junegunn/goyo.vim'
 
 Plug 'janko/vim-test'
-Plug 'rcarriga/vim-ultest'
 
 " -- language server
 Plug 'neovim/nvim-lspconfig'
@@ -25,12 +23,10 @@ Plug 'alvan/vim-closetag'
 Plug 'lukas-reineke/format.nvim'
 
 Plug 'hrsh7th/nvim-compe'
-Plug 'hrsh7th/vim-vsnip'
 
 " -- Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 
 " -- Themes
 Plug 'joshdick/onedark.vim'
@@ -41,7 +37,6 @@ Plug 'itchyny/lightline.vim'
 "  both done with template strings which don't seem to be tracked 
 "  with treesitter.
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'jparise/vim-graphql'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'maxmellon/vim-jsx-pretty'
 
