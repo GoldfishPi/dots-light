@@ -53,6 +53,8 @@ myConfig =
                         ("M-f", spawn "firefox"),
                         ("M-i", spawn (myTerminal ++ " -e neomutt")),
                         ("M-o", spawn "openfolder"),
+                        ("M-S-o", spawn "startws"),
+                        ("M-a", spawn "attachws"),
                         ("<XF86MonAudioMute>", spawn "pactl set-sink-mute 0 toggle"),
                         ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%"),
                         ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -5%"),
