@@ -1,10 +1,13 @@
 
-aug i3config_ft_detection
+aug xmonad
     au!
-    au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
-aug end
+    au BufWritePost ~/.xmonad/** !xmonad --recompile && xmonad --restart
+aug END
 
-au BufNewFile,BufRead *.prisma setfiletype graphql
+aug scripts
+    au!
+    au BufWritePost ~/scripts/** set ft=sh
+aug END
 
 " autocmd BufWritePre *.tsx,*.ts Neoformat eslint_d
 augroup Format
