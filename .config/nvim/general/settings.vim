@@ -24,7 +24,7 @@ set sessionoptions=folds
 set foldmethod=manual
 
 "Files we never want to search with ctrlP
-set wildignore+=*/node_modules/*,*/build/*,*/.build/*,*/dist/*,*/.dist/*
+set wildignore+=*/node_modules/*,*/build/*,*/.build/*,*/dist/*,*/.dist/*,*/plugged/*
 
 "relative line number
 set relativenumber
@@ -32,9 +32,6 @@ set rnu
 
 set updatetime=400
 
-imap ii <Esc>
-imap Ii <Esc>
-imap iI <Esc>
 let mapleader = ' '
 
 let g:closetag_filenames = '*.html,*.hbs,*.js,*.jsx,*.tsx'
@@ -42,13 +39,6 @@ let g:closetag_filenames = '*.html,*.hbs,*.js,*.jsx,*.tsx'
 let g:lightline = {
             \ 'colorscheme': 'onedark',
             \ }
-
-let g:vue_pre_processors = ['pug', 'css', 'typescript', 'javascript']
-
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-set completeopt=menuone,noinsert,noselect
-
-let g:fzf_layout = { 'down':'40%' }
 
 let g:lexima_no_default_rules = v:true
 call lexima#set_default_rules()

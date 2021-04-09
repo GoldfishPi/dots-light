@@ -44,4 +44,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$HOME/.ghcup/bin
 export PATH=$PATH:$HOME/go/bin
 
+export CONFIG=$HOME/.config
+export NVIM_CONFIG=$CONFIG/nvime
+
 eval "$(starship init zsh)"

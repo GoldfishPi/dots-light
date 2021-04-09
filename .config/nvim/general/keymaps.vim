@@ -1,4 +1,8 @@
 
+imap ii <Esc>
+imap Ii <Esc>
+imap iI <Esc>
+
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>j :wincmd j<CR>
