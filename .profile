@@ -17,4 +17,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$PATH:~/.cabal/bin
 
+export PATH=$PATH:~/.scripts
+
 setxkbmap -option caps:escape
