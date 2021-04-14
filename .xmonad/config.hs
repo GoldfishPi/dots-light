@@ -85,7 +85,7 @@ main = do
 -- full screen layout.
 myLayouts = toggleLayouts (noBorders Full) others
   where
-    others = ResizableTall 1 (1.5 / 100) (3 / 5) [] ||| emptyBSP
+    others =  ResizableTall 1 (1.5 / 100) (3 / 5) [] ||| emptyBSP
 
 --------------------------------------------------------------------------------
 
