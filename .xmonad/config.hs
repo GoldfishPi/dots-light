@@ -4,6 +4,7 @@ module Main (main) where
 import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.BinarySpacePartition (emptyBSP)
@@ -13,7 +14,6 @@ import XMonad.Layout.ToggleLayouts (ToggleLayout (..), toggleLayouts)
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
-import XMonad.Hooks.EwmhDesktops
 
 bar = "xmobar"
 
@@ -31,40 +31,42 @@ toggleStrutsKey XConfig {XMonad.modMask = _modMask} = (_modMask, xK_b)
 myTerminal = "alacritty"
 
 myConfig =
-  ewmh $ desktopConfig
-    { modMask = mod4Mask,
-      focusedBorderColor = colorPrimary,
-      normalBorderColor = colorSecondary,
-      manageHook = myManageHook <+> manageHook desktopConfig,
-      layoutHook = desktopLayoutModifiers myLayouts,
-      handleEventHook = fullscreenEventHook,
-      startupHook = do
-        spawnOnce "$HOME/scripts/screen/wallpaper.sh &"
-        spawnOnce "picom &"
-        spawnOnce "unclutter &",
-      logHook =
-        (dynamicLogString def >>= xmonadPropLog)
-          <+> logHook desktopConfig
-    }
-    `additionalKeysP` [ ("M-r", spawn "xmonad --recompile && xmonad --restart"),
-                        ("M-S-x", spawn "dm-tool lock"),
-                        ("M-q", kill),
-                        ("M-S-<Return>", spawn "alacritty"),
-                        ("M-<Space>", sendMessage (Toggle "Full") <+> sendMessage ToggleStruts),
-                        ("M-p", spawn "dmenu_run"),
-                        ("M-f", spawn "firefox"),
-                        ("M-i", spawn (myTerminal ++ " -e neomutt")),
-                        ("M-o", spawn "openfolder"),
-                        ("M-S-o", spawn "startws"),
-                        ("M-a", spawn "attachws"),
-                        ("M-c", spawn "cfgfiles"),
-                        ("M-n", spawn "networkmanager_dmenu"),
-                        ("<XF86MonAudioMute>", spawn "pactl set-sink-mute 0 toggle"),
-                        ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%"),
-                        ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -5%"),
-                        ("<XF86MonBrightnessUp>", spawn "light -A 5"),
-                        ("<XF86MonBrightnessDown>", spawn "light -U 5")
-                      ]
+  ewmh $
+    desktopConfig
+      { modMask = mod4Mask,
+        focusedBorderColor = colorPrimary,
+        normalBorderColor = colorSecondary,
+        manageHook = myManageHook <+> manageHook desktopConfig,
+        layoutHook = desktopLayoutModifiers myLayouts,
+        handleEventHook = fullscreenEventHook,
+        startupHook = do
+          spawnOnce "$HOME/scripts/screen/wallpaper.sh &"
+          spawnOnce "picom &"
+          spawnOnce "unclutter &",
+        logHook =
+          (dynamicLogString def >>= xmonadPropLog)
+            <+> logHook desktopConfig
+      }
+      `additionalKeysP` [ ("M-r", spawn "xmonad --recompile && xmonad --restart"),
+                          ("M-S-x", spawn "dm-tool lock"),
+                          ("M-q", kill),
+                          ("M-S-<Return>", spawn "alacritty"),
+                          ("M-<Space>", sendMessage (Toggle "Full") <+> sendMessage ToggleStruts),
+                          ("M-p", spawn "dmenu_run"),
+                          ("M-f", spawn "firefox"),
+                          ("M-i", spawn (myTerminal ++ " -e neomutt")),
+                          ("M-o", spawn "openfolder"),
+                          ("M-S-o", spawn "startws"),
+                          ("M-a", spawn "attachws"),
+                          ("M-c", spawn "cfgfiles"),
+                          ("M-S-n", spawn "networkmanager_dmenu"),
+                          ("M-n", spawn (myTerminal ++ " -e newsboat")),
+                          ("<XF86MonAudioMute>", spawn "pactl set-sink-mute 0 toggle"),
+                          ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%"),
+                          ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -5%"),
+                          ("<XF86MonBrightnessUp>", spawn "light -A 5"),
+                          ("<XF86MonBrightnessDown>", spawn "light -U 5")
+                        ]
 
 --------------------------------------------------------------------------------
 main = do
@@ -73,7 +75,7 @@ main = do
   -- Start xmonad using the main desktop configuration with a few
   -- simple overrides:
   -- ("M-S-q", confirmPrompt myXPConfig "exit" (io exitSuccess)), -- Add some extra key bindings:
-  xmonad =<< statusBar bar barPP toggleStrutsKey  myConfig
+  xmonad =<< statusBar bar barPP toggleStrutsKey myConfig
 
 --------------------------------------------------------------------------------
 
@@ -85,7 +87,7 @@ main = do
 -- full screen layout.
 myLayouts = toggleLayouts (noBorders Full) others
   where
-    others =  ResizableTall 1 (1.5 / 100) (3 / 5) [] ||| emptyBSP
+    others = ResizableTall 1 (1.5 / 100) (3 / 5) [] ||| emptyBSP
 
 --------------------------------------------------------------------------------
 
