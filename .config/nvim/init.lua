@@ -60,9 +60,7 @@ vim.api.nvim_set_option('foldmethod', 'manual')
 vim.api.nvim_set_option('wildignore', vim.api.nvim_get_option('wildignore')
                             .. "*/node_modules/*,*/build/*,*/.build/*,*/dist/*,*/.dist/*,*/plugged/*")
 
-vim.api.nvim_set_option('rnu', true)
 vim.api.nvim_set_option('updatetime', 400)
-
 vim.api.nvim_set_option('colorcolumn', '80')
 
 vim.api.nvim_set_var('closetag_filenames', '*.html,*.hbs,*.js,*.jsx,*.tsx')
@@ -72,6 +70,7 @@ vim.api.nvim_set_var('lightline', {colorscheme = 'onedark'})
 vim.api.nvim_set_keymap('n', '<leader>L', ':luafile %<CR>', {noremap = true});
 
 vim.api.nvim_command 'set relativenumber'
+vim.api.nvim_command 'set nu rnu'
 vim.api.nvim_command 'syntax on'
 vim.api.nvim_command 'colorscheme onedark'
 vim.api.nvim_command 'hi Normal ctermbg=NONE guibg=NONE'
