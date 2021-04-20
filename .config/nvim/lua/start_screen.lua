@@ -17,7 +17,7 @@ vim.api.nvim_set_var('startify_fortune_use_unicod', 1)
 vim.api.nvim_set_var('startify_session_persistenc', 1)
 vim.api.nvim_set_var('startify_enable_specia', 0)
 
-vim.api.nvim_set_var('startify_custom_header', {
+vim.api.nvim_set_var('dashboard_custom_header', {
     [[ _   _  _____ _____  _   _ ________  ___]],
     [[| \ | ||  ___|  _  || | | |_   _|  \/  |]],
     [[|  \| || |__ | | | || | | | | | | .  . |]],

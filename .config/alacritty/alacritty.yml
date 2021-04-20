@@ -6,19 +6,33 @@ font:
   size: 12
 
 colors:
+  # Default colors
   primary:
-    background: '#292f38'
-    foreground: '#c3c7d1'
-  cursor:
-   text: '#292f38'
-   cursor: '#c4c7d1'
+    background: '0x24283b'
+    foreground: '0xc0caf5'
+
+  # Normal colors
   normal:
-    black:   '#282c34'
-    red:     '#ed254e'
-    green:   '#71f79f'
-    yellow:  '#f9dc5c'
-    blue:    '#7cb7e1'
-    magenta: '#c74ded'
-    cyan:    '#00c1e4'
-    white:   '#dcdfe4'
-background_opacity: 0.9
+    black:   '0x1D202F'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan:    '0x7dcfff'
+    white:   '0xa9b1d6'
+
+  # Bright colors
+  bright:
+    black:   '0x1D202F'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan:    '0x7dcfff'
+    white:   '0xc0caf5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }

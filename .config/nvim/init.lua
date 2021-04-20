@@ -10,6 +10,7 @@ paq 'nvim-telescope/telescope.nvim'
 paq 'justinmk/vim-dirvish'
 
 paq 'mhinz/vim-startify'
+paq 'glepnir/dashboard-nvim'
 
 paq 'steelsojka/pears.nvim'
 paq 'tpope/vim-commentary'
@@ -29,8 +30,10 @@ paq 'hrsh7th/nvim-compe'
 paq 'mhinz/vim-signify'
 paq 'tpope/vim-fugitive'
 
-paq 'joshdick/onedark.vim'
-paq 'itchyny/lightline.vim'
+paq 'hoob3rt/lualine.nvim'
+paq 'kyazdani42/nvim-web-devicons'
+
+paq 'folke/tokyonight.nvim'
 
 paq 'norcalli/nvim_utils'
 
@@ -57,23 +60,28 @@ vim.api.nvim_set_option('viewoptions', 'folds,cursor')
 vim.api.nvim_set_option('sessionoptions', 'folds')
 
 vim.api.nvim_set_option('foldmethod', 'manual')
-vim.api.nvim_set_option('wildignore', vim.api.nvim_get_option('wildignore')
-                            .. "*/node_modules/*,*/build/*,*/.build/*,*/dist/*,*/.dist/*,*/plugged/*")
+vim.api.nvim_set_option('wildignore',
+                        vim.api.nvim_get_option('wildignore') .. [[
+                            */node_modules/*,
+                            */build/*,
+                            */.build/*,
+                            */dist/*,
+                            */.dist/*,
+                            */plugged/*
+                            ]])
 
 vim.api.nvim_set_option('updatetime', 400)
 vim.api.nvim_set_option('colorcolumn', '80')
 
 vim.api.nvim_set_var('closetag_filenames', '*.html,*.hbs,*.js,*.jsx,*.tsx')
 vim.api.nvim_set_var('mapleader', ' ')
-vim.api.nvim_set_var('lightline', {colorscheme = 'onedark'})
 
 vim.api.nvim_set_keymap('n', '<leader>L', ':luafile %<CR>', {noremap = true});
 
 vim.api.nvim_command 'set relativenumber'
 vim.api.nvim_command 'set nu rnu'
 vim.api.nvim_command 'syntax on'
-vim.api.nvim_command 'colorscheme onedark'
-vim.api.nvim_command 'hi Normal ctermbg=NONE guibg=NONE'
+vim.cmd [[colorscheme tokyonight]]
 vim.api.nvim_command 'set noswapfile'
 
 local autocmds = {
@@ -109,6 +117,10 @@ require"format".setup {
 }
 
 require"pears".setup()
+require('lualine').setup {
+    options = {theme = 'tokyonight'},
+    extensions = {'fugitive'}
+}
 
 require 'start_screen'
 require 'setup_compe'
@@ -116,5 +128,4 @@ require 'setup_lsp'
 require 'setup_treesitter'
 
 vim.api.nvim_command 'source $HOME/.config/nvim/keymaps.vim'
--- vim.api.nvim_command 'source $HOME/.config/nvim/start-screen.vim'
 
