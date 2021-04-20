@@ -40,47 +40,57 @@ paq 'maxmellon/vim-jsx-pretty'
 
 require 'nvim_utils'
 
-vim.api.nvim_command 'set tabstop=4'
-vim.api.nvim_command 'set softtabstop=4'
-vim.api.nvim_command 'set shiftwidth=4'
-vim.api.nvim_command 'set expandtab'
+vim.api.nvim_set_option('tabstop', 4)
+vim.api.nvim_set_option('softtabstop', 4)
+vim.api.nvim_set_option('shiftwidth', 4)
+vim.api.nvim_set_option('expandtab', true)
 
-vim.api.nvim_command 'set number'
-vim.api.nvim_command 'set showcmd'
+vim.api.nvim_set_option('number', true)
+vim.api.nvim_set_option('showcmd', true)
 
-vim.api.nvim_command 'syntax on '
-vim.api.nvim_command 'colorscheme onedark'
-vim.api.nvim_command 'set t_Co=256'
-vim.api.nvim_command 'set termguicolors'
-vim.api.nvim_command 'set noswapfile'
+vim.api.nvim_set_option('termguicolors', true)
 
-vim.api.nvim_command 'set splitbelow'
-vim.api.nvim_command 'set splitright'
+vim.api.nvim_set_option('splitbelow', true)
+vim.api.nvim_set_option('splitright', true)
 
-vim.api.nvim_command 'hi Normal ctermbg=NONE guibg=NONE'
+vim.api.nvim_set_option('viewoptions', 'folds,cursor')
+vim.api.nvim_set_option('sessionoptions', 'folds')
 
-vim.api.nvim_command 'set viewoptions=folds,cursor'
-vim.api.nvim_command 'set sessionoptions=folds'
+vim.api.nvim_set_option('foldmethod', 'manual')
+vim.api.nvim_set_option('wildignore', vim.api.nvim_get_option('wildignore')
+                            .. "*/node_modules/*,*/build/*,*/.build/*,*/dist/*,*/.dist/*,*/plugged/*")
 
-vim.api.nvim_command 'set foldmethod=manual'
-vim.api.nvim_command 'set wildignore+=*/node_modules/*,*/build/*,*/.build/*,*/dist/*,*/.dist/*,*/plugged/*'
-vim.api.nvim_command 'set relativenumber'
-vim.api.nvim_command 'set rnu'
-vim.api.nvim_command 'set updatetime=400'
+vim.api.nvim_set_option('rnu', true)
+vim.api.nvim_set_option('updatetime', 400)
 
-vim.api.nvim_command "let mapleader = ' '"
-vim.api.nvim_command "let g:closetag_filenames = '*.html,*.hbs,*.js,*.jsx,*.tsx'"
-vim.api.nvim_command "let g:lightline = { 'colorscheme': 'onedark' }"
-vim.api.nvim_command 'set colorcolumn=150'
+vim.api.nvim_set_option('colorcolumn', '80')
+
+vim.api.nvim_set_var('closetag_filenames', '*.html,*.hbs,*.js,*.jsx,*.tsx')
+vim.api.nvim_set_var('mapleader', ' ')
+vim.api.nvim_set_var('lightline', {colorscheme = 'onedark'})
 
 vim.api.nvim_set_keymap('n', '<leader>L', ':luafile %<CR>', {noremap = true});
 
+vim.api.nvim_command 'set relativenumber'
+vim.api.nvim_command 'syntax on'
+vim.api.nvim_command 'colorscheme onedark'
+vim.api.nvim_command 'hi Normal ctermbg=NONE guibg=NONE'
+vim.api.nvim_command 'set noswapfile'
+
 local autocmds = {
-    Xmonad = {{"BufWritePost", "~/.xmonad**", "!xmonad --recompile && xmonad --restart"}},
+    Xmonad = {
+        {
+            "BufWritePost", "~/.xmonad**",
+            "!xmonad --recompile && xmonad --restart"
+        }
+    },
     Scripts = {{"BufWinEnter", "~/scripts/**", "set ft=sh"}},
     Format = {{"BufWritePost", "*", "FormatWrite"}},
     AutoSaveFolds = {
-        {"BufWinLeave,BufLeave,BufWritePost,BufHidden,QuitPre", "?*", "nested silent! mkview!"}, {"BufWinEnter", "?*?", "silent! loadview"}
+        {
+            "BufWinLeave,BufLeave,BufWritePost,BufHidden,QuitPre", "?*",
+            "nested silent! mkview!"
+        }, {"BufWinEnter", "?*?", "silent! loadview"}
     }
 }
 
@@ -90,15 +100,22 @@ require"format".setup {
     typescript = {{cmd = {"eslint_d --fix"}}},
     typescriptreact = {{cmd = {"eslint_d --fix"}}},
     rust = {{cmd = {"rustfmt"}}},
-    lua = {{cmd = {"lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb"}}}
+    lua = {
+        {
+            cmd = {
+                "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=80 --break-after-table-lb"
+            }
+        }
+    }
 }
 
 require"pears".setup()
 
+require 'start_screen'
 require 'setup_compe'
 require 'setup_lsp'
 require 'setup_treesitter'
 
 vim.api.nvim_command 'source $HOME/.config/nvim/keymaps.vim'
-vim.api.nvim_command 'source $HOME/.config/nvim/start-screen.vim'
+-- vim.api.nvim_command 'source $HOME/.config/nvim/start-screen.vim'
 
