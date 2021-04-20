@@ -117,7 +117,9 @@ require"format".setup {
     }
 }
 
--- require"pears".setup()
+require"pears".setup(function(conf)
+    conf.expand_on_enter(false)
+end)
 require('lualine').setup {
     options = {theme = 'tokyonight'},
     extensions = {'fugitive'}
@@ -127,6 +129,5 @@ require 'start_screen'
 require 'setup_compe'
 require 'setup_lsp'
 require 'setup_treesitter'
-
-vim.api.nvim_command 'source $HOME/.config/nvim/keymaps.vim'
+require 'global_keymaps'
 
