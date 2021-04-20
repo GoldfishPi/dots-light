@@ -15,8 +15,6 @@ paq 'glepnir/dashboard-nvim'
 paq 'steelsojka/pears.nvim'
 paq 'tpope/vim-commentary'
 
-paq 'junegunn/goyo.vim'
-
 paq 'janko/vim-test'
 
 paq 'neovim/nvim-lspconfig'
@@ -26,6 +24,8 @@ paq 'alvan/vim-closetag'
 paq 'lukas-reineke/format.nvim'
 
 paq 'hrsh7th/nvim-compe'
+paq 'hrsh7th/vim-vsnip'
+paq 'rafamadriz/friendly-snippets'
 
 paq 'mhinz/vim-signify'
 paq 'tpope/vim-fugitive'
@@ -83,6 +83,7 @@ vim.api.nvim_command 'set nu rnu'
 vim.api.nvim_command 'syntax on'
 vim.cmd [[colorscheme tokyonight]]
 vim.api.nvim_command 'set noswapfile'
+vim.cmd [[highlight link CompeDocumentation NormalFloat]]
 
 local autocmds = {
     Xmonad = {
@@ -116,7 +117,7 @@ require"format".setup {
     }
 }
 
-require"pears".setup()
+-- require"pears".setup()
 require('lualine').setup {
     options = {theme = 'tokyonight'},
     extensions = {'fugitive'}

@@ -7,12 +7,19 @@ USER = vim.fn.expand('$USER')
 local sumneko_root_path = ""
 local sumneko_binary = ""
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport =
+    {properties = {'documentation', 'detail', 'additionalTextEdits'}}
+
 if vim.fn.has("mac") == 1 then
     sumneko_root_path = "/Users/" .. USER .. "/.config/nvim/lua-language-server"
-    sumneko_binary = "/Users/" .. USER .. "/.config/nvim/lua-language-server/bin/macOS/lua-language-server"
+    sumneko_binary = "/Users/" .. USER
+                         .. "/.config/nvim/lua-language-server/bin/macOS/lua-language-server"
 elseif vim.fn.has("unix") == 1 then
     sumneko_root_path = "/home/" .. USER .. "/.config/nvim/lua-language-server"
-    sumneko_binary = "/home/" .. USER .. "/.config/nvim/lua-language-server/bin/Linux/lua-language-server"
+    sumneko_binary = "/home/" .. USER
+                         .. "/.config/nvim/lua-language-server/bin/Linux/lua-language-server"
 else
     print("Unsupported system for sumneko")
 end
@@ -21,7 +28,9 @@ lspconfig.rls.setup {}
 lspconfig.vuels.setup {}
 lspconfig.tsserver.setup {
     on_attach = function(client)
-        if client.config.flags then client.config.flags.allow_incremental_sync = true end
+        if client.config.flags then
+            client.config.flags.allow_incremental_sync = true
+        end
         client.resolved_capabilities.document_formatting = false
     end
 }
@@ -42,7 +51,10 @@ lspconfig.sumneko_lua.setup {
             },
             workspace = {
                 -- Make the server aware of Neovim runtime files
-                library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
+                library = {
+                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
+                }
             }
         }
     }
@@ -64,7 +76,11 @@ local function eslint_config_exists()
 
     if not vim.tbl_isempty(eslintrc) then return true end
 
-    if vim.fn.filereadable("package.json") then if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then return true end end
+    if vim.fn.filereadable("package.json") then
+        if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
+            return true
+        end
+    end
 
     return false
 end
@@ -88,6 +104,9 @@ lspconfig.efm.setup {
             typescriptreact = {eslint}
         }
     },
-    filetypes = {"javascript", "javascriptreact", "javascript.jsx", "typescript", "typescript.tsx", "typescriptreact"}
+    filetypes = {
+        "javascript", "javascriptreact", "javascript.jsx", "typescript",
+        "typescript.tsx", "typescriptreact"
+    }
 }
 
