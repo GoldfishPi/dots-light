@@ -71,6 +71,7 @@ vim.api.nvim_command 'set updatetime=400'
 vim.api.nvim_command "let mapleader = ' '"
 vim.api.nvim_command "let g:closetag_filenames = '*.html,*.hbs,*.js,*.jsx,*.tsx'"
 vim.api.nvim_command "let g:lightline = { 'colorscheme': 'onedark' }"
+vim.api.nvim_command 'set colorcolumn=150'
 
 vim.api.nvim_set_keymap('n', '<leader>L', ':luafile %<CR>', {noremap = true});
 
