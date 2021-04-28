@@ -107,6 +107,7 @@ nvim_create_augroups(autocmds)
 require"format".setup {
     typescript = {{cmd = {"eslint_d --fix"}}},
     typescriptreact = {{cmd = {"eslint_d --fix"}}},
+    javascript = {{cmd = {"eslint_d --fix"}}},
     rust = {{cmd = {"rustfmt"}}},
     lua = {
         {
@@ -120,9 +121,10 @@ require"format".setup {
 require"pears".setup(function(conf)
     conf.expand_on_enter(false)
 end)
+
 require('lualine').setup {
     options = {theme = 'tokyonight'},
-    extensions = {'fugitive'}
+    extensions = {'fugitive', 'nvim-tree'}
 }
 
 require 'start_screen'
