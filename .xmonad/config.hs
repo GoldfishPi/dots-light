@@ -61,6 +61,7 @@ myConfig =
                           ("M-c", spawn "cfgfiles"),
                           ("M-S-n", spawn "networkmanager_dmenu"),
                           ("M-n", spawn (myTerminal ++ " -e newsboat")),
+                          ("M-s", spawn "spotify"),
                           ("<XF86MonAudioMute>", spawn "pactl set-sink-mute 0 toggle"),
                           ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%"),
                           ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -5%"),
