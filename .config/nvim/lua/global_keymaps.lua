@@ -38,13 +38,21 @@ map('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', {noremap = true})
 map('n', '<leader>fr', '<cmd>Telescope branches<CR>', {noremap = true})
 
 -- GIT
-map('n', '<leader>G', '<cmd>Git<CR>', {noremap = true})
+map('n', '<leader>gg', '<cmd>Git<CR>', {noremap = true})
 map('n', '<leader>gb', '<cmd>Gblame<CR>', {noremap = true})
+map('n', '<leader>gc', '<cmd>Telescope git_branches<CR>', {noremap = true})
+map('n', '<leader>gs', '<cmd>Telescope git_status<CR>', {noremap = true})
+map('n', '<leader>gr', '<cmd>Git reset --hard<CR>',
+    {noremap = true, silent = true})
+map('n', '<leader>gf', '<cmd>Git fetch<CR>', {noremap = true, silent = true})
+map('n', '<leader>gd', '<cmd>Gdiff<CR>', {noremap = true, silent = true})
+map('n', '<leader>gp', '<cmd>Git pull<CR>', {noremap = true, silent = true})
+map('n', '<leader>gl', '<cmd>Git log<CR>', {noremap = true, silent = true})
 
 -- LSP
 map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
     {noremap = true})
-map('n', '<leader>cr', '<cmd>lua vim.lsp.buf.references()<CR>', {noremap = true})
+map('n', '<leader>cr', '<cmd>Telescope lsp_references<CR>', {noremap = true})
 
 map('n', '<leader>cn', '<cmd>lua vim.lsp.buf.rename()<CR>', {noremap = true})
 

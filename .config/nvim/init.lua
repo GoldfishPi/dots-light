@@ -18,6 +18,7 @@ paq 'tpope/vim-commentary'
 paq 'janko/vim-test'
 
 paq 'neovim/nvim-lspconfig'
+paq 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 paq {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 paq 'alvan/vim-closetag'
@@ -119,12 +120,28 @@ require"format".setup {
 }
 
 require"pears".setup(function(conf)
-    conf.expand_on_enter(false)
+    conf.on_enter(function(pears_handle)
+        if vim.fn.pumvisible() == 1 and vim.fn.complete_info().selected ~= -1 then
+            return vim.fn["compe#confirm"]("<CR>")
+        else
+            pears_handle()
+        end
+    end)
 end)
 
 require('lualine').setup {
     options = {theme = 'tokyonight'},
     extensions = {'fugitive', 'nvim-tree'}
+}
+
+local actions = require('telescope.actions');
+require('telescope').setup {
+    defaults = {
+        file_ignore_patterns = {
+            "%.png", "*.jpg", "node_modules/*", ".dist/*", ".build/*"
+        },
+        mappings = {i = {["<c-CR>"] = actions.git_create_branch}}
+    }
 }
 
 require 'start_screen'
