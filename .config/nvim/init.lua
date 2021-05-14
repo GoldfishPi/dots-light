@@ -148,7 +148,6 @@ require('telescope').setup {
 }
 require('telescope').load_extension('fzf')
 
--- require 'start_screen'
 require 'setup_compe'
 require 'setup_lsp'
 require 'setup_treesitter'
