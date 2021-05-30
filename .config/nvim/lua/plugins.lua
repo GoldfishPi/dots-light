@@ -3,19 +3,15 @@ return require'packer'.startup(function(use)
 
     use 'justinmk/vim-dirvish'
     use 'tpope/vim-commentary'
-    use 'alvan/vim-closetag'
-    use 'mhinz/vim-signify'
     use 'tpope/vim-fugitive'
 
-    use {'styled-components/vim-styled-components', branch = 'main'}
     use 'mustache/vim-mustache-handlebars'
-    use 'maxmellon/vim-jsx-pretty'
 
     use {
-        'nvim-telescope/telescope-fzf-native.nvim',
+        'nvim-telescope/telescope.nvim',
         requires = {
             'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope.nvim'
+            'nvim-telescope/telescope-fzf-native.nvim'
         },
         run = 'make',
         config = function()
@@ -41,22 +37,6 @@ return require'packer'.startup(function(use)
         end
     }
 
-    use {
-        'steelsojka/pears.nvim',
-        config = function()
-
-            require"pears".setup(function(conf)
-                conf.on_enter(function(pears_handle)
-                    if vim.fn.pumvisible() == 1
-                        and vim.fn.complete_info().selected ~= -1 then
-                        return vim.fn["compe#confirm"]("<CR>")
-                    else
-                        pears_handle()
-                    end
-                end)
-            end)
-        end
-    }
     use {
         'lukas-reineke/format.nvim',
         config = function()
