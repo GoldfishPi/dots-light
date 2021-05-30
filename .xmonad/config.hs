@@ -42,7 +42,8 @@ myConfig =
         startupHook = do
           spawnOnce "$HOME/scripts/screen/wallpaper.sh &"
           spawnOnce "picom &"
-          spawnOnce "unclutter &",
+          spawnOnce "unclutter &"
+          spawnOnce "autorandr --change &",
         logHook =
           (dynamicLogString def >>= xmonadPropLog)
             <+> logHook desktopConfig
@@ -62,6 +63,7 @@ myConfig =
                           ("M-S-n", spawn "networkmanager_dmenu"),
                           ("M-n", spawn (myTerminal ++ " -e newsboat")),
                           ("M-s", spawn "spotify"),
+                          ("M-u", spawn "autorandr --change"),
                           ("<XF86MonAudioMute>", spawn "pactl set-sink-mute 0 toggle"),
                           ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%"),
                           ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -5%"),
