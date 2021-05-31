@@ -67,8 +67,8 @@ myConfig =
                           ("<XF86MonAudioMute>", spawn "pactl set-sink-mute 0 toggle"),
                           ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%"),
                           ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -5%"),
-                          ("<XF86MonBrightnessUp>", spawn "light -A 5"),
-                          ("<XF86MonBrightnessDown>", spawn "light -U 5")
+                          ("<XF86MonBrightnessUp>", spawn "light -A 1"),
+                          ("<XF86MonBrightnessDown>", spawn "light -U 1")
                         ]
 
 --------------------------------------------------------------------------------
