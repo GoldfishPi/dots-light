@@ -41,8 +41,8 @@ return require'packer'.startup(function(use)
         'lukas-reineke/format.nvim',
         config = function()
             require"format".setup {
-                -- typescript = {{cmd = {"eslint_d --fix"}}},
-                -- typescriptreact = {{cmd = {"eslint_d --fix"}}},
+                typescript = {{cmd = {"eslint --fix"}}},
+                typescriptreact = {{cmd = {"eslint_d --fix"}}},
                 javascript = {{cmd = {"eslint_d --fix"}}},
                 rust = {{cmd = {"rustfmt"}}},
                 lua = {
@@ -97,7 +97,7 @@ return require'packer'.startup(function(use)
                         "!xmonad --recompile && xmonad --restart"
                     }
                 },
-                Scripts = {{"BufWinEnter", "~/scripts/**", "set ft=sh"}},
+                -- Scripts = {{"BufWinEnter", "~/scripts/**", "set ft=sh"}},
                 Format = {{"BufWritePost", "*", "FormatWrite"}},
                 AutoSaveFolds = {
                     {

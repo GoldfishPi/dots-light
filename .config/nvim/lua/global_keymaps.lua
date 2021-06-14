@@ -27,16 +27,15 @@ map('n', [[<leader>']], '"+p', {noremap = true})
 -- BUFFER
 map('n', 'J', '<cmd>tabprevious<CR>', {noremap = true})
 map('n', 'K', '<cmd>tabnext<CR>', {noremap = true})
-map('n', 'Q', '<cmd>BufferClose<CR>', {noremap = true})
 map('n', '<leader>u', '<cmd>tabnew<CR>', {noremap = true})
 
 -- Search
 map('n', '<leader>ff',
     [[:lua require('telescope.builtin').find_files({previewer = false, width = 0.2})<CR>]],
-    {noremap = true})
+    {noremap = true, silent = true})
 map('n', '<leader>fg',
     [[:lua require('telescope.builtin').live_grep({previewer = false, width = 0.2})<CR>]],
-    {noremap = true})
+    {noremap = true, silent = true})
 map('n', '<leader>fb', '<cmd>Telescope buffers<CR>', {noremap = true})
 map('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', {noremap = true})
 map('n', '<leader>fr', '<cmd>Telescope branches<CR>', {noremap = true})
