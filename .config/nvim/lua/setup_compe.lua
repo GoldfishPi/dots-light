@@ -13,7 +13,7 @@ require'compe'.setup {
     max_kind_width = 100,
     max_menu_width = 100,
     documentation = true,
-    source = {nvim_lsp = true, vsnip = true}
+    source = {nvim_lsp = true, vsnip = true, treesitter = true}
 }
 
 local t = function(str)

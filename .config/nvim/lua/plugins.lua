@@ -8,6 +8,7 @@ return require'packer'.startup(function(use)
     use 'mustache/vim-mustache-handlebars'
 
     use "Pocco81/TrueZen.nvim"
+    use "folke/lua-dev.nvim"
 
     use {
         'nvim-telescope/telescope.nvim',
