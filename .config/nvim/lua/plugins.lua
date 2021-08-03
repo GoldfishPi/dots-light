@@ -7,6 +7,8 @@ return require'packer'.startup(function(use)
 
     use 'mustache/vim-mustache-handlebars'
 
+    use "Pocco81/TrueZen.nvim"
+
     use {
         'nvim-telescope/telescope.nvim',
         requires = {
@@ -34,6 +36,14 @@ return require'packer'.startup(function(use)
                 }
             }
             require('telescope').load_extension('fzf')
+        end
+    }
+    use {
+        'phaazon/hop.nvim',
+        as = 'hop',
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require'hop'.setup {keys = 'arstgmneio', extend_visual = true}
         end
     }
 
