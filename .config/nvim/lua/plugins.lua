@@ -9,6 +9,12 @@ return require'packer'.startup(function(use)
 
     use "Pocco81/TrueZen.nvim"
     use "folke/lua-dev.nvim"
+    use {
+        'mfussenegger/nvim-dap',
+        config = function()
+            require 'setup_dap'
+        end
+    }
 
     use {
         'nvim-telescope/telescope.nvim',
@@ -64,9 +70,16 @@ return require'packer'.startup(function(use)
     use {
         'folke/tokyonight.nvim',
         requires = {
-            'nvim-treesitter/nvim-treesitter-textobjects',
-            {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'},
-            'kyazdani42/nvim-web-devicons', 'hoob3rt/lualine.nvim'
+            'nvim-treesitter/playground',
+            {
+                'nvim-treesitter/nvim-treesitter-textobjects',
+                branch = '0.5-compat'
+            },
+            {
+                'nvim-treesitter/nvim-treesitter',
+                run = ':TSUpdate',
+                branch = '0.5-compat'
+            }, 'kyazdani42/nvim-web-devicons', 'hoob3rt/lualine.nvim'
         },
         config = function()
             vim.cmd [[colorscheme tokyonight]]

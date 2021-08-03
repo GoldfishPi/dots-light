@@ -62,7 +62,7 @@ map('n', '<leader>gl', '<cmd>Git log<CR>', {noremap = true, silent = true})
 -- LSP
 map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
     {noremap = true})
-map('n', '<leader>cr', '<cmd>Telescope lsp_references<CR>', {noremap = true})
+map('n', '<leader>cr', '<cmd>lua vim.lsp.buf.references()<CR>', {noremap = true})
 
 map('n', '<leader>cn', '<cmd>lua vim.lsp.buf.rename()<CR>', {noremap = true})
 
