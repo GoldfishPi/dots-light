@@ -6,23 +6,23 @@ map('i', 'Ii', '<ESC>', {noremap = true})
 
 map('n', '<leader>n', ':NvimTreeToggle<CR>', {})
 
-map('n', '<leader>h', ':wincmd h<CR>', {noremap = true})
-map('n', '<leader>l', ':wincmd l<CR>', {noremap = true})
-map('n', '<leader>j', ':wincmd j<CR>', {noremap = true})
-map('n', '<leader>k', ':wincmd k<CR>', {noremap = true})
-
-map('n', '<leader>sv', ':vsplit<CR>', {noremap = true})
-map('n', '<leader>sh', ':split<CR>', {noremap = true})
 map('n', '<leader>f', ':Dirvish %<CR>', {noremap = true})
 
 map('n', '<leader>tt', ':TestFile<CR>', {noremap = true})
 
-map('n', '<leader>w', ':w<CR>', {noremap = true})
-map('n', '<leader>q', ':q<CR>', {noremap = true})
-map('n', '<leader>Q', ':wqa<CR>', {noremap = true})
+map('n', '<leader>wf', ':TZFocus<CR>', {noremap = true})
+map('n', '<leader>wz', ':TZAtaraxis<CR>', {noremap = true})
 
 map('n', '<leader>"', '"+', {noremap = true})
 map('n', [[<leader>']], '"+p', {noremap = true})
+
+map('n', '<leader>s', ':HopWord<CR>', {noremap = true, silent = true})
+map('n', '<leader>l', ':HopLine<CR>', {noremap = true, silent = true})
+
+-- PACKER
+map('n', '<leader>pu', ':PackerUpdate<CR>', {});
+map('n', '<leader>pc', ':PackerCompile<CR>', {});
+map('n', '<leader>ps', ':PackerStatus<CR>', {});
 
 -- BUFFER
 map('n', 'J', '<cmd>tabprevious<CR>', {noremap = true})
@@ -31,14 +31,15 @@ map('n', '<leader>u', '<cmd>tabnew<CR>', {noremap = true})
 
 -- Search
 map('n', '<leader>ff',
-    [[:lua require('telescope.builtin').find_files({previewer = false, width = 0.2})<CR>]],
+    [[:lua require('telescope.builtin').find_files({previewer = false})<CR>]],
     {noremap = true, silent = true})
 map('n', '<leader>fg',
-    [[:lua require('telescope.builtin').live_grep({previewer = false, width = 0.2})<CR>]],
+    [[:lua require('telescope.builtin').live_grep({previewer = false})<CR>]],
     {noremap = true, silent = true})
 map('n', '<leader>fb', '<cmd>Telescope buffers<CR>', {noremap = true})
 map('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', {noremap = true})
 map('n', '<leader>fr', '<cmd>Telescope branches<CR>', {noremap = true})
+map('n', '<leader>fs', '<cmd>Telescope grep_string<CR>', {noremap = true})
 
 -- GIT
 map('n', '<leader>gg', '<cmd>Git<CR>', {noremap = true})

@@ -1,7 +1,7 @@
 vim.api.nvim_set_option('tabstop', 4)
 vim.api.nvim_set_option('softtabstop', 4)
 vim.api.nvim_set_option('shiftwidth', 4)
-vim.cmd 'expandtab'
+vim.cmd 'set expandtab'
 
 vim.api.nvim_set_option('number', true)
 vim.api.nvim_set_option('showcmd', true)
