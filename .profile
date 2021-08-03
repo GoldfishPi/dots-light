@@ -1,5 +1,5 @@
 export EDITOR="nvim"
-export TERMINAL="termite"
+export TERMINAL="kitty"
 export BROWSER="firefox"
 export READER="zathura"
 

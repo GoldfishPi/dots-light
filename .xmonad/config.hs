@@ -28,7 +28,7 @@ barPP =
 
 toggleStrutsKey XConfig {XMonad.modMask = _modMask} = (_modMask, xK_b)
 
-myTerminal = "alacritty"
+myTerminal = "kitty"
 
 myConfig =
   ewmh $
@@ -38,7 +38,6 @@ myConfig =
         normalBorderColor = colorSecondary,
         manageHook = myManageHook <+> manageHook desktopConfig,
         layoutHook = desktopLayoutModifiers myLayouts,
-        handleEventHook = fullscreenEventHook,
         startupHook = do
           spawnOnce "$HOME/scripts/screen/wallpaper.sh &"
           spawnOnce "picom &"
@@ -51,7 +50,7 @@ myConfig =
       `additionalKeysP` [ ("M-r", spawn "xmonad --recompile && xmonad --restart"),
                           ("M-S-x", spawn "dm-tool lock"),
                           ("M-q", kill),
-                          ("M-S-<Return>", spawn "alacritty"),
+                          ("M-S-<Return>", spawn myTerminal),
                           ("M-<Space>", sendMessage (Toggle "Full") <+> sendMessage ToggleStruts),
                           ("M-p", spawn "dmenu_run"),
                           ("M-f", spawn "firefox"),
@@ -109,5 +108,8 @@ myManageHook =
     <+> composeAll
       [ className =? "Pidgin" --> doFloat,
         className =? "XCalc" --> doFloat,
-        className =? "mpv" --> doFloat
+        className =? "mpv" --> doFloat,
+        className =? "firefox" --> doShift "2",
+        (className =? "Slack") --> doShift "3",
+        manageDocks
       ]
