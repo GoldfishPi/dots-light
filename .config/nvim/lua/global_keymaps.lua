@@ -19,6 +19,13 @@ map('n', [[<leader>']], '"+p', {noremap = true})
 map('n', '<leader>s', ':HopWord<CR>', {noremap = true, silent = true})
 map('n', '<leader>l', ':HopLine<CR>', {noremap = true, silent = true})
 
+-- Quickfix
+map('n', [[<C-j>]], ':cnext<CR>', {noremap = true, silent = true})
+map('n', [[<C-k>]], ':cprev<CR>', {noremap = true, silent = true})
+
+map('n', '<leader>qo', ':copen<CR>', {});
+map('n', '<leader>qq', ':cclose<CR>', {});
+
 -- PACKER
 map('n', '<leader>pu', ':PackerUpdate<CR>', {});
 map('n', '<leader>pc', ':PackerCompile<CR>', {});
@@ -30,8 +37,7 @@ map('n', 'K', '<cmd>tabnext<CR>', {noremap = true})
 map('n', '<leader>u', '<cmd>tabnew<CR>', {noremap = true})
 
 -- Search
-map('n', '<leader>ff',
-    [[:lua require('telescope.builtin').find_files({previewer = false})<CR>]],
+map('n', '<leader>ff', [[:lua require('telescope.builtin').find_files({})<CR>]],
     {noremap = true, silent = true})
 map('n', '<leader>fg',
     [[:lua require('telescope.builtin').live_grep({previewer = false})<CR>]],
