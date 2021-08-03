@@ -64,6 +64,7 @@ return require'packer'.startup(function(use)
     use {
         'folke/tokyonight.nvim',
         requires = {
+            'nvim-treesitter/nvim-treesitter-textobjects',
             {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'},
             'kyazdani42/nvim-web-devicons', 'hoob3rt/lualine.nvim'
         },
