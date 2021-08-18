@@ -6,8 +6,6 @@ map('i', 'Ii', '<ESC>', {noremap = true})
 
 map('n', '<leader>n', ':NvimTreeToggle<CR>', {})
 
-map('n', '<leader>f', ':Dirvish %<CR>', {noremap = true})
-
 map('n', '<leader>tt', ':TestFile<CR>', {noremap = true})
 
 map('n', '<leader>wf', ':TZFocus<CR>', {noremap = true})
