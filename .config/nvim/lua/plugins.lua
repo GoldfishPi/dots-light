@@ -1,26 +1,22 @@
 return require'packer'.startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    use 'justinmk/vim-dirvish'
+    use {"Pocco81/TrueZen.nvim", opt = true, cmd = {'TZFocus', 'TZAtaraxis'}}
+    use {'tpope/vim-fugitive', opt = true, cmd = {'G'}}
+
     use 'tpope/vim-commentary'
-    use 'tpope/vim-fugitive'
+    use 'justinmk/vim-dirvish'
 
     use 'mustache/vim-mustache-handlebars'
 
-    use "Pocco81/TrueZen.nvim"
     use "folke/lua-dev.nvim"
-    use {
-        'mfussenegger/nvim-dap',
-        config = function()
-            require 'setup_dap'
-        end
-    }
 
     use {
         'nvim-telescope/telescope.nvim',
         requires = {
             'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope-fzf-native.nvim'
+            {'nvim-telescope/telescope-fzf-native.nvim', run = "make"}
+
         },
         run = 'make',
         config = function()

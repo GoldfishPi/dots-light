@@ -2,12 +2,6 @@ local lspconfig = require 'lspconfig';
 local lsp = require 'lspconfig';
 local configs = require 'lspconfig/configs';
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = {'documentation', 'detail', 'additionalTextEdits'}
-}
-
 lspconfig.rls.setup {}
 lspconfig.vuels.setup {}
 lspconfig.tsserver.setup {}

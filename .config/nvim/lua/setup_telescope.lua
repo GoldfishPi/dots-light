@@ -1,11 +1,9 @@
-
 local actions = require('telescope.actions');
 require('telescope').setup {
     defaults = {
         file_sorter = require('telescope.sorters').get_fzy_sorter,
         file_ignore_patterns = {
-            "%.png", "*.jpg", "node_modules/*", ".dist/*",
-            ".build/*"
+            "%.png", "*.jpg", "node_modules/*", ".dist/*", ".build/*"
         },
         mappings = {i = {["<c-CR>"] = actions.git_create_branch}}
     },
