@@ -43,3 +43,5 @@ require'nvim-treesitter.configs'.setup {
         }
     }
 }
+
+require'nvim-treesitter.configs'.setup {context_commentstring = {enable = true}}

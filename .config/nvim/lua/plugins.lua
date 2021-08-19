@@ -65,25 +65,13 @@ return require'packer'.startup(function(use)
 
     use {
         'folke/tokyonight.nvim',
-        requires = {
-            'nvim-treesitter/playground',
-            {
-                'nvim-treesitter/nvim-treesitter-textobjects',
-                branch = '0.5-compat'
-            },
-            {
-                'nvim-treesitter/nvim-treesitter',
-                run = ':TSUpdate',
-                branch = '0.5-compat'
-            }, 'kyazdani42/nvim-web-devicons', 'hoob3rt/lualine.nvim'
-        },
+        requires = {'kyazdani42/nvim-web-devicons', 'hoob3rt/lualine.nvim'},
         config = function()
             vim.cmd [[colorscheme tokyonight]]
             require('lualine').setup {
                 options = {theme = 'tokyonight'},
                 extensions = {'fugitive', 'nvim-tree'}
             }
-            require 'setup_treesitter'
         end
     }
 
@@ -111,6 +99,23 @@ return require'packer'.startup(function(use)
             }
 
             nvim_create_augroups(autocmds)
+        end
+    }
+
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        branch = '0.5-compat',
+        requires = {
+            'nvim-treesitter/playground',
+            'JoosepAlviste/nvim-ts-context-commentstring',
+            {
+                'nvim-treesitter/nvim-treesitter-textobjects',
+                branch = '0.5-compat'
+            }
+        },
+        config = function()
+            require 'setup_treesitter'
         end
     }
 
