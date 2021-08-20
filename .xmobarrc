@@ -3,11 +3,11 @@ Config {
    -- appearance
      font =         "xft:Mononoki Nerd Font:size=10:bold:antialias=true"
    , additionalFonts = [ "xft:FontAwesome:pixelsize=13" ]
-   , bgColor =      "#292f36"
-   , fgColor =      "#c3c7d1"
+   , bgColor =      "#1f2335"
+   , fgColor =      "#c3c7d2"
    , position =     Top
    , border =       BottomB
-   , borderColor =  "#646464"
+   , borderColor =  "#1f2335"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
