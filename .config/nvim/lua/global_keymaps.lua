@@ -27,6 +27,9 @@ map('n', '<leader>pc', ':PackerCompile<CR>', {});
 map('n', '<leader>ps', ':PackerStatus<CR>', {});
 
 -- BUFFER
+map('n', '<leader>bc', '<cmd>bufdo bd<CR>', {noremap = true})
+
+-- TABS
 map('n', 'J', '<cmd>tabprevious<CR>', {noremap = true})
 map('n', 'K', '<cmd>tabnext<CR>', {noremap = true})
 map('n', '<leader>u', '<cmd>tabnew<CR>', {noremap = true})
