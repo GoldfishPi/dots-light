@@ -17,7 +17,6 @@ return require'packer'.startup(function(use)
             {'nvim-telescope/telescope-fzf-native.nvim', run = "make"}
 
         },
-        branch = 'async_v2',
         run = 'make',
         config = function()
             require "setup_telescope"
