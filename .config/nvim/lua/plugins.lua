@@ -1,7 +1,6 @@
 return require'packer'.startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    use {"Pocco81/TrueZen.nvim", opt = true, cmd = {'TZFocus', 'TZAtaraxis'}}
     use {'tpope/vim-fugitive', opt = true, cmd = {'G'}}
 
     use 'tpope/vim-commentary'

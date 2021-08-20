@@ -8,9 +8,6 @@ map('n', '<leader>n', ':NvimTreeToggle<CR>', {})
 
 map('n', '<leader>tt', ':TestFile<CR>', {noremap = true})
 
-map('n', '<leader>wf', ':TZFocus<CR>', {noremap = true})
-map('n', '<leader>wz', ':TZAtaraxis<CR>', {noremap = true})
-
 map('n', '<leader>"', '"+', {noremap = true})
 map('n', [[<leader>']], '"+p', {noremap = true})
 
