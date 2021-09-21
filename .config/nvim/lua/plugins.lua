@@ -32,25 +32,6 @@ return require'packer'.startup(function(use)
     }
 
     use {
-        'lukas-reineke/format.nvim',
-        config = function()
-            require"format".setup {
-                typescript = {{cmd = {"eslint --fix"}}},
-                typescriptreact = {{cmd = {"eslint_d --fix"}}},
-                javascript = {{cmd = {"eslint_d --fix"}}},
-                rust = {{cmd = {"rustfmt"}}},
-                lua = {
-                    {
-                        cmd = {
-                            "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=80 --break-after-table-lb"
-                        }
-                    }
-                }
-            }
-        end
-    }
-
-    use {
         'hrsh7th/nvim-compe',
         requires = {
             'hrsh7th/vim-vsnip', 'rafamadriz/friendly-snippets',
@@ -88,7 +69,12 @@ return require'packer'.startup(function(use)
                     }
                 },
                 -- Scripts = {{"BufWinEnter", "~/scripts/**", "set ft=sh"}},
-                Format = {{"BufWritePost", "*", "FormatWrite"}},
+                Format = {
+                    {
+                        "BufWritePost", "*.tsx,*.lua,*.js",
+                        "lua vim.lsp.buf.formatting_sync(nil, 1000)"
+                    }
+                },
                 AutoSaveFolds = {
                     {
                         "BufWinLeave,BufLeave,BufWritePost,BufHidden,QuitPre",

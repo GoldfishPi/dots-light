@@ -4,14 +4,24 @@ local configs = require 'lspconfig/configs';
 
 lspconfig.rls.setup {}
 lspconfig.vuels.setup {}
-lspconfig.tsserver.setup {}
+lspconfig.tsserver.setup {
+    on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+    end
+}
 
 lspconfig.sumneko_lua.setup(require("lua-dev").setup({
-    lspconfig = {cmd = {"lua-language-server"}}
+    lspconfig = {
+        cmd = {"lua-language-server"},
+    }
 }))
 
 lspconfig.hls.setup {}
-lspconfig.denols.setup {}
+lspconfig.denols.setup {
+    on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+    end
+}
 
 local eslint = {
     lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
@@ -60,4 +70,3 @@ lspconfig.efm.setup {
         "typescript.tsx", "typescriptreact"
     }
 }
-
