@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -Wno-name-shadowing #-}
 module Main (main) where
 
 --------------------------------------------------------------------------------
@@ -12,10 +13,15 @@ import XMonad.Layout.NoBorders (noBorders)
 import XMonad.Layout.ResizableTile (ResizableTall (..))
 import XMonad.Layout.ToggleLayouts (ToggleLayout (..), toggleLayouts)
 import XMonad.Util.EZConfig
-import XMonad.Util.Run
+-- import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
+import qualified XMonad.StackSet as W
+import Control.Monad
+import Data.List
+import Data.Function
+import XMonad.Util.NamedWindows
 
-bar = "xmobar"
+bar = "xmobar ~/.xmonad/xmobar.hs"
 
 colorPrimary = "#7cb7e1"
 
@@ -45,7 +51,7 @@ myConfig =
           spawnOnce "autorandr --change &",
         logHook =
           (dynamicLogString def >>= xmonadPropLog)
-            <+> logHook desktopConfig
+            <+> logHook desktopConfig <+> eventLogHookForPolyBar
       }
       `additionalKeysP` [ ("M-r", spawn "xmonad --recompile && xmonad --restart"),
                           ("M-S-x", spawn "dm-tool lock"),
@@ -53,6 +59,7 @@ myConfig =
                           ("M-S-<Return>", spawn myTerminal),
                           ("M-<Space>", sendMessage (Toggle "Full") <+> sendMessage ToggleStruts),
                           ("M-p", spawn "dmenu_run"),
+                          -- ("M-f", spawn "systemd-run --scope -p MemoryLimit=1000M --user firefox"),
                           ("M-f", spawn "firefox"),
                           ("M-i", spawn (myTerminal ++ " -e neomutt")),
                           ("M-o", spawn "openfolder"),
@@ -72,8 +79,6 @@ myConfig =
 
 --------------------------------------------------------------------------------
 main = do
-  _ <- spawnPipe "xmobar -d $HOME/.xmonad/xmobar.hs"
-
   -- Start xmonad using the main desktop configuration with a few
   -- simple overrides:
   -- ("M-S-q", confirmPrompt myXPConfig "exit" (io exitSuccess)), -- Add some extra key bindings:
@@ -113,3 +118,18 @@ myManageHook =
         (className =? "Slack") --> doShift "3",
         manageDocks
       ]
+
+eventLogHookForPolyBar = do
+    winset <- gets windowset
+    title <- maybe (return "") (fmap show . getName) . W.peek $ winset
+    let currWs = W.currentTag winset
+    let wss = map W.tag $ W.workspaces winset
+
+    io $ appendFile "/tmp/.xmonad-title-log" (title ++ "\n")
+    io $ appendFile "/tmp/.xmonad-workspace-log" (wsStr currWs wss ++ "\n")
+
+    where
+      fmt currWs ws
+            | currWs == ws = "[" ++ ws ++ "]"
+            | otherwise    = " " ++ ws ++ " "
+      wsStr currWs wss = join $ map (fmt currWs) $ sortBy (compare `on` (!! 0)) wss
