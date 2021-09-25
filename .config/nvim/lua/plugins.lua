@@ -104,4 +104,12 @@ return require'packer'.startup(function(use)
         end
     }
 
+    use {
+        'windwp/nvim-projectconfig',
+        config = function()
+            require('nvim-projectconfig').load_project_config()
+            require 'project_settings'
+        end
+    }
+
 end)
