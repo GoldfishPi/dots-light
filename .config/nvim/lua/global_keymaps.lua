@@ -77,11 +77,3 @@ map('n', '<leader>dn', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',
     {noremap = true})
 map('n', '<leader>dp', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',
     {noremap = true})
-
-map('i', '<C-Space>', 'compe#complete()<CR>',
-    {noremap = true, silent = true, expr = true})
-map('i', '<CR>', "compe#confirm('<CR>')",
-    {noremap = true, silent = true, expr = true})
-map('i', '<C-Space>', "compe#complete('<C-e>')",
-    {noremap = true, silent = true, expr = true})
-

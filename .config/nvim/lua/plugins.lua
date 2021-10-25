@@ -32,13 +32,16 @@ return require'packer'.startup(function(use)
     }
 
     use {
-        'hrsh7th/nvim-compe',
+        'hrsh7th/nvim-cmp',
         requires = {
-            'hrsh7th/vim-vsnip', 'rafamadriz/friendly-snippets',
-            'neovim/nvim-lspconfig'
+            'hrsh7th/cmp-nvim-lsp',
+            'quangnguyen30192/cmp-nvim-ultisnips',
+            'neovim/nvim-lspconfig',
+            'SirVer/ultisnips',
+            'mfussenegger/nvim-lint',
         },
         config = function()
-            require 'setup_compe'
+            require 'setup_cmp'
             require 'setup_lsp'
         end
     }
@@ -68,10 +71,15 @@ return require'packer'.startup(function(use)
                         "!xmonad --recompile && xmonad --restart"
                     }
                 },
-                -- Scripts = {{"BufWinEnter", "~/scripts/**", "set ft=sh"}},
+                TickrReact = {
+                    {
+                        "BufWinEnter", "/htdocs/tickr-react/**/*", 
+                        "set shiftwidth=2 & set tabstop=2 & set softtabstop=2"
+                    }
+                },
                 Format = {
                     {
-                        "BufWritePost", "*.tsx,*.lua,*.js",
+                        "BufWritePost", "*.ts,*.tsx,*.lua,*.js",
                         "lua vim.lsp.buf.formatting_sync(nil, 1000)"
                     }
                 },
@@ -80,6 +88,12 @@ return require'packer'.startup(function(use)
                         "BufWinLeave,BufLeave,BufWritePost,BufHidden,QuitPre",
                         "?*", "nested silent! mkview!"
                     }, {"BufWinEnter", "?*?", "silent! loadview"}
+                },
+                NvimLint = {
+                    {
+                        "BufWritePost, BufEnter", "*",
+                        {"lua require('lint').try_lint()"}
+                    }
                 }
             }
 
