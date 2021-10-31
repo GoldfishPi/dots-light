@@ -22,12 +22,12 @@ lspconfig.sumneko_lua.setup(require("lua-dev").setup({
 lspconfig.hls.setup {
     capabilities = capabilities,
 }
-lspconfig.denols.setup {
-    capabilities = capabilities,
-    on_attach = function(client)
-        client.resolved_capabilities.document_formatting = false
-    end
-}
+-- lspconfig.denols.setup {
+--     capabilities = capabilities,
+--     on_attach = function(client)
+--         client.resolved_capabilities.document_formatting = false
+--     end
+-- }
 
 local eslint = {
     lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
