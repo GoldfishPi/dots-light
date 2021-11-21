@@ -8,8 +8,6 @@ return require'packer'.startup(function(use)
 
     use 'mustache/vim-mustache-handlebars'
 
-    use "folke/lua-dev.nvim"
-
     use {
         'nvim-telescope/telescope.nvim',
         requires = {
@@ -34,6 +32,7 @@ return require'packer'.startup(function(use)
     use {
         'hrsh7th/nvim-cmp',
         requires = {
+            'folke/lua-dev.nvim',
             'hrsh7th/cmp-nvim-lsp',
             'quangnguyen30192/cmp-nvim-ultisnips',
             'neovim/nvim-lspconfig',

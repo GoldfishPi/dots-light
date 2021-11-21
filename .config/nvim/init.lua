@@ -38,6 +38,7 @@ vim.api.nvim_command 'set nu rnu'
 vim.api.nvim_command 'syntax on'
 vim.api.nvim_command 'set noswapfile'
 vim.cmd [[highlight link CompeDocumentation NormalFloat]]
+vim.cmd [[let g:fugitive_pty = 0]]
 
 require 'global_keymaps'
 require 'plugins'
