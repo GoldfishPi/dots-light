@@ -1,6 +1,6 @@
 export EDITOR="nvim"
 export TERMINAL="kitty"
-export BROWSER="firefox"
+export BROWSER="brave-browser-nightly"
 export READER="zathura"
 
 export ZDOTDIR="$HOME/.config/zsh"
