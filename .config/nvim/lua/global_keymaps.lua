@@ -14,6 +14,8 @@ map('n', [[<leader>']], '"+p', {noremap = true})
 map('n', '<leader>s', ':HopWord<CR>', {noremap = true, silent = true})
 map('n', '<leader>l', ':HopLine<CR>', {noremap = true, silent = true})
 
+map('i', '<C-l>', '<cmd>lua require "pears".expand()<CR>', {noremap = true, silent = true})
+
 -- Quickfix
 map('n', [[<C-j>]], ':cnext<CR>', {noremap = true, silent = true})
 map('n', [[<C-k>]], ':cprev<CR>', {noremap = true, silent = true})

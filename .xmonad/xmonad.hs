@@ -20,7 +20,6 @@ import Control.Monad
 import Data.List
 import Data.Function
 import XMonad.Util.NamedWindows
-import XMonad.Hooks.WindowSwallowing
 
 bar = "xmobar ~/.xmonad/xmobar.hs"
 
@@ -34,10 +33,11 @@ barPP =
     }
 
 toggleStrutsKey XConfig {XMonad.modMask = _modMask} = (_modMask, xK_b)
-myHandleEventHook = swallowEventHook (className =? "Alacritty" <||> className =? "Termite" <||> className =? "kitty") (return True)
 
 myTerminal = "kitty"
 myBrowser = "brave-browser-nightly"
+
+openTerminal app = myTerminal ++ " -e " ++ app
 
 myConfig =
   ewmh $
@@ -47,7 +47,6 @@ myConfig =
         normalBorderColor = colorSecondary,
         manageHook = myManageHook <+> manageHook desktopConfig,
         layoutHook = desktopLayoutModifiers myLayouts,
-        handleEventHook = myHandleEventHook,
         startupHook = do
           spawnOnce "$HOME/scripts/screen/wallpaper.sh &"
           spawnOnce "picom &"
@@ -66,15 +65,18 @@ myConfig =
                           ("M-p", spawn "dmenu_run"),
                           -- ("M-f", spawn "systemd-run --scope -p MemoryLimit=1000M --user firefox"),
                           ("M-f", spawn myBrowser),
-                          ("M-i", spawn (myTerminal ++ " -e neomutt")),
+                          ("M-i", spawn $ openTerminal "neomutt"),
                           ("M-o", spawn "openfolder"),
                           ("M-S-o", spawn "startws"),
                           ("M-a", spawn "attachws"),
                           ("M-c", spawn "cfgfiles"),
                           ("M-S-n", spawn "networkmanager_dmenu"),
-                          ("M-n", spawn (myTerminal ++ " -e newsboat")),
+                          ("M-n", spawn $ openTerminal "newsboat"),
+                          ("M-w", spawn $ openTerminal "weather"),
+                          ("M-w", spawn $ openTerminal "weather"),
                           ("M-s", spawn "spotify"),
                           ("M-u", spawn "autorandr --change"),
+                          ("M-g", spawn "maim -s -u | xclip -selection clipboard -t image/png -i"),
                           ("<XF86MonAudioMute>", spawn "pactl set-sink-mute 0 toggle"),
                           ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%"),
                           ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -5%"),
