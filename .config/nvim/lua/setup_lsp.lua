@@ -102,16 +102,16 @@ lspconfig.efm.setup {
     end,
     settings = {
         languages = {
-            javascript = {eslint},
-            javascriptreact = {eslint},
-            ["javascript.jsx"] = {eslint},
+            -- javascript = {eslint},
+            -- javascriptreact = {eslint},
+            -- ["javascript.jsx"] = {eslint},
             typescript = {eslint},
             ["typescript.tsx"] = {eslint, codespell},
             typescriptreact = {eslint, codespell}
         }
     },
     filetypes = {
-        "javascript", "javascriptreact", "javascript.jsx", "typescript",
+        -- "javascript", "javascriptreact", "javascript.jsx", "typescript",
         "typescript.tsx", "typescriptreact"
     }
 }

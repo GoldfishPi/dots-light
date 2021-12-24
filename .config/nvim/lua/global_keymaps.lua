@@ -37,6 +37,7 @@ map('n', '<leader>u', '<cmd>tabnew<CR>', {noremap = true})
 -- Search
 map('n', '<leader>ff', [[:lua require('telescope.builtin').find_files({})<CR>]],
     {noremap = true, silent = true})
+map('n', '<leader>ft', [[:lua find_tests()<CR>]], {silent = false})
 map('n', '<leader>fg', [[:lua require('telescope.builtin').live_grep({})<CR>]],
     {noremap = true, silent = true})
 map('n', '<leader>fb', '<cmd>Telescope buffers<CR>', {noremap = true})

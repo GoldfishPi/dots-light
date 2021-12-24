@@ -7,6 +7,10 @@ return require'packer'.startup(function(use)
     use 'justinmk/vim-dirvish'
 
     use 'mustache/vim-mustache-handlebars'
+    use 'editorconfig/editorconfig-vim'
+    use {'steelsojka/pears.nvim', config = function ()
+        require "pears".setup()
+    end}
 
     use {
         'nvim-telescope/telescope.nvim',
@@ -72,7 +76,7 @@ return require'packer'.startup(function(use)
                 },
                 TickrReact = {
                     {
-                        "BufWinEnter", "/htdocs/tickr-react/**/*", 
+                        "BufWinEnter", "/htdocs/tickr-react/**/*",
                         "set shiftwidth=2 & set tabstop=2 & set softtabstop=2"
                     }
                 },
@@ -90,7 +94,7 @@ return require'packer'.startup(function(use)
                 },
                 NvimLint = {
                     {
-                        "BufWritePost, BufEnter", "*",
+                        "BufWritePost", "*",
                         {"lua require('lint').try_lint()"}
                     }
                 }
@@ -101,12 +105,13 @@ return require'packer'.startup(function(use)
     }
 
     use {
-        'nvim-treesitter/nvim-treesitter',
+        '~/projects/nvim-treesitter',
         run = ':TSUpdate',
         branch = '0.5-compat',
         requires = {
             'nvim-treesitter/playground',
             'JoosepAlviste/nvim-ts-context-commentstring',
+            'windwp/nvim-ts-autotag',
             {
                 'nvim-treesitter/nvim-treesitter-textobjects',
                 branch = '0.5-compat'
