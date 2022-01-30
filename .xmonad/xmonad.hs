@@ -21,6 +21,7 @@ import Data.List
 import Data.Function
 import XMonad.Util.NamedWindows
 
+
 bar = "xmobar ~/.xmonad/xmobar.hs"
 
 colorPrimary = "#7cb7e1"
@@ -72,14 +73,14 @@ myConfig =
                           ("M-c", spawn "cfgfiles"),
                           ("M-S-n", spawn "networkmanager_dmenu"),
                           ("M-n", spawn $ openTerminal "newsboat"),
-                          ("M-w", spawn $ openTerminal "weather"),
-                          ("M-w", spawn $ openTerminal "weather"),
+                          -- ("M-W", spawn $ openTerminal "weather"),
+                          -- ("M-w", spawn $ openTerminal "weather"),
                           ("M-s", spawn "spotify"),
                           ("M-u", spawn "autorandr --change"),
                           ("M-g", spawn "maim -s -u | xclip -selection clipboard -t image/png -i"),
-                          ("<XF86MonAudioMute>", spawn "pactl set-sink-mute 0 toggle"),
-                          ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%"),
-                          ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -5%"),
+                          ("<XF86MonAudioMute>", spawn "amixer set Master toggle"),
+                          ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 2%+"),
+                          ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 2%-"),
                           ("<XF86MonBrightnessUp>", spawn "light -A 1"),
                           ("<XF86MonBrightnessDown>", spawn "light -U 1")
                         ]

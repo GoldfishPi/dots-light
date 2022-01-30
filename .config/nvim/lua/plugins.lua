@@ -12,6 +12,10 @@ return require'packer'.startup(function(use)
         require "pears".setup()
     end}
 
+    use {'b0o/mapx.nvim', config = function ()
+        require 'global_keymaps'
+    end}
+
     use {
         'nvim-telescope/telescope.nvim',
         requires = {

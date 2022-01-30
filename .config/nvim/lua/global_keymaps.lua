@@ -1,8 +1,18 @@
+require'mapx'.setup{ global = false }
+require'octo'.setup()
+local telescope = require 'telescope.builtin';
+
+local  mapx = require 'mapx';
+local nnoremap = mapx.nnoremap;
+local inoremap = mapx.inoremap;
+
+
 local map = vim.api.nvim_set_keymap
 
-map('i', 'ii', '<ESC>', {noremap = true})
-map('i', 'iI', '<ESC>', {noremap = true})
-map('i', 'Ii', '<ESC>', {noremap = true})
+inoremap('ii', '<ESC>')
+-- map('i', 'ii', '<ESC>', {noremap = true})
+-- map('i', 'iI', '<ESC>', {noremap = true})
+-- map('i', 'Ii', '<ESC>', {noremap = true})
 
 map('n', '<leader>n', ':NvimTreeToggle<CR>', {})
 
@@ -37,20 +47,50 @@ map('n', 'K', '<cmd>tabnext<CR>', {noremap = true})
 map('n', '<leader>u', '<cmd>tabnew<CR>', {noremap = true})
 
 -- Search
-map('n', '<leader>ff', [[:lua require('telescope.builtin').find_files({})<CR>]],
-    {noremap = true, silent = true})
-map('n', '<leader>ft', [[:lua find_tests()<CR>]], {silent = false})
-map('n', '<leader>fg', [[:lua require('telescope.builtin').live_grep({})<CR>]],
-    {noremap = true, silent = true})
-map('n', '<leader>fb', '<cmd>Telescope buffers<CR>', {noremap = true})
-map('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', {noremap = true})
-map('n', '<leader>fr', '<cmd>Telescope branches<CR>', {noremap = true})
-map('n', '<leader>fs', '<cmd>Telescope grep_string<CR>', {noremap = true})
+--
+nnoremap('<leader>ff', function ()
+    require'telescope.builtin'.find_files({
+        file_ignore_patterns = {
+            "__tests__"
+        }
+    })
+end)
+nnoremap('<leader>ft', function ()
+    require'telescope.builtin'.find_files({
+        search_dirs = {'src/__tests__/'},
+    })
+end)
+nnoremap('<leader>fg', function ()
+    require'telescope.builtin'.live_grep({
+        file_ignore_patterns = {
+            "__tests__"
+        }
+    })
+end)
+nnoremap('<leader>fb', function ()
+    telescope.buffers({})
+end)
+nnoremap('<leader>fh', function ()
+    telescope.help_tags({})
+end)
+nnoremap('<leader>fs', function ()
+    telescope.grep_string({})
+end)
+
 
 -- GIT
 map('n', '<leader>gg', '<cmd>G<CR>', {noremap = true})
 map('n', '<leader>gb', '<cmd>G blame<CR>', {noremap = true})
-map('n', '<leader>gc', '<cmd>Telescope git_branches<CR>', {noremap = true})
+
+nnoremap('<leader>gc', function ()
+    telescope.git_branches({
+    })
+end)
+
+nnoremap('<leader>gs', function ()
+    telescope.git_status({})
+end)
+
 map('n', '<leader>gs', '<cmd>Telescope git_status<CR>', {noremap = true})
 map('n', '<leader>gr', '<cmd>G reset --hard<CR>',
     {noremap = true, silent = true})

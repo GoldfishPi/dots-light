@@ -1,13 +1,16 @@
 local actions = require('telescope.actions');
-local builtin = require'telescope.builtin';
 local M = {};
 require('telescope').setup {
     defaults = {
         file_sorter = require('telescope.sorters').get_fzy_sorter,
         file_ignore_patterns = {
-            "%.png", "*.jpg", "node_modules/*", ".dist/*", ".build/*", "images/*", "__tests__", "*-lock"
+            "%.png", "*.jpg", "node_modules/*", ".dist/*", ".build/*", "images/*", "*-lock"
         },
-        mappings = {i = {["<c-CR>"] = actions.git_create_branch}}
+        mappings = {
+            i = {
+                ["<C-l>"] = "git_create_branch",
+            }
+        }
     },
     extensions = {
         fzf = {
@@ -18,13 +21,5 @@ require('telescope').setup {
     }
 }
 
-function _G.find_tests()
-    builtin.find_files {
-        file_ignore_patterns = {},
-        winblend = 5,
-        border = true,
-        search_dirs = {'src/__tests__'},
-    }
-end
 require('telescope').load_extension('fzf')
 
