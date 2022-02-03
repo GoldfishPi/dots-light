@@ -1,5 +1,4 @@
 require'mapx'.setup{ global = false }
-require'octo'.setup()
 local telescope = require 'telescope.builtin';
 
 local  mapx = require 'mapx';

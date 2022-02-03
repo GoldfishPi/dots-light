@@ -71,7 +71,7 @@ myConfig =
                           ("M-S-o", spawn "startws"),
                           ("M-a", spawn "attachws"),
                           ("M-c", spawn "cfgfiles"),
-                          ("M-S-n", spawn "networkmanager_dmenu"),
+                          ("M-S-n", spawn "networkmanager_dmenu -l 20"),
                           ("M-n", spawn $ openTerminal "newsboat"),
                           -- ("M-W", spawn $ openTerminal "weather"),
                           -- ("M-w", spawn $ openTerminal "weather"),
