@@ -12,6 +12,30 @@ terminal = "kitty"
 
 [[keybind]]
 command = "Execute"
+value = "amixer -q sset Master 2%+"
+modifier = []
+key = "XF86XK_AudioRaiseVolume"
+
+[[keybind]]
+command = "Execute"
+value = "amixer -q sset Master 2%-"
+modifier = []
+key = "XF86XK_AudioLowerVolume"
+
+[[keybind]]
+command = "Execute"
+value = "light -U 2"
+modifier = []
+key = "XF86XK_MonBrightnessDown"
+
+[[keybind]]
+command = "Execute"
+value = "light -A 2"
+modifier = []
+key = "XF86XK_MonBrightnessUp"
+
+[[keybind]]
+command = "Execute"
 value = "attachws"
 modifier = ["modkey", "Shift"]
 key = "a"
