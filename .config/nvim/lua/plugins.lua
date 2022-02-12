@@ -44,6 +44,7 @@ return require'packer'.startup(function(use)
             'williamboman/nvim-lsp-installer',
         },
         config = function()
+            require 'config/lsp'
             require 'config/cmp'
         end
     }
