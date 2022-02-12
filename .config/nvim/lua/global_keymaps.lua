@@ -5,13 +5,12 @@ local  mapx = require 'mapx';
 local nnoremap = mapx.nnoremap;
 local inoremap = mapx.inoremap;
 
+require'hop'.setup {keys = 'arstgmneio', extend_visual = true}
+
 
 local map = vim.api.nvim_set_keymap
 
 inoremap('ii', '<ESC>')
--- map('i', 'ii', '<ESC>', {noremap = true})
--- map('i', 'iI', '<ESC>', {noremap = true})
--- map('i', 'Ii', '<ESC>', {noremap = true})
 
 map('n', '<leader>n', ':NvimTreeToggle<CR>', {})
 

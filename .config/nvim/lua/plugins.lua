@@ -6,13 +6,16 @@ return require'packer'.startup(function(use)
     use 'tpope/vim-commentary'
     use 'justinmk/vim-dirvish'
 
-    use 'mustache/vim-mustache-handlebars'
     use 'editorconfig/editorconfig-vim'
+
     use {'steelsojka/pears.nvim', config = function ()
         require "pears".setup()
     end}
 
-    use {'b0o/mapx.nvim', config = function ()
+    use {'b0o/mapx.nvim', requires={
+        'phaazon/hop.nvim',
+    }, 
+    config = function ()
         require 'global_keymaps'
     end}
 
@@ -26,14 +29,6 @@ return require'packer'.startup(function(use)
         run = 'make',
         config = function()
             require "setup_telescope"
-        end
-    }
-    use {
-        'phaazon/hop.nvim',
-        as = 'hop',
-        config = function()
-            -- you can configure Hop the way you like here; see :h hop-config
-            require'hop'.setup {keys = 'arstgmneio', extend_visual = true}
         end
     }
 
@@ -57,54 +52,14 @@ return require'packer'.startup(function(use)
         'folke/tokyonight.nvim',
         requires = {'kyazdani42/nvim-web-devicons', 'hoob3rt/lualine.nvim'},
         config = function()
-            vim.cmd [[colorscheme tokyonight]]
-            require('lualine').setup {
-                options = {theme = 'tokyonight'},
-                extensions = {'fugitive', 'nvim-tree'}
-            }
+            require 'theme'
         end
     }
 
     use {
         'norcalli/nvim_utils',
         config = function()
-
-            require 'nvim_utils'
-
-            local autocmds = {
-                Xmonad = {
-                    {
-                        "BufWritePost", "~/.xmonad**",
-                        "!xmonad --recompile && xmonad --restart"
-                    }
-                },
-                TickrReact = {
-                    {
-                        "BufWinEnter", "/htdocs/tickr-react/**/*",
-                        "set shiftwidth=2 & set tabstop=2 & set softtabstop=2"
-                    }
-                },
-                Format = {
-                    {
-                        "BufWritePost", "*.ts,*.tsx,*.lua,*.js",
-                        "lua vim.lsp.buf.formatting_sync(nil, 1000)"
-                    }
-                },
-                AutoSaveFolds = {
-                    {
-                        "BufWinLeave,BufLeave,BufWritePost,BufHidden,QuitPre",
-                        "?*", "nested silent! mkview!"
-                    }, {"BufWinEnter", "?*?", "silent! loadview"}
-                },
-                NvimLint = {
-                    {
-                        "BufWritePost", "*",
-                        {"lua require('lint').try_lint()"}
-                    }
-                }
-            }
-
-            nvim_create_augroups(autocmds)
+            require 'auto_cmds'
         end
     }
 
