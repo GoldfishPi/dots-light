@@ -41,10 +41,10 @@ return require'packer'.startup(function(use)
             'neovim/nvim-lspconfig',
             'SirVer/ultisnips',
             'mfussenegger/nvim-lint',
+            'williamboman/nvim-lsp-installer',
         },
         config = function()
             require 'config/cmp'
-            require 'config/lsp'
         end
     }
 
