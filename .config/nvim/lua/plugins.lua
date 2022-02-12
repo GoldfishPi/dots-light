@@ -16,7 +16,7 @@ return require'packer'.startup(function(use)
         'phaazon/hop.nvim',
     }, 
     config = function ()
-        require 'global_keymaps'
+        require 'config/keymaps'
     end}
 
     use {
@@ -28,7 +28,7 @@ return require'packer'.startup(function(use)
         },
         run = 'make',
         config = function()
-            require "setup_telescope"
+            require "config/telescope"
         end
     }
 
@@ -43,8 +43,8 @@ return require'packer'.startup(function(use)
             'mfussenegger/nvim-lint',
         },
         config = function()
-            require 'setup_cmp'
-            require 'setup_lsp'
+            require 'config/cmp'
+            require 'config/lsp'
         end
     }
 
@@ -52,14 +52,14 @@ return require'packer'.startup(function(use)
         'folke/tokyonight.nvim',
         requires = {'kyazdani42/nvim-web-devicons', 'hoob3rt/lualine.nvim'},
         config = function()
-            require 'theme'
+            require 'config/theme'
         end
     }
 
     use {
         'norcalli/nvim_utils',
         config = function()
-            require 'auto_cmds'
+            require 'config/auto_cmds'
         end
     }
 
@@ -77,7 +77,7 @@ return require'packer'.startup(function(use)
             }
         },
         config = function()
-            require 'setup_treesitter'
+            require 'config/treesitter'
         end
     }
 
@@ -85,7 +85,7 @@ return require'packer'.startup(function(use)
         'windwp/nvim-projectconfig',
         config = function()
             require('nvim-projectconfig').load_project_config()
-            require 'project_settings'
+            require 'config/project_settings'
         end
     }
 

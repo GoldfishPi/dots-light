@@ -1,5 +1,7 @@
 require'mapx'.setup{ global = false }
+
 local telescope = require 'telescope.builtin';
+local ignores = require('config/telescope').file_ignores;
 
 local  mapx = require 'mapx';
 local nnoremap = mapx.nnoremap;
@@ -48,9 +50,9 @@ map('n', '<leader>u', '<cmd>tabnew<CR>', {noremap = true})
 --
 nnoremap('<leader>ff', function ()
     require'telescope.builtin'.find_files({
-        file_ignore_patterns = {
+        file_ignore_patterns = vim.list_extend(ignores, {
             "__tests__"
-        }
+        })
     })
 end)
 nnoremap('<leader>ft', function ()
@@ -60,9 +62,9 @@ nnoremap('<leader>ft', function ()
 end)
 nnoremap('<leader>fg', function ()
     require'telescope.builtin'.live_grep({
-        file_ignore_patterns = {
+        file_ignore_patterns = vim.list_extend(ignores, {
             "__tests__"
-        }
+        })
     })
 end)
 nnoremap('<leader>fb', function ()
@@ -89,7 +91,13 @@ nnoremap('<leader>gs', function ()
     telescope.git_status({})
 end)
 
-map('n', '<leader>gs', '<cmd>Telescope git_status<CR>', {noremap = true})
+mapx('<leader>gs', function ()
+    telescope.git_status({})
+end)
+mapx('<leader>gS', function ()
+    telescope.git_stash({})
+end)
+
 map('n', '<leader>gr', '<cmd>G reset --hard<CR>',
     {noremap = true, silent = true})
 map('n', '<leader>gf', '<cmd>G fetch<CR>', {noremap = true, silent = true})
