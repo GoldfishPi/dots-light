@@ -91,10 +91,10 @@ nnoremap('<leader>gs', function ()
     telescope.git_status({})
 end)
 
-mapx('<leader>gs', function ()
+nnoremap('<leader>gs', function ()
     telescope.git_status({})
 end)
-mapx('<leader>gS', function ()
+nnoremap('<leader>gS', function ()
     telescope.git_stash({})
 end)
 
