@@ -24,6 +24,9 @@ map('n', [[<leader>']], '"+p', {noremap = true})
 map('n', '<leader>s', ':HopWord<CR>', {noremap = true, silent = true})
 map('n', '<leader>l', ':HopLine<CR>', {noremap = true, silent = true})
 
+map('n', '<leader>w', ':w<CR>', {noremap = true, silent = true})
+map('n', '<leader>q', ':q<CR>', {noremap = true, silent = true})
+
 map('i', '<C-l>', '<cmd>lua require "pears".expand()<CR>', {noremap = true, silent = true})
 
 -- Quickfix
@@ -46,8 +49,7 @@ map('n', 'J', '<cmd>tabprevious<CR>', {noremap = true})
 map('n', 'K', '<cmd>tabnext<CR>', {noremap = true})
 map('n', '<leader>u', '<cmd>tabnew<CR>', {noremap = true})
 
--- Search
---
+--== SEARCH ==--
 nnoremap('<leader>ff', function ()
     require'telescope.builtin'.find_files({
         file_ignore_patterns = vim.list_extend(ignores, {
@@ -55,9 +57,18 @@ nnoremap('<leader>ff', function ()
         })
     })
 end)
+
+-- find tests
 nnoremap('<leader>ft', function ()
     require'telescope.builtin'.find_files({
         search_dirs = {'src/__tests__/'},
+    })
+end)
+
+-- find mocks
+nnoremap('<leader>fm', function ()
+    require'telescope.builtin'.find_files({
+        search_dirs = {'**/__mocks__/**/*'},
     })
 end)
 nnoremap('<leader>fg', function ()
@@ -76,6 +87,7 @@ end)
 nnoremap('<leader>fs', function ()
     telescope.grep_string({})
 end)
+nnoremap('<leader>fp', ':Telescope projects<CR>')
 
 
 -- GIT
@@ -120,9 +132,24 @@ map('n', '<leader>cD', '<cmd>lua vim.lsp.buf.declaration()<CR>',
     {noremap = true});
 
 -- Diagnostics
-map('n', '<leader>ds',
-    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', {noremap = true})
-map('n', '<leader>dn', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',
-    {noremap = true})
-map('n', '<leader>dp', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',
-    {noremap = true})
+nnoremap('<leader>ds', function ()
+    vim.diagnostic.open_float()
+end);
+nnoremap('<leader>dh', function ()
+    vim.diagnostic.hide()
+end);
+nnoremap('<leader>df', function ()
+    vim.diagnostic.open_float()
+end);
+
+local diagnostic_enabled = true;
+nnoremap('<leader>dd', function ()
+    if diagnostic_enabled then
+        vim.diagnostic.disable()
+        print('Diagnostics Disabled')
+    else
+        vim.diagnostic.enable()
+        print('Diagnostics Enabled')
+    end
+    diagnostic_enabled = not diagnostic_enabled;
+end);

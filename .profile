@@ -1,6 +1,6 @@
 export EDITOR="nvim"
 export TERMINAL="kitty"
-export BROWSER="brave-browser-nightly"
+# export BROWSER="brave-browser-nightly"
 export READER="zathura"
 
 export ZDOTDIR="$HOME/.config/zsh"
@@ -30,5 +30,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$HOME/.ghcup/bin
 export PATH=$PATH:$HOME/go/bin
 export PATH="$HOME/.local/bin:$PATH"
+
+export NEOVIDE_MULTIGRID=1
 
 setxkbmap -option caps:escape

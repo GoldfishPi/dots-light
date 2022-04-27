@@ -10,9 +10,6 @@ M.file_ignores = {
     "%.woff",
     "%.woff2"
 }
-M.say_hello = function()
-    print('hai')
-end
 M.setup = function()
     require('telescope').setup {
         defaults = {
@@ -34,6 +31,7 @@ M.setup = function()
     }
 
     require('telescope').load_extension('fzf')
+    require('telescope').load_extension('projects')
 end
 
 return M

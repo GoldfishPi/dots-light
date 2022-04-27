@@ -8,14 +8,13 @@ return require'packer'.startup(function(use)
 
     use 'editorconfig/editorconfig-vim'
 
-    use {'steelsojka/pears.nvim', config = function ()
-        require "pears".setup()
+    use {'windwp/nvim-autopairs', config = function ()
+      require('nvim-autopairs').setup{}
     end}
 
     use {'b0o/mapx.nvim', requires={
         'phaazon/hop.nvim',
-    }, 
-    config = function ()
+    }, config = function ()
         require 'config/keymaps'
     end}
 
@@ -28,7 +27,7 @@ return require'packer'.startup(function(use)
         },
         run = 'make',
         config = function()
-            require "config/telescope"
+            require("config/telescope").setup()
         end
     }
 
@@ -37,16 +36,24 @@ return require'packer'.startup(function(use)
         requires = {
             'folke/lua-dev.nvim',
             'hrsh7th/cmp-nvim-lsp',
-            'quangnguyen30192/cmp-nvim-ultisnips',
+            'folke/lua-dev.nvim',
+            -- 'quangnguyen30192/cmp-nvim-ultisnips',
             'neovim/nvim-lspconfig',
-            'SirVer/ultisnips',
-            'mfussenegger/nvim-lint',
-            'williamboman/nvim-lsp-installer',
+            -- 'SirVer/ultisnips',
+            -- 'williamboman/nvim-lsp-installer',
+            'jose-elias-alvarez/nvim-lsp-ts-utils',
         },
         config = function()
             require 'config/lsp'
             require 'config/cmp'
         end
+    }
+
+    use {
+      'mfussenegger/nvim-lint',
+      config = function ()
+        require 'config/nvim_lint'
+      end
     }
 
     use {
@@ -57,19 +64,17 @@ return require'packer'.startup(function(use)
         end
     }
 
-    use {
-        'norcalli/nvim_utils',
-        config = function()
-            require 'config/auto_cmds'
-        end
-    }
+    -- use {
+    --     'norcalli/nvim_utils',
+    --     config = function()
+    --         require 'config/auto_cmds'
+    --     end
+    -- }
 
     use {
-        '~/projects/nvim-treesitter',
+        'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
-        branch = '0.5-compat',
         requires = {
-            'nvim-treesitter/playground',
             'JoosepAlviste/nvim-ts-context-commentstring',
             'windwp/nvim-ts-autotag',
             {
@@ -87,6 +92,16 @@ return require'packer'.startup(function(use)
         config = function()
             require('nvim-projectconfig').load_project_config()
             require 'config/project_settings'
+        end
+    }
+    use {
+        "ahmedkhalf/project.nvim",
+        config = function()
+          require("project_nvim").setup {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+          }
         end
     }
 

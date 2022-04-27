@@ -12,6 +12,12 @@ terminal = "kitty"
 
 [[keybind]]
 command = "Execute"
+value = "maim -s -u -o | xclip -selection clipboard -t image/png -i"
+modifier = ["modkey"]
+key = "g"
+
+[[keybind]]
+command = "Execute"
 value = "amixer -q sset Master 2%+"
 modifier = []
 key = "XF86XK_AudioRaiseVolume"

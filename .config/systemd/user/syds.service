@@ -7,6 +7,9 @@ ExecStart=%h/.cargo/bin/syds -d %h/Downloads
 Restart=always
 RestartSec=12
 
+[Path]
+PathChanged=%h/.cargo/bin/syds
+
 [Install]
 WantedBy=default.target
 
