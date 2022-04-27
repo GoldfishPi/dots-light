@@ -3,8 +3,8 @@ local lspconfig = require 'lspconfig';
 lspconfig.sumneko_lua.setup(require('lua-dev').setup {})
 
 lspconfig.tsserver.setup {
-  on_attach = function (client, bufnr)
-    client.resolved_capabilities.document_formatting = false
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false;
     local ts_utils = require("nvim-lsp-ts-utils")
 
     -- defaults
@@ -67,11 +67,10 @@ lspconfig.tsserver.setup {
 
 }
 
-
 local eslint = {
   lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
   lintStdin = true,
-  lintFormats = {"%f(%l,%c): %tarning %m", "%f(%l,%c): %rror %m"},
+  lintFormats = { "%f(%l,%c): %tarning %m", "%f(%l,%c): %rror %m" },
   lintIgnoreExitCode = true,
   formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
   formatStdin = true
@@ -104,9 +103,9 @@ lspconfig.efm.setup {
       -- javascript = {eslint},
       -- javascriptreact = {eslint},
       -- ["javascript.jsx"] = {eslint},
-      typescript = {eslint},
-      ["typescript.tsx"] = {eslint},
-      typescriptreact = {eslint}
+      typescript = { eslint },
+      ["typescript.tsx"] = { eslint },
+      typescriptreact = { eslint }
     }
   },
   filetypes = {
