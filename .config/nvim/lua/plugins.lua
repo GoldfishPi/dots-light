@@ -7,6 +7,9 @@ return require 'packer'.startup(function(use)
   use 'justinmk/vim-dirvish'
 
   use 'editorconfig/editorconfig-vim'
+  use 'rafamadriz/friendly-snippets'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
 
   use { 'windwp/nvim-autopairs', config = function()
     require('nvim-autopairs').setup {}
@@ -36,12 +39,8 @@ return require 'packer'.startup(function(use)
     requires = {
       'folke/lua-dev.nvim',
       'hrsh7th/cmp-nvim-lsp',
-      'folke/lua-dev.nvim',
-      -- 'quangnguyen30192/cmp-nvim-ultisnips',
       'neovim/nvim-lspconfig',
       'jose-elias-alvarez/null-ls.nvim',
-      -- 'SirVer/ultisnips',
-      -- 'williamboman/nvim-lsp-installer',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
     },
     config = function()
@@ -71,9 +70,7 @@ return require 'packer'.startup(function(use)
     requires = {
       'JoosepAlviste/nvim-ts-context-commentstring',
       'windwp/nvim-ts-autotag',
-      {
-        'nvim-treesitter/nvim-treesitter-textobjects'
-      }
+      'nvim-treesitter/nvim-treesitter-textobjects'
     },
     config = function()
       require 'config/treesitter'

@@ -7,29 +7,18 @@ end
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require 'cmp'
+local luasnip = require 'luasnip'
 
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
+require("luasnip.loaders.from_vscode").lazy_load()
 
-local check_back_space = function()
-  local col = vim.fn.col(".") - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
-end
-local press = function(key)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "n", true)
-end
-local has_any_words_before = function()
-  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
-    return false
-  end
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
 cmp.setup({
   snippet = {
+    -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body)
+      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
   },
   mapping = {
@@ -37,69 +26,40 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-Space>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    },
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
 
-    ['<Tab>'] = function(fallback)
-      if not cmp.select_next_item() then
-        if vim.bo.buftype ~= 'prompt' and has_words_before() then
-          cmp.complete()
-        else
-          fallback()
-        end
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
       end
-    end,
+    end, { "i", "s" }),
 
-    ['<S-Tab>'] = function(fallback)
-      if not cmp.select_prev_item() then
-        if vim.bo.buftype ~= 'prompt' and has_words_before() then
-          cmp.complete()
-        else
-          fallback()
-        end
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
       end
-    end,
+    end, { "i", "s" }),
 
-    -- ["<Tab>"] = cmp.mapping(function(fallback)
-    --     if vim.fn.complete_info()["selected"] == -1 and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-    --         press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
-    --     elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-    --         press("<ESC>:call UltiSnips#JumpForwards()<CR>")
-    --     elseif cmp.visible() then
-    --         cmp.select_next_item()
-    --     elseif has_any_words_before() then
-    --         press("<Tab>")
-    --     else
-    --         fallback()
-    --     end
-    -- end, {
-    --         "i",
-    --         "s",
-    --     }),
-    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
-    --     if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-    --         press("<ESC>:call UltiSnips#JumpBackwards()<CR>")
-    --     elseif cmp.visible() then
-    --         cmp.select_prev_item()
-    --     else
-    --         fallback()
-    --     end
-    -- end, {
-    --         "i",
-    --         "s",
-    --     }),
   },
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'ultisnips' },
     { name = 'buffer' },
     { name = 'spelling' },
+    { name = 'luasnip' },
   }
 })
 
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
 
 -- add a lisp filetype (wrap my-function), FYI: Hardcoded = { "clojure", "clojurescript", "fennel", "janet" }
-cmp_autopairs.lisp[#cmp_autopairs.lisp + 1] = "racket"
+-- cmp_autopairs.lisp[#cmp_autopairs.lisp + 1] = "racket"

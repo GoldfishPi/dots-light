@@ -1,5 +1,9 @@
 local lspconfig = require 'lspconfig';
 
+vim.diagnostic.config({
+  virtual_text = false,
+})
+
 lspconfig.sumneko_lua.setup(require('lua-dev').setup {})
 
 lspconfig.tsserver.setup {
@@ -113,3 +117,4 @@ lspconfig.efm.setup {
     "typescript.tsx", "typescriptreact", "typescript"
   }
 }
+

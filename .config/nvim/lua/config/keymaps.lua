@@ -52,30 +52,22 @@ map('n', '<leader>u', '<cmd>tabnew<CR>', { noremap = true })
 --== SEARCH ==--
 nnoremap('<leader>ff', function()
   require 'telescope.builtin'.find_files({
-    file_ignore_patterns = vim.list_extend(ignores, {
-      "__tests__"
-    })
   })
 end)
 
 -- find tests
 nnoremap('<leader>ft', function()
   require 'telescope.builtin'.find_files({
-    search_dirs = { 'src/__tests__/' },
   })
 end)
 
 -- find mocks
 nnoremap('<leader>fm', function()
   require 'telescope.builtin'.find_files({
-    search_dirs = { '**/__mocks__/**/*' },
   })
 end)
 nnoremap('<leader>fg', function()
   require 'telescope.builtin'.live_grep({
-    file_ignore_patterns = vim.list_extend(ignores, {
-      "__tests__"
-    })
   })
 end)
 nnoremap('<leader>fb', function()
