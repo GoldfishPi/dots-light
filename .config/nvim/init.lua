@@ -45,4 +45,4 @@ vim.g.neovide_transparency = 0.8;
 
 
 require 'plugins'
-
+require 'config.auto_cmds'
