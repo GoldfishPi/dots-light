@@ -18,13 +18,13 @@ key = "g"
 
 [[keybind]]
 command = "Execute"
-value = "amixer -q sset Master 2%+"
+value = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
 modifier = []
 key = "XF86XK_AudioRaiseVolume"
 
 [[keybind]]
 command = "Execute"
-value = "amixer -q sset Master 2%-"
+value = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
 modifier = []
 key = "XF86XK_AudioLowerVolume"
 

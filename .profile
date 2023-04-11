@@ -11,7 +11,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 export ANDROID_HOME=$HOME/Android/Sdk
 
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
 export PATH=$JAVA_HOME/bin:$PATH
 
 export PATH="$HOME/.cargo/bin:$PATH"

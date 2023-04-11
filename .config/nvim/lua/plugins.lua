@@ -49,12 +49,12 @@ return require 'packer'.startup(function(use)
     end
   }
 
-  use {
-    'mfussenegger/nvim-lint',
-    config = function()
-      require 'config/nvim_lint'
-    end
-  }
+  -- use {
+  --   'mfussenegger/nvim-lint',
+  --   config = function()
+  --     require 'config/nvim_lint'
+  --   end
+  -- }
 
   use {
     'folke/tokyonight.nvim',

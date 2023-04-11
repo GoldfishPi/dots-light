@@ -6,8 +6,10 @@ vim.diagnostic.config({
 
 -- lspconfig.svelte {}
 
-lspconfig.sumneko_lua.setup(require('lua-dev').setup {})
+-- lspconfig.sumneko_lua.setup(require('lua-dev').setup {})
 lspconfig.rust_analyzer.setup {}
+
+lspconfig.gopls.setup{}
 
 lspconfig.tsserver.setup {
   on_attach = function(client, bufnr)
