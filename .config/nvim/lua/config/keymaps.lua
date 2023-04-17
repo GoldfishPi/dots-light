@@ -41,8 +41,6 @@ map('n', '<leader>pu', ':PackerUpdate<CR>', {});
 map('n', '<leader>pc', ':PackerCompile<CR>', {});
 map('n', '<leader>ps', ':PackerStatus<CR>', {});
 
--- BUFFER
-map('n', '<leader>bc', '<cmd>bufdo bd<CR>', { noremap = true })
 
 -- TABS
 map('n', 'J', '<cmd>tabprevious<CR>', { noremap = true })
@@ -55,30 +53,18 @@ nnoremap('<leader>ff', function()
   })
 end)
 
--- find tests
-nnoremap('<leader>ft', function()
-  require 'telescope.builtin'.find_files({
-  })
-end)
-
--- find mocks
-nnoremap('<leader>fm', function()
-  require 'telescope.builtin'.find_files({
-  })
-end)
-nnoremap('<leader>fg', function()
-  require 'telescope.builtin'.live_grep({
-  })
-end)
-nnoremap('<leader>fb', function()
+nnoremap('<leader>b', function()
   telescope.buffers({})
 end)
+
 nnoremap('<leader>fh', function()
   telescope.help_tags({})
 end)
+
 nnoremap('<leader>fs', function()
   telescope.grep_string({})
 end)
+
 nnoremap('<leader>fp', ':Telescope projects<CR>')
 
 
