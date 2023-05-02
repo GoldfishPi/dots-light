@@ -53,6 +53,11 @@ nnoremap('<leader>ff', function()
   })
 end)
 
+nnoremap('<leader>fg', function()
+  require 'telescope.builtin'.live_grep({
+  })
+end)
+
 nnoremap('<leader>b', function()
   telescope.buffers({})
 end)

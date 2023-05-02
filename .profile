@@ -3,8 +3,6 @@ export TERMINAL="kitty"
 # export BROWSER="brave-browser-nightly"
 export READER="zathura"
 
-export ZDOTDIR="$HOME/.config/zsh"
-
 export DENO_INSTALL="/home/erik/.deno"
 
 export _JAVA_AWT_WM_NONREPARENTING=1

@@ -18,8 +18,8 @@ return require 'packer'.startup(function(use)
   use { 'b0o/mapx.nvim', requires = {
     'phaazon/hop.nvim',
   }, config = function()
-    require 'config/keymaps'
-  end }
+      require 'config/keymaps'
+    end }
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -47,6 +47,15 @@ return require 'packer'.startup(function(use)
       require 'config/lsp'
       require 'config/cmp'
     end
+  }
+
+  use {
+    "nvim-neorg/neorg",
+    run = ":Neorg sync-parsers", -- This is the important bit!
+    requires = {'nvim-neorg/neorg-telescope'},
+    config = function()
+      require 'config/neorg'
+    end,
   }
 
   -- use {
