@@ -8,7 +8,9 @@ M.file_ignores = {
   "images/*",
   "*-lock",
   "%.woff",
-  "%.woff2"
+  "%.woff2",
+  "vnd/*",
+  "public/*",
 }
 M.setup = function()
   require('telescope').setup {
