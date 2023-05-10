@@ -11,7 +11,7 @@ return require 'packer'.startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
-  use { 'windwp/nvim-autopairs', config = function()
+  use { 'windhp/nvim-autopairs', config = function()
     require('nvim-autopairs').setup {}
   end }
 
@@ -58,6 +58,16 @@ return require 'packer'.startup(function(use)
     end,
   }
 
+  use {
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  }
+
   -- use {
   --   'mfussenegger/nvim-lint',
   --   config = function()
@@ -67,7 +77,7 @@ return require 'packer'.startup(function(use)
 
   use {
     'folke/tokyonight.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', 'hoob3rt/lualine.nvim' },
+    requires = { 'kyazdani42/nvim-heb-devicons', 'hoob3rt/lualine.nvim' },
     config = function()
       require 'config/theme'
     end
