@@ -11,7 +11,7 @@ return require 'packer'.startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
-  use { 'windhp/nvim-autopairs', config = function()
+  use { 'windwp/nvim-autopairs', config = function()
     require('nvim-autopairs').setup {}
   end }
 
@@ -20,6 +20,11 @@ return require 'packer'.startup(function(use)
   }, config = function()
       require 'config/keymaps'
     end }
+
+  use {
+    "aserowy/tmux.nvim",
+    config = function() return require("tmux").setup() end
+  }
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -77,7 +82,7 @@ return require 'packer'.startup(function(use)
 
   use {
     'folke/tokyonight.nvim',
-    requires = { 'kyazdani42/nvim-heb-devicons', 'hoob3rt/lualine.nvim' },
+    requires = { 'kyazdani42/nvim-web-devicons', 'hoob3rt/lualine.nvim' },
     config = function()
       require 'config/theme'
     end

@@ -30,8 +30,8 @@ map('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })
 map('i', '<C-l>', '<cmd>lua require "pears".expand()<CR>', { noremap = true, silent = true })
 
 -- Quickfix
-map('n', [[<C-j>]], ':cnext<CR>', { noremap = true, silent = true })
-map('n', [[<C-k>]], ':cprev<CR>', { noremap = true, silent = true })
+-- map('n', [[<C-j>]], ':cnext<CR>', { noremap = true, silent = true })
+-- map('n', [[<C-k>]], ':cprev<CR>', { noremap = true, silent = true })
 
 map('n', '<leader>qo', ':copen<CR>', {});
 map('n', '<leader>qq', ':cclose<CR>', {});
