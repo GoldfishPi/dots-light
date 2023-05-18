@@ -10,7 +10,7 @@ require('neorg').setup {
         neorg_leader = " "
       },
     },
-    -- ["core.concealer"] = {},
+    ["core.concealer"] = {},
     ["core.journal"] = {
       config = {
         workspace = "work"
