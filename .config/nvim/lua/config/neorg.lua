@@ -1,5 +1,6 @@
 require('neorg').setup {
   load = {
+    ["core.export"] = {},
     ["core.completion"] = {
       config = {
         engine = "nvim-cmp"
@@ -16,6 +17,7 @@ require('neorg').setup {
         workspace = "work"
       }
     },
+    ["core.ui.calendar"] = {},
     ["core.defaults"] = {},
     ["core.dirman"] = {
       config = {

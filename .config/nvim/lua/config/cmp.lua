@@ -11,6 +11,13 @@ local luasnip = require 'luasnip'
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
+require("copilot_cmp").setup()
+-- require("copilot").setup({
+--   suggestion = { enabled = false },
+--   panel = { enabled = false },
+-- })
+
+
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
@@ -52,6 +59,7 @@ cmp.setup({
 
   },
   sources = {
+    { name = "copilot" },
     { name = 'nvim_lsp' },
     { name = 'buffer' },
     { name = 'spelling' },
@@ -61,5 +69,3 @@ cmp.setup({
 
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
 
--- add a lisp filetype (wrap my-function), FYI: Hardcoded = { "clojure", "clojurescript", "fennel", "janet" }
--- cmp_autopairs.lisp[#cmp_autopairs.lisp + 1] = "racket"

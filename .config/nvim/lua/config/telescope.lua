@@ -6,7 +6,7 @@ M.file_ignores = {
   ".dist/*",
   ".build/*",
   "images/*",
-  "*-lock",
+  "%-lock",
   "%.woff",
   "%.woff2",
   "vnd/*",
@@ -34,6 +34,14 @@ M.setup = function()
     pickers = {
       find_files = {
         previewer = false,
+      },
+      git_branches = {
+        theme = "dropdown",
+        mappings = {
+          i = {
+            ["<C-p>"] = "git_create_branch",
+          }
+        }
       },
       buffers = {
         show_all_buffers = true,

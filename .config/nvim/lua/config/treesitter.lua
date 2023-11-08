@@ -21,7 +21,8 @@ require'nvim-treesitter.configs'.setup {
                 ["ic"] = "@call.inner",
                 ["ap"] = "@parameter.outer",
                 ["ip"] = "@parameter.inner",
-                ["av"] = "@myTextObject"
+                ["av"] = "@myTextObject",
+                ["am"] = "@jsx_self_closing_element.outer"
             }
         }
     },

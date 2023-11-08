@@ -72,6 +72,10 @@ end)
 
 nnoremap('<leader>fp', ':Telescope projects<CR>')
 
+-- Clear Search
+nnoremap('<leader>fc', function()
+  vim.cmd'noh';
+end)
 
 -- GIT
 map('n', '<leader>gg', '<cmd>G<CR>', { noremap = true })
@@ -103,15 +107,14 @@ map('n', '<leader>gl', '<cmd>G log<CR>', { noremap = true, silent = true })
 -- LSP
 map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
   { noremap = true })
-map('n', '<leader>cr', '<cmd>lua vim.lsp.buf.references()<CR>', { noremap = true })
 
 map('n', '<leader>cn', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true })
 
 map('n', '<leader>ci', '<cmd>lua vim.lsp.buf.implementation()<CR>',
   { noremap = true });
 
-map('n', '<leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true })
-map('n', '<leader>cD', '<cmd>lua vim.lsp.buf.declaration()<CR>',
+map('n', '<leader>cd', '<cmd>Telescope lsp_definitions<CR>', { noremap = true })
+map('n', '<leader>cr', '<cmd>Telescope lsp_references<CR>',
   { noremap = true });
 
 nnoremap('<leader>cc', function()
@@ -141,3 +144,7 @@ nnoremap('<leader>dd', function()
   end
   diagnostic_enabled = not diagnostic_enabled;
 end);
+
+nnoremap('<leader>njt', function() 
+  vim.cmd"Neorg journal today"
+end)

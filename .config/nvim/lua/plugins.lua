@@ -47,6 +47,8 @@ return require 'packer'.startup(function(use)
       'neovim/nvim-lspconfig',
       'jose-elias-alvarez/null-ls.nvim',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
+      'zbirenbaum/copilot.lua',
+      'zbirenbaum/copilot-cmp',
     },
     config = function()
       require 'config/lsp'
@@ -94,7 +96,8 @@ return require 'packer'.startup(function(use)
     requires = {
       'JoosepAlviste/nvim-ts-context-commentstring',
       'windwp/nvim-ts-autotag',
-      'nvim-treesitter/nvim-treesitter-textobjects'
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/playground',
     },
     config = function()
       require 'config/treesitter'
@@ -114,5 +117,4 @@ return require 'packer'.startup(function(use)
       require("project_nvim").setup {}
     end
   }
-
 end)
