@@ -41,6 +41,7 @@
   focus_new_windows: false,
   keybind: [
   (command: Execute, value: "dmenu-emoji | dmenu -i -l 10 | awk '{print $1}' | tr -d '\n' | xclip -selection clipboard", modifier: ["modkey"], key: "e"),
+  (command: Execute, value: "networkmanager_dmenu -l 20", modifier: ["modkey"], key: "n"),
   (command: Execute, value: "maim -s -u -o | xclip -selection clipboard -t image/png -i", modifier: ["modkey"], key: "g"),
   (command: Execute, value: "maim -s -u -o ~/Pictures/Screenshots/$(date +%s).png", modifier: ["modkey", "Shift"], key: "g"),
   (command: Execute, value: "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+", modifier: [], key: "XF86XK_AudioRaiseVolume"),
