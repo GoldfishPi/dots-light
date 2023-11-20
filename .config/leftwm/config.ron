@@ -20,10 +20,9 @@
     "POS",
     "ZOO",
   ],
-  max_window_width: None,
   layouts: [
-    MainAndVertStack,
-    Monocle,
+    "MainAndVertStack",
+    "Monocle",
   ],
   layout_mode: Workspace,
   insert_behavior: Bottom,
