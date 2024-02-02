@@ -10,6 +10,7 @@ vim.diagnostic.config({
 lspconfig.rust_analyzer.setup {}
 
 lspconfig.gopls.setup{}
+lspconfig.pyright.setup{}
 
 
 lspconfig.tsserver.setup {

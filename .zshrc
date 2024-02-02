@@ -49,3 +49,4 @@ export CONFIG=$HOME/.config
 export NVIM_CONFIG=$CONFIG/nvime
 
 eval "$(starship init zsh)"
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
