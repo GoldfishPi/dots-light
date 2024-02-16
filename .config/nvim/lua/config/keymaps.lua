@@ -148,3 +148,6 @@ end);
 nnoremap('<leader>njt', function() 
   vim.cmd"Neorg journal today"
 end)
+
+nnoremap('-', ':Oil<cr>')
+
