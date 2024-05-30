@@ -1,6 +1,10 @@
 
 sudo pacman -S --needed starship zsh tmux neovim
 
+if [ ! "$SHELL" == "/bin/zsh" ]; then
+        chsh -s /bin/zsh
+fi
+
 if [ ! -d "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim" ]; then
         git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
         nvim -c 'PackerInstall'
@@ -15,3 +19,4 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
 fi
 
 yay -S --needed nvim-packer-git ttf-firacode-nerd
+git config --global core.editor "nvim"
