@@ -1,5 +1,5 @@
 
-sudo pacman -S --needed starship zsh tmux neovim
+sudo pacman -S --needed starship zsh tmux neovim docker
 
 if [ ! "$SHELL" == "/bin/zsh" ]; then
         chsh -s /bin/zsh
@@ -17,6 +17,10 @@ fi
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+sudo usermod -aG docker $USER
+sudo systemctl start docker.service
+sudo systemctl enable docker.service
 
 yay -S --needed nvim-packer-git ttf-firacode-nerd
 git config --global core.editor "nvim"
