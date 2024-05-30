@@ -1,5 +1,5 @@
 
-sudo pacman -S --needed starship zsh tmux neovim docker
+sudo pacman -S --needed starship zsh tmux neovim docker exa bat
 
 if [ ! "$SHELL" == "/bin/zsh" ]; then
         chsh -s /bin/zsh
