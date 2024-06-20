@@ -50,3 +50,11 @@ export NVIM_CONFIG=$CONFIG/nvime
 
 eval "$(starship init zsh)"
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+# pnpm
+export PNPM_HOME="/home/erik/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

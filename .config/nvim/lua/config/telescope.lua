@@ -62,7 +62,7 @@ M.setup = function()
   }
 
   require('telescope').load_extension('fzf')
-  require('telescope').load_extension('projects')
+  -- require('telescope').load_extension('projects')
 end
 
 return M

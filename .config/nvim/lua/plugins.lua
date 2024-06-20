@@ -28,10 +28,10 @@ return require 'packer'.startup(function(use)
     }
   end}
 
-  use 'editorconfig/editorconfig-vim'
   use 'rafamadriz/friendly-snippets'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
+  use 'dstein64/vim-startuptime'
 
   use { 'windwp/nvim-autopairs', config = function()
     require('nvim-autopairs').setup {}
@@ -69,8 +69,8 @@ return require 'packer'.startup(function(use)
       'neovim/nvim-lspconfig',
       'jose-elias-alvarez/null-ls.nvim',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
-      'zbirenbaum/copilot.lua',
-      'zbirenbaum/copilot-cmp',
+      -- 'zbirenbaum/copilot.lua',
+      -- 'zbirenbaum/copilot-cmp',
     },
     config = function()
       require 'config/lsp'
@@ -78,14 +78,20 @@ return require 'packer'.startup(function(use)
     end
   }
 
-  use {
-    "nvim-neorg/neorg",
-    run = ":Neorg sync-parsers", -- This is the important bit!
-    requires = {'nvim-neorg/neorg-telescope'},
-    config = function()
-      require 'config/neorg'
-    end,
-  }
+  -- use {
+  --   "nvim-neorg/neorg",
+  --   run = ":Neorg sync-parsers", -- This is the important bit!
+  --   requires = {'nvim-neorg/neorg-telescope'},
+  --   config = function()
+  --     require 'config/neorg'
+  --   end,
+  -- }
+  use {'nvim-orgmode/orgmode', config = function()
+    require('orgmode').setup{
+      org_agenda_files  = {'~/org/refile.org'},
+      org_default_notes_file  = '~/org/refile.org'
+    }
+  end }
 
   use {
     "kylechui/nvim-surround",
@@ -97,12 +103,12 @@ return require 'packer'.startup(function(use)
     end
   }
 
-  -- use {
-  --   'mfussenegger/nvim-lint',
-  --   config = function()
-  --     require 'config/nvim_lint'
-  --   end
-  -- }
+  use {
+    'mfussenegger/nvim-lint',
+    config = function()
+      require 'config/nvim_lint'
+    end
+  }
 
   use {
     'folke/tokyonight.nvim',
@@ -112,9 +118,10 @@ return require 'packer'.startup(function(use)
     end
   }
 
+
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    -- run = ':TSUpdate',
     requires = {
       'JoosepAlviste/nvim-ts-context-commentstring',
       'windwp/nvim-ts-autotag',

@@ -7,11 +7,11 @@ end
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require 'cmp'
-local luasnip = require 'luasnip'
+-- local luasnip = require 'luasnip'
 
-require("luasnip.loaders.from_vscode").lazy_load()
+-- require("luasnip.loaders.from_vscode").lazy_load()
 
-require("copilot_cmp").setup()
+-- require("copilot_cmp").setup()
 -- require("copilot").setup({
 --   suggestion = { enabled = false },
 --   panel = { enabled = false },
@@ -34,36 +34,57 @@ cmp.setup({
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      elseif has_words_before() then
-        cmp.complete()
+      -- elseif vim.fn["vsnip#available"](1) == 1 then
+      --   feedkey("<Plug>(vsnip-expand-or-jump)", "")
+      -- elseif has_words_before() then
+      --   cmp.complete()
       else
-        fallback()
-      end
+        fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+     end
     end, { "i", "s" }),
 
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
+    ["<S-Tab>"] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
       end
+      -- elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+      --   feedkey("<Plug>(vsnip-jump-prev)", "")
+      -- end
     end, { "i", "s" }),
+
+    -- ["<Tab>"] = cmp.mapping(function(fallback)
+    --   if cmp.visible() then
+    --     cmp.select_next_item()
+    --   elseif luasnip.expand_or_jumpable() then
+    --     luasnip.expand_or_jump()
+    --   elseif has_words_before() then
+    --     cmp.complete()
+    --   else
+    --     fallback()
+    --   end
+    -- end, { "i", "s" }),
+
+    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
+    --   if cmp.visible() then
+    --     cmp.select_prev_item()
+    --   elseif luasnip.jumpable(-1) then
+    --     luasnip.jump(-1)
+    --   else
+    --     fallback()
+    --   end
+    -- end, { "i", "s" }),
 
   },
   sources = {
-    { name = "copilot" },
+    -- { name = "copilot" },
     { name = 'nvim_lsp' },
     { name = 'buffer' },
     { name = 'spelling' },
-    { name = 'luasnip' },
+    { name = 'orgmode' }
+    -- { name = 'luasnip' },
   }
 })
 
