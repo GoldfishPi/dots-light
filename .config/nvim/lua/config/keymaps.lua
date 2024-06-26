@@ -108,6 +108,9 @@ map('n', '<leader>gl', '<cmd>G log<CR>', { noremap = true, silent = true })
 map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
   { noremap = true })
 
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap=true})
+
+
 map('n', '<leader>cn', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true })
 
 map('n', '<leader>ci', '<cmd>lua vim.lsp.buf.implementation()<CR>',
