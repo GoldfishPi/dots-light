@@ -87,10 +87,7 @@ return require 'packer'.startup(function(use)
   --   end,
   -- }
   use {'nvim-orgmode/orgmode', config = function()
-    require('orgmode').setup{
-      org_agenda_files  = {'~/Sync/org/refile.org', '~/Sync/org/work.org'},
-      org_default_notes_file  = '~/Sync/org/refile.org'
-    }
+          require 'config/org'
   end }
 
   use {

@@ -1,5 +1,5 @@
 
-sudo pacman -S --needed starship zsh tmux neovim docker exa bat
+sudo pacman -S --needed starship zsh tmux neovim docker exa bat fastfetch
 
 if [ ! "$SHELL" == "/bin/zsh" ]; then
         chsh -s /bin/zsh
@@ -24,3 +24,5 @@ sudo systemctl enable docker.service
 
 yay -S --needed nvim-packer-git ttf-firacode-nerd
 git config --global core.editor "nvim"
+
+touch ./.config/tokens.sh
