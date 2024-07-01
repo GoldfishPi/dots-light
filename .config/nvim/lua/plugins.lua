@@ -86,9 +86,12 @@ return require 'packer'.startup(function(use)
   --     require 'config/neorg'
   --   end,
   -- }
-  use {'nvim-orgmode/orgmode', config = function()
+  use {'nvim-orgmode/orgmode', 
+  requires = {'joaomsa/telescope-orgmode.nvim'},
+  config = function()
           require 'config/org'
-  end }
+  end 
+  }
 
   use {
     "kylechui/nvim-surround",

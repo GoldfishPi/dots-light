@@ -77,6 +77,8 @@ nnoremap('<leader>fc', function()
   vim.cmd'noh';
 end)
 
+nnoremap('<leader>fo', ':Telescope orgmode search_headings<CR>')
+
 -- GIT
 map('n', '<leader>gg', '<cmd>G<CR>', { noremap = true })
 map('n', '<leader>gb', '<cmd>G blame<CR>', { noremap = true })
