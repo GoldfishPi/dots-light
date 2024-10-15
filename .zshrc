@@ -58,3 +58,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=0
