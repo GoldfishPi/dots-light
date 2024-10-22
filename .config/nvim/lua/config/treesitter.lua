@@ -14,16 +14,8 @@ require'nvim-treesitter.configs'.setup {
     "html",
     "javascript",
     "typescript",
-    "svelte",
-    "vue",
-    "tsx",
-    "php",
-
-    "glimmer",
-    "rescript",
-    "templ",
-
-    "embedded_template",
+    "python",
+    "go",
   },
   highlight = {
     enable = true,
