@@ -31,4 +31,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export NEOVIDE_MULTIGRID=1
 
-setxkbmap -option caps:escape
+# setxkbmap -option caps:escape
+
+export PATH="/home/erik/.cndi/bin:$PATH"

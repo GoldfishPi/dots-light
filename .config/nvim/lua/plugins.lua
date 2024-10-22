@@ -3,7 +3,7 @@ return require 'packer'.startup(function(use)
 
   use { 'tpope/vim-fugitive', opt = true, cmd = { 'G' } }
 
-  use 'tpope/vim-commentary'
+  -- use 'tpope/vim-commentary'
   use {'stevearc/oil.nvim', config = function()
     require('oil').setup {
       default_file_explorer = true,
@@ -69,6 +69,9 @@ return require 'packer'.startup(function(use)
       'neovim/nvim-lspconfig',
       'jose-elias-alvarez/null-ls.nvim',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim'
+
       -- 'zbirenbaum/copilot.lua',
       -- 'zbirenbaum/copilot-cmp',
     },
@@ -124,6 +127,7 @@ return require 'packer'.startup(function(use)
     -- run = ':TSUpdate',
     requires = {
       'JoosepAlviste/nvim-ts-context-commentstring',
+      'numToStr/Comment.nvim',
       'windwp/nvim-ts-autotag',
       'nvim-treesitter/nvim-treesitter-textobjects',
       'nvim-treesitter/playground',
