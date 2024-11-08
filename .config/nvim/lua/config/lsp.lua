@@ -2,12 +2,28 @@ require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = { "lua_ls", "ts_ls", "eslint", "pylsp", "gopls" }
 })
+local mapx = require 'mapx';
+local nnoremap = mapx.nnoremap;
 
 local lspconfig = require 'lspconfig';
 
 lspconfig.lua_ls.setup {}
 
-lspconfig.gopls.setup{}
+lspconfig.gopls.setup{
+  on_attach = function (client, bufnr)
+    require('go').setup()
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      pattern = "*.go",
+      callback = function()
+        require('go.format').goimports()
+      end,
+      group = format_sync_grp,
+
+    })
+    local opts = { silent = true }
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>co", ':lua require("go.format").goimports()<CR>', opts)
+  end
+}
 lspconfig.pylsp.setup{}
 
 lspconfig.eslint.setup {
@@ -70,3 +86,4 @@ lspconfig.ts_ls.setup {
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ci", ":TSLspImportAll<CR>", opts)
   end
 }
+

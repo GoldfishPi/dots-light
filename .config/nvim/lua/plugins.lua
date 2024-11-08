@@ -10,12 +10,6 @@ return require 'packer'.startup(function(use)
       keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
-        ["<C-s>"] = "actions.select_vsplit",
-        ["<C-h>"] = "actions.select_split",
-        ["<C-t>"] = "actions.select_tab",
-        ["<C-p>"] = "actions.preview",
-        ["<C-c>"] = "actions.close",
-        ["<C-l>"] = "actions.refresh",
         ["-"] = "actions.parent",
         ["_"] = "actions.open_cwd",
         ["`"] = "actions.cd",
@@ -70,7 +64,8 @@ return require 'packer'.startup(function(use)
       'jose-elias-alvarez/null-ls.nvim',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
       'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim'
+      'williamboman/mason-lspconfig.nvim',
+      'ray-x/go.nvim'
 
       -- 'zbirenbaum/copilot.lua',
       -- 'zbirenbaum/copilot-cmp',
@@ -81,14 +76,6 @@ return require 'packer'.startup(function(use)
     end
   }
 
-  -- use {
-  --   "nvim-neorg/neorg",
-  --   run = ":Neorg sync-parsers", -- This is the important bit!
-  --   requires = {'nvim-neorg/neorg-telescope'},
-  --   config = function()
-  --     require 'config/neorg'
-  --   end,
-  -- }
   use {'nvim-orgmode/orgmode', 
   requires = {'joaomsa/telescope-orgmode.nvim'},
   config = function()
@@ -98,11 +85,9 @@ return require 'packer'.startup(function(use)
 
   use {
     "kylechui/nvim-surround",
-    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    tag = "*",
     config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
+      require("nvim-surround").setup({})
     end
   }
 
