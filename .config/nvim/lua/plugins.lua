@@ -150,4 +150,6 @@ return require 'packer'.startup(function(use)
       require("project_nvim").setup {}
     end
   }
+
+  use {"shortcuts/no-neck-pain.nvim", tag = "*" }
 end)
