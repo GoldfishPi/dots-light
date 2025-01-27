@@ -2,12 +2,16 @@ require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = { "lua_ls", "ts_ls", "eslint", "pylsp", "gopls" }
 })
+-- local lsp_capabilities = vim.lsp.protocol.make_client_capabilities() --or whatever your setup requires
+-- lsp_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 local mapx = require 'mapx';
 local nnoremap = mapx.nnoremap;
 
 local lspconfig = require 'lspconfig';
 
 lspconfig.lua_ls.setup {}
+lspconfig.svelte.setup {}
+lspconfig.tailwindcss.setup {}
 
 lspconfig.gopls.setup{
   on_attach = function (client, bufnr)
@@ -25,18 +29,19 @@ lspconfig.gopls.setup{
   end
 }
 lspconfig.pylsp.setup{}
+-- lspconfig.prettier.setup{}
 
-lspconfig.eslint.setup {
-  on_attach = function ()
-    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-      pattern = { "*.tsx,*.ts,*.jsx,*.js" },
-      callback = function()
-        vim.cmd [[EslintFixAll]]
-        vim.lsp.buf.format()
-      end
-    })
-  end
-}
+-- lspconfig.eslint.setup {
+--   on_attach = function ()
+--     vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--       pattern = { "*.tsx,*.ts,*.jsx,*.js" },
+--       callback = function()
+--         vim.cmd [[EslintFixAll]]
+--         vim.lsp.buf.format()
+--       end
+--     })
+--   end
+-- }
 
 lspconfig.ts_ls.setup {
   on_attach = function(client, bufnr)

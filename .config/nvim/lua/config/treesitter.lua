@@ -17,6 +17,7 @@ require'nvim-treesitter.configs'.setup {
     "python",
     "go",
   },
+  indent = {enable = true},
   highlight = {
     enable = true,
     disable = {"c"}
@@ -41,7 +42,6 @@ require'nvim-treesitter.configs'.setup {
 
 require("nvim-ts-autotag").setup({
   opts = {
-
     enable_rename = true,
     enable_close = true,
     enable_close_on_slash = true,

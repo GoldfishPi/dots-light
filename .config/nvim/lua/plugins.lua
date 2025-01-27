@@ -99,7 +99,7 @@ return require 'packer'.startup(function(use)
   }
 
   use {
-    'folke/tokyonight.nvim',
+    'neanias/everforest-nvim',
     requires = { 'kyazdani42/nvim-web-devicons', 'hoob3rt/lualine.nvim' },
     config = function()
       require 'config/theme'
@@ -129,12 +129,26 @@ return require 'packer'.startup(function(use)
       require 'config/project_settings'
     end
   }
+  -- use {
+  --   "ahmedkhalf/project.nvim",
+  --   config = function()
+  --     require("project_nvim").setup {}
+  --   end
+  -- }
+  use {"shortcuts/no-neck-pain.nvim", tag = "*" }
+  use {"lambdalisue/vim-suda"}
   use {
-    "ahmedkhalf/project.nvim",
+    "Zeioth/makeit.nvim",
+    requires={"stevearc/overseer.nvim"},
     config = function()
-      require("project_nvim").setup {}
+      require('overseer').setup()
+      require("makeit").setup {}
     end
   }
-
-  use {"shortcuts/no-neck-pain.nvim", tag = "*" }
+  use {
+    'mhartington/formatter.nvim',
+    config = function ()
+      require "config.formatter"
+    end
+  }
 end)

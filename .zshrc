@@ -59,3 +59,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=0
+# source /usr/share/nvm/init-nvm.sh
