@@ -83,6 +83,7 @@ nnoremap('<leader>fo', ':Telescope orgmode search_headings<CR>')
 map('n', '<leader>gg', '<cmd>G<CR>', { noremap = true })
 map('n', '<leader>gb', '<cmd>G blame<CR>', { noremap = true })
 
+
 nnoremap('<leader>gc', function()
   telescope.git_branches({
   })
@@ -150,7 +151,7 @@ nnoremap('<leader>dd', function()
   diagnostic_enabled = not diagnostic_enabled;
 end);
 
-nnoremap('<leader>njt', function() 
+nnoremap('<leader>njt', function()
   vim.cmd"Neorg journal today"
 end)
 

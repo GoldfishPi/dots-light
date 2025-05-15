@@ -76,11 +76,11 @@ return require 'packer'.startup(function(use)
     end
   }
 
-  use {'nvim-orgmode/orgmode', 
+  use {'nvim-orgmode/orgmode',
   requires = {'joaomsa/telescope-orgmode.nvim'},
   config = function()
           require 'config/org'
-  end 
+  end
   }
 
   use {

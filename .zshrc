@@ -58,5 +58,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=0
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=false
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export KUBE_EDITOR=nvim
 # source /usr/share/nvm/init-nvm.sh

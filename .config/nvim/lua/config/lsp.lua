@@ -16,32 +16,54 @@ lspconfig.tailwindcss.setup {}
 lspconfig.gopls.setup{
   on_attach = function (client, bufnr)
     require('go').setup()
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = "*.go",
-      callback = function()
-        require('go.format').goimports()
-      end,
-      group = format_sync_grp,
-
-    })
+    -- vim.api.nvim_create_autocmd("BufWritePre", {
+    --   pattern = "*.go",
+    --   callback = function()
+    --     require('go.format').goimports()
+    --   end,
+    --   group = format_sync_grp,
+    --
+    -- })
     local opts = { silent = true }
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>co", ':lua require("go.format").goimports()<CR>', opts)
   end
 }
-lspconfig.pylsp.setup{}
+lspconfig.pylsp.setup{
+  settings = {
+    pylsp = {
+      configurationSources = { 'flake8' },
+      plugins = {
+        flake8 = {
+          enabled = true,
+          ignore = { 'E501', 'E231' },
+          maxLineLength = 88,
+        },
+        black = {enabled = true},
+        autopep8 = { enabled = false },
+        mccabe = {enabled = false},
+        pycodestyle = {
+          enabled = false,
+          ignore = { 'E501', 'E231' },
+          maxLineLength = 88,
+        },
+        pyflakes = {enabled = false},
+      },
+    },
+  }
+}
 -- lspconfig.prettier.setup{}
 
--- lspconfig.eslint.setup {
---   on_attach = function ()
---     vim.api.nvim_create_autocmd({ "BufWritePre" }, {
---       pattern = { "*.tsx,*.ts,*.jsx,*.js" },
---       callback = function()
---         vim.cmd [[EslintFixAll]]
---         vim.lsp.buf.format()
---       end
---     })
---   end
--- }
+lspconfig.eslint.setup {
+  on_attach = function ()
+    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+      pattern = { "*.tsx,*.ts,*.jsx,*.js" },
+      callback = function()
+        vim.cmd [[EslintFixAll]]
+        vim.lsp.buf.format()
+      end
+    })
+  end
+}
 
 lspconfig.ts_ls.setup {
   on_attach = function(client, bufnr)
@@ -91,4 +113,3 @@ lspconfig.ts_ls.setup {
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ci", ":TSLspImportAll<CR>", opts)
   end
 }
-
