@@ -4,7 +4,7 @@ M.file_ignores = {
   "*.jpg",
   "node_modules/*",
   ".dist/*",
-  ".build/*",
+  -- ".build/*",
   "images/*",
   "%-lock",
   "%.woff",

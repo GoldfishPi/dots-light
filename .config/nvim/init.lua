@@ -19,12 +19,12 @@ vim.api.nvim_set_option('foldmethod', 'manual')
 vim.api.nvim_set_option('wildignore',
                         vim.api.nvim_get_option('wildignore') .. [[
                             */node_modules/*,
-                            */build/*,
-                            */.build/*,
                             */dist/*,
                             */.dist/*,
                             */plugged/*
                             ]])
+                            -- */build/*,
+                            -- */.build/*,
 
 vim.api.nvim_set_option('updatetime', 400)
 vim.api.nvim_set_option('colorcolumn', '80')
