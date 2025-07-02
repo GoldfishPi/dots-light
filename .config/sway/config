@@ -1,7 +1,7 @@
 include /etc/sway/config.d/*
 
-output DP-2 scale 2 pos 0 0
-output eDP-1 scale 1.5 pos 0 1080
+output DP-1 scale 2 pos 0 0
+output eDP-1 scale 1 pos 0 1080
 workspace 1 output DP-2
 workspace 3 output eDP-1
 workspace 4 output eDP-1
@@ -15,6 +15,7 @@ set $right l
 
 set $term kitty
 set $menu fuzzel
+set $files nemo
 
 default_border none
 
@@ -53,6 +54,10 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+g exec wayshot --stdout -s "$(slurp)" | wl-copy
 bindsym $mod+Shift+g exec wayshot | wl-copy
+
+# Files
+bindsym $mod+f exec $files
+bindsym $mod+Shift+F exec kitty -e "/bin/zsh -c 'nvim .'"
 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
