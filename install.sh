@@ -1,13 +1,8 @@
 
-sudo pacman -S --needed starship zsh tmux neovim docker exa bat fastfetch
+sudo pacman -S --needed starship zsh tmux neovim docker exa bat fastfetch sway fuzzel nemo kitty
 
 if [ ! "$SHELL" == "/bin/zsh" ]; then
         chsh -s /bin/zsh
-fi
-
-if [ ! -d "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim" ]; then
-        git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
-        nvim -c 'PackerInstall'
 fi
 
 if [ ! -e "/bin/yay" ]; then

@@ -83,6 +83,8 @@ nnoremap('<leader>fo', ':Telescope orgmode search_headings<CR>')
 map('n', '<leader>gg', '<cmd>G<CR>', { noremap = true })
 map('n', '<leader>gb', '<cmd>G blame<CR>', { noremap = true })
 
+nnoremap('<leader>nn', ':NoNeckPain<CR>')
+
 
 nnoremap('<leader>gc', function()
   telescope.git_branches({

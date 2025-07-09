@@ -61,7 +61,7 @@ return require 'packer'.startup(function(use)
       'folke/lua-dev.nvim',
       'hrsh7th/cmp-nvim-lsp',
       'neovim/nvim-lspconfig',
-      'jose-elias-alvarez/null-ls.nvim',
+      'nvimtools/none-ls.nvim',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
@@ -151,4 +151,5 @@ return require 'packer'.startup(function(use)
       require "config.formatter"
     end
   }
+
 end)
