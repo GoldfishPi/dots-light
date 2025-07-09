@@ -63,16 +63,18 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+font JetBrainsMono Nerd Font 12
+
 bar {
     position top
 
-   status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
 
     colors {
         statusline #d3c6aa
         background #2d353b
-        inactive_workspace #32323200 #32323200 #5c5c5c
-        focused_workspace #a7c080 #a7c080 #2d353b
+        inactive_workspace #2d353b #2d353b #5c5c5c
+        focused_workspace #425047 #425047 #d3c6aa
     }
 }
 
@@ -94,3 +96,5 @@ exec slack
 exec brave --ozone-platform=wayland
 exec spotify
 exec kitty
+
+exec_always pkill mako && mako
