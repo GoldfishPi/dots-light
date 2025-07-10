@@ -1,5 +1,5 @@
 
-sudo pacman -S --needed starship zsh tmux neovim docker exa bat fastfetch sway swaybg fuzzel nemo kitty nodejs npm mako
+sudo pacman -S --needed --noconfirm starship zsh tmux neovim docker exa bat fastfetch sway swaybg fuzzel nemo kitty nodejs npm mako
 
 if [ ! "$SHELL" == "/bin/zsh" ]; then
         chsh -s /bin/zsh
@@ -17,7 +17,7 @@ sudo usermod -aG docker $USER
 sudo systemctl start docker.service
 sudo systemctl enable docker.service
 
-yay -S --needed nvim-packer-git ttf-firacode-nerd
+yay -S --needed --noconfirm nvim-packer-git ttf-firacode-nerd
 git config --global core.editor "nvim"
 
 touch ./.config/tokens.sh
