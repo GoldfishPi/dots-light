@@ -1,5 +1,5 @@
 
-sudo pacman -S --needed starship zsh tmux neovim docker exa bat fastfetch sway fuzzel nemo kitty
+sudo pacman -S --needed starship zsh tmux neovim docker exa bat fastfetch sway swaybg fuzzel nemo kitty
 
 if [ ! "$SHELL" == "/bin/zsh" ]; then
         chsh -s /bin/zsh

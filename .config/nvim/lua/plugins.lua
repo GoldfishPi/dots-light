@@ -141,7 +141,14 @@ return require 'packer'.startup(function(use)
     "Zeioth/makeit.nvim",
     requires={"stevearc/overseer.nvim"},
     config = function()
-      require('overseer').setup()
+      require('overseer').setup({
+              task_list = {
+                      direction = "bottom",
+                      min_height = 15,
+                      max_height = 15,
+                      default_detail = 1
+              },
+      })
       require("makeit").setup {}
     end
   }

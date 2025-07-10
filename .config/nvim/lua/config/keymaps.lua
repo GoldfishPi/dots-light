@@ -161,3 +161,5 @@ nnoremap('-', ':Oil<cr>')
 
 -- Makeit
 nnoremap('<leader>mi', ':MakeitOpen<CR>')
+nnoremap('<leader>mr', ':MakeitRedo<CR>')
+nnoremap('<leader>mt', ':MakeitToggleResults<CR>')
