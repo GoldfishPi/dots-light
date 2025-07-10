@@ -1,5 +1,5 @@
 
-sudo pacman -S --needed starship zsh tmux neovim docker exa bat fastfetch sway swaybg fuzzel nemo kitty nodejs
+sudo pacman -S --needed starship zsh tmux neovim docker exa bat fastfetch sway swaybg fuzzel nemo kitty nodejs npm
 
 if [ ! "$SHELL" == "/bin/zsh" ]; then
         chsh -s /bin/zsh
