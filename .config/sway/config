@@ -3,7 +3,7 @@ include /etc/sway/config.d/*
 output DP-1 scale 2 pos 0 0
 output eDP-1 scale 1 pos 0 1080
 
-output * bg #2d353b solid_color
+output DP-1 bg #2d353b solid_color
 
 workspace 1 output DP-2
 workspace 3 output eDP-1
