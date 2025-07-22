@@ -31,6 +31,14 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 augroup("__formatter__", { clear = true })
 autocmd("BufWritePost", {
+  callback = function (args)
+    local buftype = vim.api.nvim_buf_get_option(args.buf, "buftype")
+
+    if vim.tbl_contains({"acwrite"}, buftype) then
+      return
+    end
+
+    vim.cmd [[:FormatWrite]]
+  end,
   group = "__formatter__",
-  command = ":FormatWrite",
 })
