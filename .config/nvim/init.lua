@@ -43,6 +43,8 @@ vim.cmd [[let g:fugitive_pty = 0]]
 
 vim.g.neovide_transparency = 0.8;
 
+vim.o.signcolumn = "yes"
+
 
 require 'plugins'
 require 'config.auto_cmds'
