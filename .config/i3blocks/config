@@ -1,0 +1,14 @@
+[battery]
+command=/lib/i3blocks/battery/battery
+interval=30
+LABEL=BAT
+#LABEL=⚡
+BAT_NUMBER=0
+
+[time]
+command=/lib/i3blocks/time/time
+interval=1
+#TZ_FILE=~/.tz
+STRFTIME_FORMAT=%Y-%m-%d %H:%M
+TZONES=$DEFAULT_TZ,Brazil/East,Australia/Brisbane,Asia/Calcutta
+TZ_LABELS=,Brazil,AU,Hyderabad

@@ -12,6 +12,7 @@ local lspconfig = require 'lspconfig';
 lspconfig.lua_ls.setup {}
 lspconfig.svelte.setup {}
 lspconfig.tailwindcss.setup {}
+lspconfig.terraformls.setup {}
 
 local null_ls = require("null-ls")
 local h = require("null-ls.helpers")

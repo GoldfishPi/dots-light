@@ -75,7 +75,7 @@ font JetBrainsMono Nerd Font 12
 bar {
     position top
 
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command i3blocks
 
     colors {
         statusline #d3c6aa
